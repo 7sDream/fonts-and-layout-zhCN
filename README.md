@@ -6,7 +6,7 @@
 
 因为本书的主题是字体，为了保证显示效果和想表达的内容一致和满足我个人打印出来阅读的需求，故选择 PDF 作为发布格式。
 
-请从 GitHub Release 中下载最新版 PDF。
+请从 GitHub Release 中[下载](https://github.com/7sDream/fonts-and-layout-zhCN/releases/latest)最新版 PDF。
 
 ## 反馈与共建
 
