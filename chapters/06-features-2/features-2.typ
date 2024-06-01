@@ -13,7 +13,7 @@
 ]
 
 // As we have seen, OpenType Layout involves first *substituting* glyphs to rewrite the input stream, and then *positioning* glyphs to put them in the right place. We do this by writing collections of *rules* (called lookups). There are several different types of rule, which instruct the shaper to perform the substitution or positioning in subtly different ways.
-从上一章我们知道，OpenType的#tr[layout]过程有两个阶段，首先是#tr[substitution]规则将输入的#tr[glyph]流重写，然后是#tr[positioning]规则将#tr[glyph]们安排到正确的位置上。我们通过编写规则集（也就是#tr[lookup]）可以控制这一过程。而规则有不同的类型，它们用不同的方式执行具体的#tr[substitution]和#tr[positioning]操作。
+从上一章我们能知道，OpenType的#tr[layout]过程分为了两个阶段，首先是#tr[substitution]规则将输入的#tr[glyph]流重写，然后是#tr[positioning]规则将#tr[glyph]们安排到正确的位置上。我们通过编写规则集（也就是#tr[lookup]）可以控制这一过程。而规则具有不同的类型，它们分别用不同的方式来执行具体的#tr[substitution]和#tr[positioning]操作。
 
 // In this chapter, we'll examine each of these types of rule, by taking examples of how they can be used to layout global scripts. In the next chapter, we'll look at things the other way around - given something we want to do with a script, how can we get OpenType to do it? But to get to that stage, we need to be familiar with the possibilities that we have at our disposal.
 在本章中，我们将会介绍所有类型的规则，并举例说明它们在处理#tr[global scripts]的#tr[layout]过程中起到了什么作用。下一章开始则会换一个方向，介绍在给定某种#tr[script]的条件下，OpenType是如何处理它的。但在开始灵活运用之前，我们首先要足够了解工具箱中的各种工具。
@@ -104,7 +104,7 @@ feature ccmp {
 feature aalt {
   sub A from [A.swash A.ss01 A.ss02 A.ss03 A.sc];
   sub B from [B.swash B.ss01 B.ss02 B.ss03 B.sc];
-  ...
+  # ...
 }
 ```
 
@@ -378,7 +378,7 @@ feature ss01 {
 === 扩展#tr[substitution]
 
 // An extension substitution ("GSUB lookup type 7") isn't really a different kind of substitution so much as a different *place* to put your substitutions. If you have a very large number of rules in your font, the GSUB table will run out of space to store them. (Technically, it stores the offset to each lookup in a 16 bit field, so there can be a maximum of 65535 bytes from the lookup table to the lookup data. If previous lookups are too big, you can overflow the offset field.)
-扩展#tr[substitution]（也被称为 `GSUB lookup type 7`）并不和其他类型那样是另一种#tr[substitution]方法，而更像是另一个可以放置#tr[substitution]的位置。如果字体中有大量规则，`GSUB`表可能的储存空间可能会用完。（技术上的原因是，表示#tr[lookup]位置的偏移量是一个16位的数字，所以储存#tr[lookup]的整个数据表不能超过65525字节。如果#tr[lookup]太大，可能会让偏移量字段溢出。）
+扩展#tr[substitution]（也被称为 `GSUB lookup type 7`）并不和其他类型那样是另一种#tr[substitution]方法，而更像是另一个可以存放#tr[substitution]规则的地方。如果字体中有大量的规则，`GSUB`表中的储存空间可能会被用尽。（技术上的原因是，表示#tr[lookup]所在位置的偏移量字段是一个16位的数字，所以储存#tr[lookup]的整个数据表不能超过65525个字节。如果#tr[lookup]太大，就可能会让偏移量字段溢出。）
 
 // Most of the time you don't need to care about this: your font editor may automatically use extension lookups; in some cases, the feature file compiler will rearrange lookups to use extensions when it determines they are necessary; or it may not support extension lookups at all. But if you are getting errors and your font is not compiling because it's running out of space in the GSUB or GPOS table, you can try adding the keyword `useExtension` to your largest lookups:
 大多数时候你不需要为此操心，字体编辑软件会在需要时自动使用扩展#tr[lookup]。特性文件编译器可能会重排#tr[lookup]，并在觉得必要时让其中一些使用扩展方式，或者也有可能不支持扩展#tr[lookup]。但如果在编译字体时出现`GSUB`或`GPOS`表空间不足的错误提示，你可以尝试给最大的#tr[lookup]添加一个`useExtension`关键字：
@@ -391,7 +391,7 @@ lookup EXTENDED_KERNING useExtension {
 
 #note[
   // > Kerning tables are obviously an example of very large *positioning* lookups, but they're the most common use of extensions. If you ever get into a situation where you're procedurally generating rules in a loop from a scripting language, you might end up with a *substitution* lookup that's so big it needs to use an extension. As mention in the previous chapter `fonttools feaLib` will reorganise rules into extensions automatically for you, whereas `makeotf` will require you to place things into extensions manually - another reason to prefer `fonttools`.
-  虽然`kern`表确实是扩展#tr[lookup]最常见的用例，但显然其中可能会数量超限的其实是#tr[positioning]规则。#tr[substitution]规则太多的情况也是有可能的，比如为某种复杂的#tr[script]系统开发字体时，需要使用程序生成的方式编写规则，最终可能会因为产生了一个巨大的#tr[substitution]#tr[lookup]，从而需要使用扩展方式。上一章中到的`fontTools feaLib`工具会自动将规则重新组织为扩展#tr[lookup]，而`makeotf`需要你手动处理它们。这也是更推荐用`fontTools`的另一个原因。
+  虽然`kern`表确实是扩展#tr[lookup]最常见的用例，但显然其中数量可能会超限的其实是#tr[positioning]规则。#tr[substitution]规则太多的情况也是有可能的，比如在为某种复杂的#tr[script]系统开发字体时，需要使用程序生成的方式编写规则，最终可能会因为产生了一个巨大的#tr[substitution]#tr[lookup]，从而需要使用扩展方式。上一章中提到的`fontTools feaLib`工具会自动将规则重新组织为扩展#tr[lookup]，而`makeotf`需要你手动处理它们。这也是更推荐使用`fontTools`的另一个原因。
 ]
 
 // ### Reverse chained contextual substitution

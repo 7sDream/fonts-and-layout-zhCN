@@ -1,5 +1,3 @@
-#import "@preview/easy-pinyin:0.1.0": zhuyin
-
 #let __GLOSSARY = (
   "global scripts": ([全球文种], []),
   shaping: ([造型], []),
@@ -98,7 +96,7 @@
   ..data.named(),
 ))
 
-#let tr(body, origin: false, above: false, force: none) = {
+#let tr(body, origin: false, force: none) = {
   if type(body) == content {
     if body.has("text") {
       body = body.at("text")
@@ -118,11 +116,7 @@
   }
 
   if origin {
-    if above {
-      translation = zhuyin[#translation][#body]
-    } else {
-      translation = translation + [（#body）]
-    }
+    ranslation = translation + [（#body）]
   }
 
   translation + __glossary_meta(origin: body)

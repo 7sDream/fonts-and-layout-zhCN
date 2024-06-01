@@ -1,5 +1,3 @@
-#import "@preview/easy-pinyin:0.1.0": zhuyin
-
 #import "/template/consts.typ"
 #import "/template/util.typ"
 #import "/template/heading.typ": chapter

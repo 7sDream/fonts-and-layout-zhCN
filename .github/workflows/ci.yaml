@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/action-build.yaml
+    with:
+      version-postfix: ${{ fromJSON('["-dev", "-pr"]')[github.event_name == 'pull_request'] }}

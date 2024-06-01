@@ -1,3 +1,4 @@
 .vscode
 .DS_Store
-book.pdf
+/fonts/extra
+/book.pdf

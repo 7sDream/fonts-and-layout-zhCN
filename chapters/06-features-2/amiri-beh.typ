@@ -11,4 +11,4 @@
   txt([开启ss01：#arabic-amiri(text(features: ("ss01",))[ربن])], (0, 60), anchor: "lt", size: 42 * ux)
 })
 
-#canvas(end, width: 65%, graph)
+#canvas(end, width: 40%, graph)

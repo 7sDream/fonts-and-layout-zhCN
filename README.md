@@ -2,17 +2,17 @@
 
 ## 介绍
 
-本书是 Simon Cozens 的关于字体设计、Unicode和计算机中复杂文本处理的免费书籍《[Fonts and Layout for Global Scripts](https://simoncozens.github.io/fonts-and-layout/)》的中文翻译版。
+本书是 Simon Cozens 编写的《[Fonts and Layout for Global Scripts](https://simoncozens.github.io/fonts-and-layout/)》的中文翻译版，是一本关于字体设计、Unicode和计算机中复杂文本处理的免费书籍。
 
-因为本书的主题是字体，为了保证显示效果和想表达的内容一致和满足我个人打印出来阅读的需求，选择 PDF 作为发布格式。
+因为本书的主题是字体，为了保证显示效果和想表达的内容一致和满足我个人打印出来阅读的需求，故选择 PDF 作为发布格式。
 
 请从 GitHub Release 中下载最新版 PDF。
 
 ## 反馈与共建
 
-本项目使用[Typst](https://github.com/typst/typst)作为排版工具。
+本项目使用 [Typst](https://github.com/typst/typst) 作为排版工具。
 
-各章节内容在 `chapters` 文件夹中，正文内容（除各类图示外）基本均为类似 Markdown 的纯文本，即使没有使用过也非常容易看懂。
+各章节内容在 `chapters` 文件夹中，正文内容（除各类图示外）基本均为类似 Markdown 的纯文本，即使没有使用过 Typst 也非常容易看懂。
 
 所以如果发现明显翻译问题或笔误，鼓励直接提交 PR，并通过 CI 生成的文件检查修复结果。
 
@@ -22,11 +22,11 @@
 
 ## 本地编译
 
-先下载字体包并解压，假设最终路径为 `/path/to/fonts`。
+先下载字体包并解压，把 `extra` 文件夹放置在项目的 `fonts` 文件夹中。
 
 ```bash
 cd fonts-and-layout-zhCN
-typst --font-path "/path/to/fonts" --font-path "./fonts" book.typ
+typst --font-path fonts book.typ
 ```
 
 ## 参考资料
@@ -39,6 +39,6 @@ typst --font-path "/path/to/fonts" --font-path "./fonts" book.typ
 
 ## LICENSE
 
-许可证原书一致，为[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans)。
+许可证原书一致，为 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans)。
 
-细节请参考 LICENSE 文件（或原项目README），其中有原作者对演绎版本的一些要求。
+细节请参考 LICENSE 文件（或原项目 README），其中有原作者对演绎版本的一些要求。

@@ -1,0 +1,53 @@
+name: Action Build
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      version-postfix:
+        required: true
+        type: string
+    outputs:
+      version:
+        value: ${{ jobs.build.outputs.version }}
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-22.04
+    outputs:
+      version: ${{ steps.args.outputs.version }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install Typst
+        run: |
+          wget https://github.com/typst/typst/releases/download/v0.11.1/typst-x86_64-unknown-linux-musl.tar.xz
+          tar xvf typst-x86_64-unknown-linux-musl.tar.xz
+          mv typst-x86_64-unknown-linux-musl/typst typst
+          ./typst --version
+      - name: Download fonts
+        if: false
+        run: |
+          wget https://github.com/7sDream/fonts-and-layout-zhCN/releases/download/extra-fonts%2F20240601/extra.tgz
+          tar xvzf extra.tgz
+          tree fonts
+      - name: Make input arguments
+        id: args
+        run: |
+          hash=$(echo "${{ github.sha }}" | cut -c 1-7)
+          datetime=$(date "+%Y-%m-%d %H:%M")
+          echo "version=$hash${{ inputs.version-postfix }}" >> "$GITHUB_OUTPUT"
+          echo "datetime=$datetime" >> "$GITHUB_OUTPUT"
+      - name: Build
+        run: |
+          ./typst compile \
+            --font-path fonts \
+            --input "githash=${{ steps.args.outputs.version }}" \
+            --input "compile_time=${{ steps.args.outputs.datetime }}" \
+            book.typ book-${{ steps.args.outputs.version }}.pdf
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: book-*.pdf

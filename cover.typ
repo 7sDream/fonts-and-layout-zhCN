@@ -44,7 +44,7 @@ _#consts.translators.join("、") 译_
 
 #info_table((
   版本: consts.upstream-version,
-  翻译版本: sys.inputs.at("githash", default: "dev"),
+  翻译版本: sys.inputs.at("githash", default: "unknown"),
   编译时间: sys.inputs.at("compile_time", default: "unknown"),
 ))
 

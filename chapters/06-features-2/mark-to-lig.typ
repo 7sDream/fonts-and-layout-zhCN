@@ -28,4 +28,4 @@
   arrow-head((410, 285), 8, theta: -40deg, point-at-center: true)
 })
 
-#canvas(end, width: 60%, graph)
+#canvas(end, width: 50%, graph)
