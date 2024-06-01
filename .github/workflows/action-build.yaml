@@ -35,7 +35,7 @@ jobs:
         id: args
         run: |
           hash=$(echo "${{ github.sha }}" | cut -c 1-7)
-          datetime=$(date "+%Y-%m-%d %H:%M")
+          datetime=$(env TZ=Asia/Shanghai date "+%Y-%m-%d %H:%M")
           echo "version=$hash${{ inputs.version-postfix }}" >> "$GITHUB_OUTPUT"
           echo "datetime=$datetime" >> "$GITHUB_OUTPUT"
       - name: Build

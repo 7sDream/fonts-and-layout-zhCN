@@ -1,5 +1,5 @@
 #let upstream-version = "b92b2dc"
-#let title = "全球文种类的字体与布局"
+#let title = "全球文种的字体与布局"
 #let author = "Simon Cozens"
 #let translators = ("7sDream", "Xiangdong Zeng")
 
