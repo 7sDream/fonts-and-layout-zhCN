@@ -28,11 +28,30 @@ CI 中会有最新版但可能失效，如果过期可开 Issue 告知。
 
 ## 本地编译
 
-先下载字体包并解压，把 `extra` 文件夹放置在项目的 `fonts` 文件夹中。
+安装 Typst 0.11.1。
+
+下载[字体包](https://github.com/7sDream/fonts-and-layout-zhCN/releases/tag/extra-fonts%2F20240601)并解压，将 `extra` 文件夹放置在项目的 `fonts` 文件夹中。
+
+使用下列命令进行编译：
 
 ```bash
-cd fonts-and-layout-zhCN
 typst --font-path fonts book.typ
+```
+
+详细流程参考 [CI workflow 文件](https://github.com/7sDream/fonts-and-layout-zhCN/blob/master/.github/workflows/action-build.yaml)。
+
+如果想所见即所得的编辑，推荐使用 VSCode 配合 [Tinymist](https://github.com/Myriad-Dreamin/tinymist) 和 [Typst Preview](https://github.com/Enter-tainer/typst-preview) 插件，并添加如下项目配置：
+
+```json
+{
+    "typst-preview.fontPaths": [
+        "${workspaceFolder}\\fonts",
+    ],
+    "tinymist.systemFonts": false,
+    "tinymist.fontPaths": [
+        "${workspaceFolder}\\fonts",
+    ]
+}
 ```
 
 ## 参考资料
