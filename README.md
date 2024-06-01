@@ -6,7 +6,13 @@
 
 因为本书的主题是字体，为了保证显示效果和想表达的内容一致和满足我个人打印出来阅读的需求，故选择 PDF 作为发布格式。
 
-请从 GitHub Release 中[下载](https://github.com/7sDream/fonts-and-layout-zhCN/releases/latest)最新版 PDF。
+编译出的PDF文件可从以下两处下载：
+
+1. [GitHub Release](https://github.com/7sDream/fonts-and-layout-zhCN/releases/latest)
+2. [CI](https://github.com/7sDream/fonts-and-layout-zhCN/actions/workflows/ci.yaml) 中的 Artifacts
+
+其中 Release 中的不一定是最新版，但永久有效。
+CI 中会有最新版但可能失效，如果过期可开 Issue 告知。
 
 ## 反馈与共建
 
