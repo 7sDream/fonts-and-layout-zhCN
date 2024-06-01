@@ -141,7 +141,7 @@ Listing table info for "TTXTest-Regular.otf":
 OpenType 字体支持使用两种不同的方式来表达#tr[glyph]#tr[outline]数据，分别是PostScript表示法和TrueType表示法，其中PostScript表示法更加常用。（你会在后文中看到，由于OpenType同时继承了两种古老的技术遗产，所以存在大量的这种双标准共存现象。）
 
 //So the first table, `CFF`, is required if the outlines of the font are represented as PostScript CFF strings; a font using TrueType outlines will have a different set of tables instead (`cvt`, `fpgm`, `glyf`, `loca` and `prep`, which we will look at later).
-`ttx`工具列出的第一个数据表`CFF`在使用PostScript表示法时必须的，它使用PostScript CFF 字符串来储存#tr[outline]信息。如果使用的是TrueType表示法，则会有一系列其他的数据表（具体来说有`cvt`、`fpgm`、`glyf`、`loca`和`prep`，后文会进行介绍）。
+`ttx`工具列出的第一个数据表`CFF`在使用PostScript表示法时是必须的，它使用PostScript CFF 字符串来储存#tr[outline]信息。如果使用的是TrueType表示法，则会有一系列其他的数据表（具体来说有`cvt`、`fpgm`、`glyf`、`loca`和`prep`，后文会进行介绍）。
 
 // The second table in our list, `GSUB`, is one of the more exciting ones; it's the *glyph substitution* table which, together with `GPOS` (*glyph positioning*), stores most of the OpenType smarts. We will discuss these two tables and what they can do in the next chapter.
 第二个数据表叫做`GSUB`，它是这些表中比较有趣的一个。它的全称是#tr[glyph]#tr[substitution]（glyph substitution）表，和另一个#tr[glyph]#tr[positioning]（glyph positioning）表一起完成了OpenType的绝大多数智能特性。这两个表我们会单独在下一章中介绍。
