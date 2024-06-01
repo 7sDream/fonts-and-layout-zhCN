@@ -198,7 +198,7 @@ Pierre Bézier是雷诺汽车的一位工程师，他专精于工具的设计和
 事实证明，贝塞尔曲线为设计师提供了一种方便且直观的方式来表达脑海中的形象——比如雷诺汽车的外轮廓。通过拖拽控制点，设计师可以自由地调整曲线。带有起始点、终结点和两个线外点的三次贝塞尔曲线被吸收进了PostScript，并作为一条图形指令。从此，它也就走进了数字字体设计的世界。
 
 // ## PostScript Fonts, TrueType and OpenType
-== PostScript字体、TureType 和 OpenType
+== PostScript字体、TrueType 和 OpenType
 
 // PostScript level 1 defined two kinds of fonts: Type 1 and Type 3. PostScript Type 3 fonts were also allowed to use the full capabilities of the PostScript language. Prior to this level, fonts could only be specified in terms of graphics instructions: draw a line, draw a curve, and so on. But PostScript is a fully-featured programming language. When we talk about a "PostScript printer", what we mean is a printer which contains a little computer which can "execute" the documents they are sent, because these documents are actually *computer programs* written in the PostScript language. (The little computers inside the printers tended not to be very powerful, and one common prank for bored university students would be to send the printers [ridiculously complicated programs](https://www.pvv.ntnu.no/~andersr/fractal/PostScript.html) which drew pretty graphics but tied them up with computations for hours.)
 PostScript Level 1 规定了两种字体格式：Type 1 和 Type 3。PostScript Type 3字体还支持完整的 PostScript语言。在这之前，字体只能用图形指令来描述，比如画一条直线、画一个圆之类。但PostScript是一个全功能的编程语言。当我们在说“PostScript 打印机”时，我们指的其实是一台其内部的计算机能够“执行”收到的文档的打印机。这些文档本身也只是用PostScript语言写成的*计算机程序*。（打印机中集成的计算机往往性能不强，对于无聊的大学生们来说，一个常见的恶作剧就是把极端复杂的程序#[@Reggestad.PostScriptFractals.2006]发送给打印机，这些程序可以画出漂亮的图形，但却要花好几个小时进行计算。）
