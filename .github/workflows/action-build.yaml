@@ -27,7 +27,6 @@ jobs:
           mv typst-x86_64-unknown-linux-musl/typst typst
           ./typst --version
       - name: Download fonts
-        if: false
         run: |
           wget https://github.com/7sDream/fonts-and-layout-zhCN/releases/download/extra-fonts%2F20240601/extra.tgz
           tar xvzf extra.tgz
