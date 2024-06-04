@@ -6,7 +6,7 @@
 
 #v(1fr)
 
-#text(size: 3em)[#consts.title]
+#text(size: 3em, weight: "bold")[#consts.title]
 
 #v(1em)
 

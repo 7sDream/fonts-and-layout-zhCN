@@ -11,7 +11,7 @@
 1. [GitHub Release](https://github.com/7sDream/fonts-and-layout-zhCN/releases/latest)
 2. [CI](https://github.com/7sDream/fonts-and-layout-zhCN/actions/workflows/ci.yaml) 中的 Artifacts
 
-其中 Release 中的不一定是最新版，但永久有效。
+其中 Release 中的不一定是最新版，但永久有效，会在有改动时每周六发布一次。
 CI 中会有最新版但可能失效，如果过期可开 Issue 告知。
 
 ## 反馈与共建
@@ -56,7 +56,7 @@ typst --font-path fonts book.typ
 
 ## 参考资料
 
-- 《FontForge 与字体设计》一书中的[词汇表](http://designwithfontforge.com/zh-CN/Glossary.html)
+- 《FontForge 与字体设计》一书中的[术语表](http://designwithfontforge.com/zh-CN/Glossary.html)
 - 知乎专栏文章《[Unicode®标准英文术语翻译对照表及部分术语汇释](https://zhuanlan.zhihu.com/p/79246427)》
 - [Unicode 术语英中对照表](https://www.unicode.org/terminology/term_en_zh_Hans_CN.html)
 - <https://symbl.cc/>
