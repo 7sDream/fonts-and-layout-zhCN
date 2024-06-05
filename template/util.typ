@@ -1,3 +1,8 @@
+#import "@preview/book:0.2.5": target
+
+#let is-pdf-target = () => "realpdf" in sys.inputs
+#let is-web-target = () => not is-pdf-target()
+
 #let __build-selector(elem, start, end) = {
     let select = selector(elem)
     if start != none {

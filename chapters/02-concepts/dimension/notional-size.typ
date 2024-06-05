@@ -1,4 +1,5 @@
 #import "/lib/draw.typ": *
+#import "/template/theme.typ": theme
 #import "/template/lang.typ": bengali
 
 #let start = (0, 0)
@@ -23,11 +24,11 @@
     for height in (..heights, ..common-heights) {
       rect(
         lb, width: width, height: -height,
-        stroke: 1.5 * ux + black
+        stroke: 1.5 * ux + theme.main
       )
     }
     lb = (lb.at(0) + width, lb.at(1))
   }
 })
 
-#canvas(end, start: start, width: 100%, graph)
+#canvas(end, start: start, width: 90%, graph)

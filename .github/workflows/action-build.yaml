@@ -40,11 +40,15 @@ jobs:
           echo "datetime=$datetime" >> "$GITHUB_OUTPUT"
       - name: Build
         run: |
-          ./typst compile \
-            --font-path fonts \
-            --input "githash=${{ steps.args.outputs.version }}" \
-            --input "compile_time=${{ steps.args.outputs.datetime }}" \
-            book.typ book-${{ steps.args.outputs.version }}.pdf
+          for $theme in ("light", "rust", "coal", "navy", "ayu"); do
+            ./typst compile \
+              --font-path fonts \
+              --input "realpdf=1" \
+              --input "githash=${{ steps.args.outputs.version }}" \
+              --input "compile_time=${{ steps.args.outputs.datetime }}" \
+              --input "theme=${theme}" \
+              pdf.typ book-${{ steps.args.outputs.version }}-${theme}.pdf
+          done
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:

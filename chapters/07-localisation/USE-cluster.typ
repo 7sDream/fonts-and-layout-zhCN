@@ -4,7 +4,7 @@
 #let end = (800, 700)
 
 #let graph = with-unit((ux, uy) => {
-  // mesh(start, end, (100, 100), stroke: 1 * ux + black)
+  // mesh(start, end, (100, 100), stroke: 1 * ux + gray)
   
   let txt = txt.with(size: 15 * ux)
   let highlight-stroke = stroke(
@@ -16,7 +16,7 @@
     inset: 10 * ux,
     spacing: 0pt,
     radius: 15 * ux,
-    stroke: if highlight { highlight-stroke } else { 1 * ux + black },
+    stroke: if highlight { highlight-stroke } else { 1 * ux + theme.main },
     align(center, body),
   )
 

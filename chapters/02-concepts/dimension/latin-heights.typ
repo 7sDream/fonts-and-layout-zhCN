@@ -1,5 +1,6 @@
 #import "/lib/draw.typ": *
 #import "/lib/glossary.typ": tr
+#import "/template/theme.typ": theme
 #import "/template/lang.typ": armenian
 
 #let start = (0, 0)
@@ -22,7 +23,7 @@
     segment(
       (if y-offset != 0 { line-left } else { basex }, y),
       (base.at(0) + width, y),
-      stroke: 2 * ux + black,
+      stroke: 2 * ux + theme.main,
     )
   }
   rect(

@@ -1,20 +1,117 @@
+#import "@preview/book:0.2.5": book, book-meta, chapter, target, is-pdf-target
+
 #import "/template/consts.typ"
-#import "/template/template.typ": template
+#import "/lib/glossary.typ": tr
 
-#set document(
-  title: consts.title,
-  author: (consts.author, ..consts.translators),
-)
+#show: book
 
-#show: template
-
-#include "cover.typ"
-#include "outline.typ"
-#include "chapters/index.typ"
-
-#pagebreak(weak: true)
-
-#[
-  #set par(justify: false)
-  #bibliography("refs.bib")
+#let summary = [
+  - #chapter("notice.typ", section: none)[在线阅读说明]
+  - #chapter("cover.typ", section: none)[封面]
+  - #chapter("chapters/01-history/history.typ")[字体简史]
+    - #chapter("chapters/01-history/vector-font.typ")[矢量化的数字字体]
+    - #chapter("chapters/01-history/postscript.typ")[PostScript]
+    - #chapter("chapters/01-history/ps-ttf-otf.typ")[从 PostScript 到 TrueType]
+    - #chapter("chapters/01-history/ttf-to-otf.typ")[从 TrueType 到 OpenType]
+    - #chapter("chapters/01-history/mm-variable.typ")[#tr[multiple master]和#tr[variable font]]
+  - #chapter("chapters/02-concepts/concepts.typ")[字体中的术语和概念]
+    - #chapter("chapters/02-concepts/shaping-layout.typ")[#tr[shaping]和#tr[layout]]
+    - #chapter("chapters/02-concepts/char-glyph.typ")[#tr[character]和#tr[glyph]]
+    - #chapter("chapters/02-concepts/dimension/dimension.typ")[#tr[dimension]、#tr[sidebearing]和#tr[kern]]
+      - #chapter("chapters/02-concepts/dimension/units.typ")[单位]
+      - #chapter("chapters/02-concepts/dimension/adv-width.typ")[#tr[advance width]]
+      - #chapter("chapters/02-concepts/dimension/kern.typ")[#tr[kern]]
+      - #chapter("chapters/02-concepts/dimension/height.typ")[高度]
+      - #chapter("chapters/02-concepts/dimension/vertical-adv.typ")[#tr[vertical advance]]
+      - #chapter("chapters/02-concepts/dimension/adv-position.typ")[#tr[advance]和#tr[position]]
+    - #chapter("chapters/02-concepts/bezier.typ")[贝塞尔曲线]
+    - #chapter("chapters/02-concepts/color-font.typ")[彩色与#tr[bitmap]字体]
+  - #chapter("chapters/03-unicode/unicode.typ")[Unicode 标准]
+    - #chapter("chapters/03-unicode/global-scripts.typ")[Unicode中的#tr[global scripts]]
+    - #chapter("chapters/03-unicode/store/store.typ")[数据如何储存]
+      - #chapter("chapters/03-unicode/store/utf16.typ")[UTF-16]
+      - #chapter("chapters/03-unicode/store/utf8.typ")[UTF-8]
+    - #chapter("chapters/03-unicode/property.typ")[#tr[character]属性]
+    - #chapter("chapters/03-unicode/case.typ")[大小写转换]
+    - #chapter("chapters/03-unicode/norm-decomp.typ")[#tr[normalization]和#tr[decompose]]
+    - #chapter("chapters/03-unicode/icu.typ")[ICU 程序库]
+  - #chapter("chapters/04-opentype/opentype.typ")[OpenType 的工作原理]
+    - #chapter("chapters/04-opentype/whats-font.typ")[字体是什么？]
+    - #chapter("chapters/04-opentype/fonttools-ttx.typ")[FontTools 和 `ttx` 工具]
+    - #chapter("chapters/04-opentype/exploring/exploring.typ")[借助 `ttx` 探索 OpenType 字体]
+      - #chapter("chapters/04-opentype/exploring/head.typ")[`head` 表]
+      - #chapter("chapters/04-opentype/exploring/hhea-os2.typ")[纵向#tr[metrics]：`hhea` 和 `OS/2` 表]
+      - #chapter("chapters/04-opentype/exploring/hmtx.typ")[`hmtx` 表]
+      - #chapter("chapters/04-opentype/exploring/name.typ")[`name` 表]
+      - #chapter("chapters/04-opentype/exploring/cmap.typ")[`cmap` 表]
+      - #chapter("chapters/04-opentype/exploring/cff.typ")[`CFF` 表]
+      - #chapter("chapters/04-opentype/exploring/post.typ")[`post` 表]
+    - #chapter("chapters/04-opentype/ttf-outline.typ")[TrueType#tr[outline]表示法]
+    - #chapter("chapters/04-opentype/more-tables.typ")[更多数据表]
+    - #chapter("chapters/04-opentype/collection.typ")[字体集]
+    - #chapter("chapters/04-opentype/variation.typ")[OpenType可变字体]
+  - #chapter("chapters/05-features/features.typ")[OpenType特性简介]
+    - #chapter("chapters/05-features/adobe-fea-lang.typ")[Adobe 特性语言]
+    - #chapter("chapters/05-features/ligature.typ")[编写基础特性——#tr[substitution]与#tr[ligature]]
+    - #chapter("chapters/05-features/glyph-class.typ")[#tr[glyph]类与命名类]
+    - #chapter("chapters/05-features/lookup.typ")[特性与#tr[lookup]]
+    - #chapter("chapters/05-features/lang-script.typ")[语言和#tr[script]]
+    - #chapter("chapters/05-features/shaping/shaping.typ")[文本#tr[shaping]的工作流程]
+      - #chapter("chapters/05-features/shaping/mapping.typ")[映射和重排序]
+      - #chapter("chapters/05-features/shaping/selection.typ")[规则选取]
+      - #chapter("chapters/05-features/shaping/apply.typ")[应用#tr[lookup]]
+      - #chapter("chapters/05-features/shaping/flags.typ")[#tr[lookup]选项]
+    - #chapter("chapters/05-features/positioning.typ")[#tr[positioning]规则]
+    - #chapter("chapters/05-features/testing.typ")[测试]
+    - #chapter("chapters/05-features/feature-store.typ")[特性如何储存]
+    - #chapter("chapters/05-features/decompiling.typ")[反编译字体文件]
+  - #chapter("chapters/06-features-2/features-2.typ")[#tr[substitution]和#tr[positioning]规则]
+    - #chapter("chapters/06-features-2/substitution/substitution.typ")[各种类型的#tr[substitution]规则]
+      - #chapter("chapters/06-features-2/substitution/multiple.typ")[#tr[multiple substitution]]
+      - #chapter("chapters/06-features-2/substitution/alternate.typ")[#tr[alternate substitution]]
+      - #chapter("chapters/06-features-2/substitution/ligature.typ")[#tr[ligature]#tr[substitution]]
+      - #chapter("chapters/06-features-2/substitution/chaining.typ")[#tr[chaining substitution]]
+      - #chapter("chapters/06-features-2/substitution/extension.typ")[扩展#tr[substitution]]
+      - #chapter("chapters/06-features-2/substitution/rev-chaining.typ")[逆向#tr[chaining]#tr[substitution]]
+    - #chapter("chapters/06-features-2/positioning/positioning.typ")[各种类型的#tr[positioning]规则]
+      - #chapter("chapters/06-features-2/positioning/single.typ")[#tr[single adjustment]]
+      - #chapter("chapters/06-features-2/positioning/pair.typ")[字偶对调整]
+      - #chapter("chapters/06-features-2/positioning/cursive.typ")[#tr[cursive attachment]]
+    - #chapter("chapters/06-features-2/anchor/anchor.typ")[#tr[anchor attachment]]
+      - #chapter("chapters/06-features-2/anchor/mark.typ")[符号#tr[positioning]]
+      - #chapter("chapters/06-features-2/anchor/ligature-mark.typ")[#tr[ligature]上的符号]
+      - #chapter("chapters/06-features-2/anchor/mark-to-mark.typ")[符号叠放]
+      - #chapter("chapters/06-features-2/anchor/chaining.typ")[#tr[chaining]#tr[positioning]]
+    - #chapter("chapters/06-features-2/checking.typ")[使用 `hb-shape` 检查#tr[positioning]规则]
+  - #chapter("chapters/07-localisation/localisation.typ")[服务#tr[global scripts]的OpenType]
+    - #chapter("chapters/07-localisation/practice.typ")[特性实践]
+    - #chapter("chapters/07-localisation/lang-spec.typ")[特定语言专属#tr[substitution]]
+    - #chapter("chapters/07-localisation/letter-i.typ")[麻烦的字母 i]
+    - #chapter("chapters/07-localisation/arabic-urdu-sindhi.typ")[阿拉伯语、乌尔都语、信德语]
+    - #chapter("chapters/07-localisation/other-scripts.typ")[其他复杂#tr[scripts]]
+    - #chapter("chapters/07-localisation/USE.typ")[通用#tr[shaping]引擎]
+    - #chapter("chapters/07-localisation/resources.typ")[参考资料]
+  - #chapter("chapters/08-adv-features/adv-features.typ")[高级特性编程]
+    - #chapter("chapters/08-adv-features/arabic.typ")[阿拉伯书法体]
+    - #chapter("chapters/08-adv-features/boundary.typ")[边界检测]
+    - #chapter("chapters/08-adv-features/fraction.typ")[直立分数]
+    - #chapter("chapters/08-adv-features/random.typ")[随机性]
+  - #chapter("chapters/09-layout/layout.typ")[#tr[global scripts]#tr[layout]中的挑战]
+    - #chapter("chapters/09-layout/bidi.typ")[双向文本]
+    - #chapter("chapters/09-layout/other-dir.typ")[其他书写方向]
+    - #chapter("chapters/09-layout/shaping.typ")[#tr[shaping]中的难题]
+    - #chapter("chapters/09-layout/arabic.typ")[阿拉伯文中的连接]
+    - #chapter("chapters/09-layout/line-word.typ")[断行与分词]
+  - #chapter("chapters/10-hint/hint.typ")[#tr[rasterization]与#tr[hinting]]
+  - #chapter("chapters/11-web/web.typ")[网页上的字体]
+  - #chapter("chapters/12-freetype/freetype.typ")[OpenType编程利器：Freetype2]
+  - #chapter("chapters/13-harfbuzz/harfbuzz.typ")[文本#tr[layout]编程利器：HarfBuzz]
+  - #chapter("chapters/14-raqm/raqm.typ")[文本#tr[layout]编程利器：libraqm]
 ]
+
+#book-meta(
+  title: consts.title,
+  authors: (consts.author, ..consts.translators),
+  language: "zh-CN",
+  summary: summary,
+)

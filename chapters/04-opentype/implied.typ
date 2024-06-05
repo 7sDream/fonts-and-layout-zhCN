@@ -8,10 +8,10 @@
 #let hightlight-thickness = 5
 #let curve-thickness = 10
 #let ctrl-curve-color = gray
-#let ctrl-point-color = gray.darken(50%)
-#let main-curve-color = black
+#let ctrl-point-color = choose(gray.darken(50%), gray.lighten(50%))
+#let main-curve-color = theme.main
 #let arrow-thickness = 5
-#let arrow-color = black
+#let arrow-color = theme.main
 
 #let highlight = (p, stroke, radius-in, radius-out, times: 12) => {
   let (x, y) = p
@@ -59,7 +59,7 @@
   bezier(m, c2, none, e, stroke: main-stroke)
 
   let highlight-stroke = stroke(
-    paint: black,
+    paint: theme.main,
     thickness: hightlight-thickness * ux ,
     cap: "round"
   )

@@ -33,7 +33,7 @@
       inset: 0pt,
       fill: (x, y) => if y > 0 { table-gray-color } else { white },
       stroke: no-hlines-pen(pen, 2),
-      ..glyph-stream.map(it => block(height: 50*ux, spacing: 0pt, text(size: 32*ux, it))),
+      ..glyph-stream.map(it => block(height: 50*ux, spacing: 0pt, text(fill: black, size: 32*ux, it))),
       block(height: 50*ux, spacing: 0pt),
     )),
     (30, 652),

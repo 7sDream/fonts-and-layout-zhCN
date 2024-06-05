@@ -5,7 +5,7 @@
 #let start = (0, 0)
 #let end = (1000, 950)
 
-#let black-text = arabic(fill: black)[وَلَد]
+#let fg-text = arabic(fill: theme.main)[وَلَد]
 #let gray-text = arabic(fill: gray)[ولد]
 
 #let (bx, by) = (30, 200)
@@ -30,7 +30,7 @@
 #let graph = with-unit((ux, uy) => {
   // mesh(start, end, (100, 100), stroke: 1 * ux + gray)
 
-  txt(black-text, base, anchor: "lb", size: 810 * ux, dy: 20)
+  txt(fg-text, base, anchor: "lb", size: 810 * ux, dy: 20)
   txt(gray-text, (bx, by), anchor: "lb", size: 810 * ux, dy: 20)
 
   let line-stroke = (
@@ -46,7 +46,7 @@
     arrow(
       (pos.at(0), pos.at(1) - 40),
       (next-pos.at(0), next-pos.at(1) - 40),
-      stroke: (..line-stroke, paint: black),
+      stroke: (..line-stroke, paint: theme.main),
       head-scale: 4,
     )
     pos = next-pos
@@ -55,7 +55,7 @@
       let endpos = (pos.at(0) + ox, pos.at(1) + oy)
       arrow(
         pos, endpos,
-        stroke: (..line-stroke, paint: black, dash: "dashed"), 
+        stroke: (..line-stroke, paint: theme.main, dash: "dashed"), 
         head-scale: 5
       )
       if "dashbox" in arg {

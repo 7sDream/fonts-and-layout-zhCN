@@ -1,4 +1,5 @@
 #import "/lib/draw.typ": *
+#import "/template/theme.typ": theme, choose
 #import "/lib/glossary.typ": tr
 
 #let start = (0, 0)
@@ -7,9 +8,9 @@
 #let graph = with-unit((ux, uy) => {
   // mesh(start, end, (100, 100), stroke: 1 * ux + gray)
 
-  let bubble-stroke = 3 * ux + black
+  let bubble-stroke = 3 * ux + theme.main
   let bubble-stroke-dashed = stroke(
-    paint: black,
+    paint: theme.main,
     thickness: 3 * ux,
     dash: "dashed",
   )
@@ -18,7 +19,7 @@
     spacing: 0pt,
     radius: 40 * ux,
     stroke: if dash { bubble-stroke-dashed } else { bubble-stroke },
-    fill: rgb("ededed"),
+    fill: choose(rgb("ededed"), rgb("343434")),
     align(center, text(size: 50 * ux, body)),
   )
   let arrow = arrow.with(stroke: bubble-stroke, head-scale: 4)

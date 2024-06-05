@@ -12,12 +12,12 @@
 
 #let broken = with-unit((ux, uy) => context {
   correct
-  let fill-color = if page.fill == none { white } else { page.fill }
+  let fill-color = if page.fill == none { theme.bg } else { page.fill }
 
   point((258, 391.5), radius: 25.8, color: fill-color)
 
   let x = 310
-  point((x, 391.5), radius: 25.4, color: black)
+  point((x, 391.5), radius: 25.4)
   // segment((x, end.at(1)), (x, start.at(1)))
 })
 

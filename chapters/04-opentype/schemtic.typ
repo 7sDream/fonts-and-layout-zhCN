@@ -1,6 +1,7 @@
+#import "/template/theme.typ": theme
 #import "/lib/glossary.typ": tr
 
-#let stroke = 1pt + black;
+#let stroke = 1pt + theme.main;
 
 #set grid.vline(stroke: stroke)
 #set grid.hline(stroke: stroke)

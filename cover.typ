@@ -1,6 +1,11 @@
 #import "template/consts.typ"
+#import "template/util.typ"
+#import "template/template.typ": web-page-template
 
-#set page(numbering: none)
+#show: web-page-template
+
+#set page(numbering: none) if util.is-pdf-target()
+#set page(paper: "a4") if util.is-web-target()
 
 #show: align.with(center)
 
@@ -43,9 +48,12 @@ _#consts.translators.join("、") 译_
 }
 
 #info_table((
-  版本: consts.upstream-version,
+  原书版本: consts.upstream-version,
   翻译版本: sys.inputs.at("githash", default: "unknown"),
+  编译器版本: str(sys.version),
   编译时间: sys.inputs.at("compile_time", default: "unknown"),
 ))
 
-#pagebreak(weak: true, to: "odd")
+#if util.is-pdf-target() {
+  pagebreak(weak: true, to: "odd")
+}

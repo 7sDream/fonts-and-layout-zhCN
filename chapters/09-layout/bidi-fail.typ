@@ -7,7 +7,7 @@
 #let graph = with-unit((ux, uy) => {
   // mesh(start, end, (100, 100))
 
-  let lbPoint = place(left + bottom, dx: -15 * ux, dy: 15 * ux, circle(radius: 15 * ux, fill: black))
+  let lbPoint = place(left + bottom, dx: -15 * ux, dy: 15 * ux, circle(radius: 15 * ux, fill: theme.main))
   let box-stroke-thickness = 8 * ux
   let box-stroke = box-stroke-thickness + gray
 
@@ -25,7 +25,7 @@
     .."textin".codepoints().map(eng),
   ), (50, 300), anchor: "lb")
 
-  let arrows = (start, widths, fill: black) => {
+  let arrows = (start, widths, fill: theme.main) => {
     let position = start
     for width in widths {
       let new-pos = (position.at(0) + width, position.at(1))

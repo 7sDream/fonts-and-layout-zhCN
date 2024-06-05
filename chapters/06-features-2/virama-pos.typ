@@ -16,9 +16,9 @@
   )
 }
 
-#let diamond = (point, size, border: 0, border-fill: white, ..args) => {
+#let diamond = (point, size, border: 0, border-fill: theme.bg, ..args) => {
   let args = args.named()
-  let arg-fill = args.at("fill", default: black)
+  let arg-fill = args.at("fill", default: theme.main)
   let _ = args.remove("fill")
   let offset = size * calc.sqrt(2) / 2
   if border != 0 {
@@ -28,9 +28,9 @@
 }
 
 #let graph = with-unit((ux, uy) => {
-  // mesh(start, end, (100, 100), stroke: 1 * ux + black)
+  // mesh(start, end, (100, 100), stroke: 1 * ux + gray)
 
-  let pen = 5 * ux + black;
+  let pen = 5 * ux + theme.main;
 
   txt(hind[#text[छ्]], (120, 900), anchor: "lt", size: 1000 * ux)
 
@@ -40,7 +40,7 @@
   txt([631 个单位], (435.5, 890), size: 42 * ux, anchor: "cb", dy: 20)
 
   rect((120, 865), width: 631, height: 620, stroke: pen)
-  diamond((382, 282), 30, fill: gray, border: 6, border-fill: white, closed: true)
+  diamond((382, 282), 30, fill: gray, border: 6, closed: true)
   txt(text(fill: white)[`(276,57)`], (382, 282), size: 25 * ux, anchor: "cb", dy: 35)
 
   shape(
@@ -51,14 +51,14 @@
     closed: true,
     fill: gray,
     stroke: stroke(
-      paint: black,
+      paint: theme.main,
       thickness: pen.thickness,
       dash: "dashed",
     )
   )
 
   segment((751, 860), (751, 45))
-  diamond((574, 243), 30, fill: gray, border: 6, border-fill: white)
+  diamond((574, 243), 30, fill: gray, border: 6)
   txt([`(-172,0)`], (574, 240), size: 25 * ux, anchor: "cb", dy: 30)
 
   arrow((751, 255), (382, 255), head-scale: 3)

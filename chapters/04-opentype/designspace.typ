@@ -17,16 +17,16 @@
     ((750, 100), (800, 100)),
     ((250, 100), (300, 100)),
     closed: true,
-    fill: gray.lighten(20%),
+    fill: choose(gray.lighten(20%), gray.darken(20%)),
   )
 
   point((100, 150), radius: 10)
-  arrow((100, 150), (100, 480), stroke: 3*ux + black, head-scale: 5)
+  arrow((100, 150), (100, 480), stroke: 3*ux + theme.main, head-scale: 5)
   txt(rotate(-90deg, reflow: true)[字宽], (110, 300), anchor: "lc", size: 30 * ux)
 
   point((500, 70), radius: 10)
-  arrow((500, 70), (230, 70), stroke: 3*ux + black, head-scale: 5)
-  arrow((500, 70), (770, 70), stroke: 3*ux + black, head-scale: 5)
+  arrow((500, 70), (230, 70), stroke: 3*ux + theme.main, head-scale: 5)
+  arrow((500, 70), (770, 70), stroke: 3*ux + theme.main, head-scale: 5)
   txt([字重], (500, 40), anchor: "ct", size: 30*ux)
 
   let xs = (250, 500, 750)
