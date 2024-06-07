@@ -40,7 +40,8 @@ jobs:
           echo "datetime=$datetime" >> "$GITHUB_OUTPUT"
       - name: Build
         run: |
-          for $theme in ("light", "rust", "coal", "navy", "ayu"); do
+          declare -a themes=("light" "rust" "coal" "navy" "ayu")
+          for theme in "${themes[@]}"; do
             ./typst compile \
               --font-path fonts \
               --input "realpdf=1" \
