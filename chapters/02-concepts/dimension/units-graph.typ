@@ -1,4 +1,5 @@
 #import "/lib/draw.typ": *
+#import "/template/theme.typ": theme
 #import "/template/lang.typ": bengali
 
 #let start = (0, 0)
@@ -30,7 +31,7 @@
     arrow(
       (80 * scale + dx, dy - 15 * scale),
       (50 * scale + dx, dy - 15 * scale),
-      stroke: 2 * ux + black,
+      stroke: 2 * ux + theme.main,
       head-scale: 2 * scale,
     )
     arrow-head(
@@ -39,7 +40,7 @@
     arrow(
       (-115 * scale + dx + 230 * scale + 20 * scale, 370 * scale + dy - 5),
       (-115 * scale + dx + 230 * scale + 20 * scale, 370 * scale + dy - 490 * scale),
-      stroke: 2 * ux + black,
+      stroke: 2 * ux + theme.main,
       head-scale: 5,
     )
     arrow-head(
@@ -59,4 +60,4 @@
   txt([0.920pt], (760, 100), anchor: "rt")
 })
 
-#canvas(end, start: start, width: 100%, graph)
+#canvas(end, start: start, width: 80%, graph)

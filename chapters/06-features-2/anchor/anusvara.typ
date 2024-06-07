@@ -5,7 +5,7 @@
 #let end = (1000, 500)
 
 #let graph = with-unit((ux, uy) => context {
-  let bg = if page.fill == none { white } else { page.fill }
+  let bg = if page.fill == none { theme.bg } else { page.fill }
   rect(start, end: end, fill: bg)
   // mesh(start, end, (100, 100), stroke: 1 * ux + gray)
 

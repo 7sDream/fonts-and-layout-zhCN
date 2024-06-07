@@ -28,17 +28,35 @@ CI 中会有最新版但可能失效，如果过期可开 Issue 告知。
 
 ## 本地编译
 
-安装 Typst 0.11.1。
+(本节内容可能需要您有一些技术方面的基础知识，以及对 Typst 和相关生态的了解，如果只是普通读者可以跳过)
+
+整体流程可以参考 [CI workflow 文件](https://github.com/7sDream/fonts-and-layout-zhCN/blob/master/.github/workflows/action-build.yaml)，或按照以下文字描述操作。
+
+### 在线阅读版
+
+安装 [typst-book](https://github.com/Myriad-Dreamin/typst-book) 0.1.4。
 
 下载[字体包](https://github.com/7sDream/fonts-and-layout-zhCN/releases/tag/extra-fonts%2F20240601)并解压，将 `extra` 文件夹放置在项目的 `fonts` 文件夹中。
 
-使用下列命令进行编译：
+使用下列命令进行本地浏览器阅读：
 
 ```bash
-typst --font-path fonts book.typ
+typst-book serve --font-path fonts
 ```
 
-详细流程参考 [CI workflow 文件](https://github.com/7sDream/fonts-and-layout-zhCN/blob/master/.github/workflows/action-build.yaml)。
+注意，编译时间比较久。
+
+### PDF
+
+PDF 需要在线阅读版作为前置，请先确定能够正常在本地编译出在线阅读版。
+
+安装 Typst 0.11.1。
+
+```bash
+typst --font-path fonts --input realpdf=1 --input theme=light pdf.typ
+```
+
+### 所见即所得
 
 如果想所见即所得的编辑，推荐使用 VSCode 配合 [Tinymist](https://github.com/Myriad-Dreamin/tinymist) 和 [Typst Preview](https://github.com/Enter-tainer/typst-preview) 插件，并添加如下项目配置：
 
@@ -54,6 +72,10 @@ typst --font-path fonts book.typ
 }
 ```
 
+`tinymist` 的 `main file` 设置为 `pdf.typ`，根据其中注释临时修改 `/template/util.typ`。
+
+然后从 `pdf.typ` 文件启动 `typst-preview` 即可。
+
 ## 参考资料
 
 - 《FontForge 与字体设计》一书中的[术语表](http://designwithfontforge.com/zh-CN/Glossary.html)
@@ -61,6 +83,7 @@ typst --font-path fonts book.typ
 - [Unicode 术语英中对照表](https://www.unicode.org/terminology/term_en_zh_Hans_CN.html)
 - <https://symbl.cc/>
 - Adobe OpenType 特性语言的语法高亮文件是从 [language-fontforge](https://github.com/Alhadis/language-fontforge) 项目转换而来，经过少量修改。
+- 黑暗模式的语法高亮方案为 [tokyo night](https://github.com/enkia/tokyo-night-vscode-theme)，tmTheme 颜色配置来自 `typst-book` 储存库。
 
 ## LICENSE
 

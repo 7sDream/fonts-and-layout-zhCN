@@ -1,3 +1,4 @@
+#import "/template/theme.typ": theme
 #import "/lib/draw.typ": *
 
 #let start = (0, 0)
@@ -18,6 +19,7 @@
   main-point(p3, fill: false)
 
   let line-stroke = stroke(
+    paint: theme.main,
     thickness: 4 * ux,
     cap: "round",
   )
@@ -46,6 +48,7 @@
       point(from, radius: 18, thickness: 4 * ux, dash: "dashed", fill: false)
     }
     segment(from, to,stroke: stroke(
+      paint: theme.main,
       thickness: 3 * ux,
       dash: "dotted",
     ))

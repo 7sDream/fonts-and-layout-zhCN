@@ -87,7 +87,7 @@
   )
 
   shape-points(style, ..shape-vertices)
-  shape(..shape-vertices, stroke: 6 * ux + black)
+  shape(..shape-vertices, stroke: 6 * ux + theme.main)
 })
 
 #canvas(end, start: start, width: 100%, graph)

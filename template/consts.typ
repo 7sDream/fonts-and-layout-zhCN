@@ -1,3 +1,6 @@
+#import "@preview/book:0.2.5": get-page-width
+#import "util.typ"
+
 #let upstream-version = "72e96c3"
 #let title = "全球文种的字体与布局"
 #let author = "Simon Cozens"
@@ -22,33 +25,35 @@
     mono: (..font.western-mono, ..font.chinese-mono, ..font.emoji),
 )
 
+#let _font-size-scale = if util.is-web-target() { 1.4 } else { 1.0 }
+
 #let size = (
-  page: (
+  pdf-page:(
     paper: "a4",
     margin: (top: 2.5cm, bottom: 2cm, left: 2cm, right: 2cm),
+    numbering: "1",
+  ),
+  web-page: (
+    width: get-page-width(),
+    height: auto,
+    margin: (top: 20pt, bottom: 0.5em, rest: 0pt),
+    numbering: none,
   ),
 
-  tiny: 6pt,
-  script: 8pt,
-  footnote: 10pt,
-  small: 11pt,
-  text: 12pt,
-  large: 14pt,
-  Large: 17pt,
-  LARGE: 20pt,
-  huge: 25pt,
-  Huge: 25pt,
+  tiny: 6pt * _font-size-scale,
+  script: 8pt * _font-size-scale,
+  footnote: 10pt * _font-size-scale,
+  small: 11pt * _font-size-scale,
+  text: 12pt * _font-size-scale,
+  large: 14pt * _font-size-scale,
+  Large: 17pt * _font-size-scale,
+  LARGE: 20pt * _font-size-scale,
+  huge: 25pt * _font-size-scale,
+  Huge: 25pt * _font-size-scale,
 
-  chapter-spacing: 30pt,
-  section-above: 20pt,
-  subsection-above: 10pt,
-  subsubsection-above: 8pt,
-  par-spacing: 15pt,
-)
-
-#let color = (
-    link: color.rgb("#2a7ae2"),
-    note: color.rgb("#828282"),
-    raw-stroke: color.rgb("#e8e8e8"),
-    table-stroke: color.rgb("#ccc")
+  chapter-spacing: 30pt * _font-size-scale,
+  section-above: 20pt * _font-size-scale,
+  subsection-above: 10pt * _font-size-scale,
+  subsubsection-above: 8pt * _font-size-scale,
+  par-spacing: 15pt * _font-size-scale,
 )

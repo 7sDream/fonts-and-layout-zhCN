@@ -1,4 +1,5 @@
 #import "/lib/draw.typ": *
+#import "/template/theme.typ": theme
 #import "mtop.typ": shape-points
 
 #let start = (0, 0)
@@ -44,10 +45,10 @@
   )
 
   shape-points(style, ..shape-c1)
-  shape(..shape-c1, stroke: 8 * ux + black)
+  shape(..shape-c1, stroke: 8 * ux + theme.main)
 
   shape-points(style, ..shape-g2)
-  shape(..shape-g2, stroke: 8 * ux + black)
+  shape(..shape-g2, stroke: 8 * ux + theme.main)
 })
 
 #canvas(end, start: start, width: 50%, graph)

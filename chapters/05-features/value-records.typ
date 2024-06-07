@@ -1,9 +1,10 @@
 #import "/lib/glossary.typ": tr
+#import "/template/theme.typ": theme
 
 #let normal-underline-with-style = (f, body) => box[
 #place(underline(
-  // black underline 
-  stroke: 1pt + black, 
+  // underline 
+  stroke: 1pt + theme.main, 
   evade: false,
   background: false,
   // with transparent character

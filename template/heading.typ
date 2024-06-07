@@ -31,7 +31,7 @@
   number-function: none,
   is_center: false,
   clean_footnote_counter: false,
-  text_size: consts.size.text,
+  text_size: 1em,
   above: none,
   bellow: none,
   it,
@@ -70,7 +70,7 @@
 ]
 
 #let heading-setting(doc) = [
-  #set heading(numbering: "1.1.1.1")
+  #set heading(numbering: "1.1.1.1") if util.is-pdf-target()
 
   #show heading.where(level: 1): __heading.with(
     number-function: (num, it) => [第#num#it.supplement],
@@ -100,7 +100,7 @@
 ]
 
 #let chapter(body, ..args) = [
-  #pagebreak(weak: true)
+  #if util.is-pdf-target() { pagebreak(weak: true) }
   #heading(level: 1, supplement: [章], ..args.named().at("heading", default: (:)), body)
   #if "label" in args.named() {
     args.named().at("label")

@@ -12,11 +12,11 @@
 
   rect(
     (20, 500), end: (390, 285),
-    stroke: 2 * ux + black,
+    stroke: 2 * ux + theme.main,
   )
   rect(
     (20, 285), end: (390, 100),
-    stroke: 2 * ux + black,
+    stroke: 2 * ux + theme.main,
   )
 
   segment(
@@ -26,7 +26,7 @@
   txt(tr[baseline], (215, 10), anchor: "cb", size: 20 * ux)
 
   arrow(
-    (410, 495), (410, 285), stroke: 2 * ux + black, head-scale: 3,
+    (410, 495), (410, 285), stroke: 2 * ux + theme.main, head-scale: 3,
   )
   arrow-head((410, 500), 6, theta: 90deg)
   txt(block(width: 1em)[#par(leading: 0.25em)[#tr[vertical advance]]], (425, 400), anchor: "lc")

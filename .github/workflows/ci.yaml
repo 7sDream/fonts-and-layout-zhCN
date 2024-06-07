@@ -11,7 +11,15 @@ on:
 
 jobs:
   build:
-    name: Build
+    if: ${{ github.event_name == 'push' }}
+    name: Build for push
     uses: ./.github/workflows/action-build.yaml
     with:
-      version-postfix: ${{ fromJSON('["-dev", "-pr"]')[github.event_name == 'pull_request'] }}
+      version-postfix: "-dev"
+
+  build-for-pr:
+    if: ${{ github.event_name == 'pull_request' }}
+    name: Build for pull request
+    uses: ./.github/workflows/action-build.yaml
+    with:
+      version-postfix: "-pr${{ github.event.number }}"

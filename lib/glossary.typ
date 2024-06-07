@@ -82,6 +82,7 @@
   "horizontal typeset": ([横排], []),
   "vertical typeset": ([竖排], []),
   "glyph class": ([字形类], []),
+  "anchor attachment": ([锚点衔接], []),
   "attachment rules": ([附加规则], []),
   "multiple substitution": ([增量替换], []),
   "alternate substitution": ([备选替换], []),

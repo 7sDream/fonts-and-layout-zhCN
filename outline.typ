@@ -1,4 +1,5 @@
 #import "template/consts.typ"
+#import "template/theme.typ": theme
 
 #counter(page).update(1)
 
@@ -14,7 +15,7 @@
   let indent = (it.level - 1) * 1.5em
   v_space + [
     #h(indent)
-    #link(loc)[#text(fill: consts.color.link)[#it.element.body]]
+    #link(loc)[#text(fill: theme.link)[#it.element.body]]
     #box(width: 1fr, it.fill)
     #strong(it.page)
   ]

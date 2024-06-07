@@ -1,3 +1,5 @@
+#import "/template/theme.typ": theme, choose
+
 #let state-size = state("size", none)
 #let state-start = state("tart", none)
 #let state-unit = state("unit", none)
@@ -48,7 +50,7 @@
 
 #let point = (
   p, radius: 10,
-  color: black, thickness: 1pt, dash: none, fill: true,
+  color: theme.main, thickness: 1pt, dash: none, fill: true,
   need-txt: false, size: none, anchor: "cc", dx: 0, dy: 0,
 ) => context {
   let rel = make-relative(state-size.get(), state-start.get())
@@ -75,7 +77,7 @@
   ))
 }
 
-#let segment = (start, end, stroke: 1pt + black) => context {
+#let segment = (start, end, stroke: 1pt + theme.main) => context {
   let rel = make-relative(state-size.get(), state-start.get())
 
   place(line(start: rel(start), end: rel(end), stroke: stroke))
@@ -131,10 +133,18 @@
     place(left + top, dx: sx, dy: sy, rect(stroke: none, width: width, height: height, radius: radius, fill: fill))
   }
 
-  place(left + top, dx: rx, dy: ry, rect(width: width, height: height, radius: radius, ..args.named()))
+  let user-args = args.named()
+
+  if user-args.at("fill", default: none) == none {
+    if "stroke" not in user-args {
+      user-args.insert("stroke", 1pt + theme.main)
+    }
+  }
+
+  place(left + top, dx: rx, dy: ry, rect(width: width, height: height, radius: radius, ..user-args))
 }
 
-#let bezier = (start, c1, c2, end, stroke: 1pt + black) => {
+#let bezier = (start, c1, c2, end, stroke: 1pt + theme.main) => {
   shape(
     closed: false, stroke: stroke,
     (start, start, c1),
@@ -146,7 +156,7 @@
   )
 }
 
-#let arrow-head = (point, size, theta: 0deg, color: black, point-at-center: false) => {
+#let arrow-head = (point, size, theta: 0deg, color: theme.main, point-at-center: false) => {
   let center = if point-at-center {
     point
   } else {
@@ -167,7 +177,7 @@
 #let arrow = (
   start, end,
   relative: false,
-  stroke: 1pt + black,
+  stroke: 1pt + theme.main,
   head-scale: 1.0,
 ) => with-unit((ux, uy) => context {
   let ((ex, ey), (rx, ry)) = if relative {
@@ -187,7 +197,7 @@
   arrow-head((ex, ey), size, theta: theta, color: stroke.paint)
 })
 
-#let mesh = (start, end, step, stroke: 1pt + black) => {
+#let mesh = (start, end, step, stroke: 1pt + theme.main) => {
   let (sx, sy) = start
   let (ex, ey) = end
   let (dx, dy) = step

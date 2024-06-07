@@ -18,7 +18,7 @@
 
 #let coordinate-mesh = with-unit((ux, uy) => mesh(
   (0, 0), (width, height), (axis-step, axis-step),
-  stroke: axis-thickness * ux + consts.color.table-stroke
+  stroke: axis-thickness * ux + theme.table-stroke
 ))
 
 #let draw-bezier = (..args, color: none) => with-unit((ux, uy) => {

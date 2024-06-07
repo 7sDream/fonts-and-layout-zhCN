@@ -7,7 +7,7 @@
 #let big-card-width = 850
 #let big-card-height = 700
 #let big-card-radius = 50
-#let big-card-fill = white
+#let big-card-fill = theme.bg
 #let big-card-stroke-size = 5
 #let big-card-stroke-color = gray
 #let big-card-start-point = (400, 900)
@@ -44,7 +44,7 @@
 #let feature-card-height = 220
 #let feature-card-radius = 30
 #let feature-card-stroke-size = 3
-#let feature-card-stroke-color = black
+#let feature-card-stroke-color = theme.main
 
 #let feature-card = (start, color: none) => with-unit((ux, uy) => rect(
   start,
@@ -117,12 +117,12 @@
         segment(
           (ltx + offset, lty - offset),
           (rbx - offset, rby + offset),
-          stroke: 1 * ux + black
+          stroke: 1 * ux + black,
         )
         segment(
           (rbx - offset, lty - offset),
           (ltx + offset, rby + offset),
-          stroke: 1 * ux + black
+          stroke: 1 * ux + black,
         )
       }
     }
