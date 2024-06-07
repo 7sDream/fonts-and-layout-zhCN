@@ -34,7 +34,7 @@ jobs:
         run: |
           tar xvzf artifact/web/${{ inputs.file-name }}
       - name: Upload Github Pages artifact
-        uses: upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ inputs.path-name }}/
       - name: Deploy to GitHub Pages
