@@ -30,25 +30,13 @@ CI 中会有最新版但可能失效，如果过期可开 Issue 告知。
 
 (本节内容可能需要您有一些技术方面的基础知识，以及对 Typst 和相关生态的了解，如果只是普通读者可以跳过)
 
-### PDF
-
-安装 Typst 0.11.1。
-
-下载[字体包](https://github.com/7sDream/fonts-and-layout-zhCN/releases/tag/extra-fonts%2F20240601)并解压，将 `extra` 文件夹放置在项目的 `fonts` 文件夹中。
-
-使用下列命令进行编译：
-
-```bash
-typst --font-path fonts --input realpdf=1 --input theme=light pdf.typ
-```
-
-详细流程参考 [CI workflow 文件](https://github.com/7sDream/fonts-and-layout-zhCN/blob/master/.github/workflows/action-build.yaml)。
+整体流程可以参考 [CI workflow 文件](https://github.com/7sDream/fonts-and-layout-zhCN/blob/master/.github/workflows/action-build.yaml)，或按照以下文字描述操作。
 
 ### 在线阅读版
 
 安装 [typst-book](https://github.com/Myriad-Dreamin/typst-book) 0.1.4。
 
-参考 PDF 部分下载字体包。
+下载[字体包](https://github.com/7sDream/fonts-and-layout-zhCN/releases/tag/extra-fonts%2F20240601)并解压，将 `extra` 文件夹放置在项目的 `fonts` 文件夹中。
 
 使用下列命令进行本地浏览器阅读：
 
@@ -57,6 +45,16 @@ typst-book serve --font-path fonts
 ```
 
 注意，编译时间比较久。
+
+### PDF
+
+PDF 需要在线阅读版作为前置，请先确定能够正常在本地编译出在线阅读版。
+
+安装 Typst 0.11.1。
+
+```bash
+typst --font-path fonts --input realpdf=1 --input theme=light pdf.typ
+```
 
 ### 所见即所得
 
@@ -76,7 +74,7 @@ typst-book serve --font-path fonts
 
 `tinymist` 的 `main file` 设置为 `pdf.typ`，根据其中注释临时修改 `/template/util.typ`。
 
-然后从 `pdf.typ` 启动 `typst-preview` 即可。
+然后从 `pdf.typ` 文件启动 `typst-preview` 即可。
 
 ## 参考资料
 
