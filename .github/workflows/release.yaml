@@ -22,10 +22,15 @@ jobs:
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
+      - name: Extract tag name
+        id: tag
+        run: |
+          name=$(echo "${{ github.ref_name }}" | cut -d/ -f2)
+          echo "name=${name}" >> "$GITHUB_OUTPUT"
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          name: ${{ github.ref_name }}, Commit ${{ needs.build.outputs.version }}
+          name: ${{ steps.tag.outputs.name }}, Commit ${{ needs.build.outputs.version }}
           draft: ${{ startsWith(github.ref_name, 'draft/') }}
           prerelease: false
           files: build/book-*.pdf
