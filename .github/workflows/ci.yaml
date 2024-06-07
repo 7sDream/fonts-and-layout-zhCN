@@ -23,5 +23,3 @@ jobs:
     uses: ./.github/workflows/action-gh-page.yaml
     with:
       artifact-name: web
-      file-name: dist.tar.gz
-      path-name: dist

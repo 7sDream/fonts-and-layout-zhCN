@@ -55,14 +55,12 @@ jobs:
         continue-on-error: true
         run: |
           ./typst-book build --font-path fonts --path-to-root "${{ inputs.web-path-root }}"
-      - name: Package web artifact
-        run: |
-          tar cvzf dist.tar.gz dist
       - name: Upload web artifact
         uses: actions/upload-artifact@v4
         with:
           name: web
-          path: dist.tar.gz
+          path: dist
+          if-no-files-found: error
       - name: Build
         run: |
           declare -a themes=("light" "rust" "coal" "navy" "ayu")

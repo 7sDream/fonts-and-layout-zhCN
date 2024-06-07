@@ -6,17 +6,10 @@ on:
       artifact-name:
         required: true
         type: string
-      file-name:
-        required: true
-        type: string
-      path-name:
-        required: true
-        type: string
 
 jobs:
   gh-pages:
     name: Upload Github Pages
-    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-22.04
     permissions:
       pages: write      # to deploy to Pages
@@ -30,13 +23,13 @@ jobs:
         with:
           name: ${{ inputs.artifact-name }}
           path: artifact
-      - name: Decompress dist
+      - name: Check files
         run: |
-          tar xvzf artifact/web/${{ inputs.file-name }}
+          tree .
       - name: Upload Github Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ inputs.path-name }}/
+          path: artifact/${{ inputs.artifact-name }}/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
