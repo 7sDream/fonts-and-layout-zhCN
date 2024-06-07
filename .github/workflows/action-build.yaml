@@ -57,7 +57,7 @@ jobs:
           ./typst-book build --font-path fonts --path-to-root "${{ inputs.web-path-root }}"
       - name: Package web artifact
         run: |
-          tar cvzf gh-pages.tar.gz dist
+          tar cvzf dist.tar.gz dist
       - name: Upload web artifact
         uses: actions/upload-artifact@v4
         with:
