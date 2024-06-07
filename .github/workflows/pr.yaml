@@ -1,0 +1,14 @@
+name: PR
+
+on:
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build for pull request
+    uses: ./.github/workflows/action-build.yaml
+    with:
+      version-postfix: "-pr${{ github.event.number }}"

@@ -10,8 +10,6 @@ jobs:
   build:
     name: Build
     uses: ./.github/workflows/action-build.yaml
-    with:
-      version-postfix: ""
 
   release:
     name: Release
@@ -22,6 +20,8 @@ jobs:
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
+        with:
+          path: artifact
       - name: Extract tag name
         id: tag
         run: |
@@ -33,4 +33,6 @@ jobs:
           name: ${{ steps.tag.outputs.name }}, Commit ${{ needs.build.outputs.version }}
           draft: ${{ startsWith(github.ref_name, 'draft/') }}
           prerelease: false
-          files: build/book-*.pdf
+          files: |
+            artifact/pdf/book-*.pdf
+            artifact/web/dist.tar.gz

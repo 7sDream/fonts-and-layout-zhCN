@@ -1,12 +1,15 @@
-name: Action Build
+name: Action - Build
 
 on:
   workflow_dispatch:
   workflow_call:
     inputs:
       version-postfix:
-        required: true
         type: string
+        default: ""
+      web-path-root:
+        type: string
+        default: "/"
     outputs:
       version:
         value: ${{ jobs.build.outputs.version }}
@@ -51,7 +54,15 @@ jobs:
       - name: Build web book
         continue-on-error: true
         run: |
-          ./typst-book build --font-path fonts
+          ./typst-book build --font-path fonts --path-to-root "${{ inputs.web-path-root }}"
+      - name: Package web artifact
+        run: |
+          tar cvzf gh-pages.tar.gz dist
+      - name: Upload web artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: web
+          path: dist.tar.gz
       - name: Build
         run: |
           declare -a themes=("light" "rust" "coal" "navy" "ayu")
@@ -64,8 +75,8 @@ jobs:
               --input "theme=${theme}" \
               pdf.typ book-${{ steps.args.outputs.version }}-${theme}.pdf
           done
-      - name: Upload artifact
+      - name: Upload pdf artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build
+          name: pdf
           path: book-*.pdf

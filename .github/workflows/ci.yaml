@@ -4,22 +4,21 @@ on:
   push:
     branches:
       - master
-  pull_request:
-    branches:
-      - master
   workflow_dispatch:
 
 jobs:
   build:
-    if: ${{ github.event_name == 'push' }}
-    name: Build for push
+    name: Build
     uses: ./.github/workflows/action-build.yaml
     with:
-      version-postfix: "-dev"
+      version-postfix: "-master"
+      web-path-root: /${{ github.event.repository.name }}/
 
-  build-for-pr:
-    if: ${{ github.event_name == 'pull_request' }}
-    name: Build for pull request
-    uses: ./.github/workflows/action-build.yaml
+  github-pages:
+    needs: [build]
+    name: Deploy Github Pages
+    uses: ./.github/workflows/action-gh-page.yaml
     with:
-      version-postfix: "-pr${{ github.event.number }}"
+      artifact-name: web
+      file-name: dist.tar.gz
+      path-name: dist

@@ -1,0 +1,42 @@
+name: Action - Deploy Github Page
+
+on:
+  workflow_call:
+    inputs:
+      artifact-name:
+        required: true
+        type: string
+      file-name:
+        required: true
+        type: string
+      path-name:
+        required: true
+        type: string
+
+jobs:
+  gh-pages:
+    name: Upload Github Pages
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-22.04
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: artifact
+      - name: Decompress dist
+        run: |
+          tar xvzf artifact/web/${{ inputs.file-name }}
+      - name: Upload Github Pages artifact
+        uses: upload-pages-artifact@v3
+        with:
+          path: ${{ inputs.path-name }}/
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
