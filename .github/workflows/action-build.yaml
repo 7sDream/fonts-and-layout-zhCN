@@ -31,7 +31,7 @@ jobs:
           wget -nv https://github.com/Myriad-Dreamin/typst-book/releases/download/v0.1.4/typst-book-x86_64-unknown-linux-musl.tar.gz
           tar xvzf typst-book-x86_64-unknown-linux-musl.tar.gz
           mv typst-book-x86_64-unknown-linux-musl/bin/typst-book typst-book
-          ls
+          ls -al
           ./typst-book --version
       - name: Download fonts
         run: |
