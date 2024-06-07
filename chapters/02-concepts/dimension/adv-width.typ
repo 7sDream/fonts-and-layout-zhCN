@@ -20,7 +20,7 @@
 ], placement: none)[#include "dim-1.typ"] <figure:dim-1>
 
 // Glyphs in horizontal fonts are assembled along a horizontal baseline, and the horizontal advance tells the layout system how far along the baseline to advance. In this glyph, (a rather beautiful Armenian letter xeh) the horizontal advance is 1838 units. The layout system will draw this glyph by aligning the dot representing the *origin* of the glyph at the current cursor position, inking in all the black parts and then incrementing the X coordinate of the cursor by 1838 units.
-水平字体中的#tr[glyph]将会沿着水平的#tr[baseline]排列，#tr[horizontal advance]用于告诉#tr[layout]系统要沿着#tr[baseline]向前走多远。在@figure:dim-1 所示的#tr[glyph]中，#tr[horizontal advance]是1838个单位。#tr[layout]系统在绘制这个#tr[glyph]时，会将#tr[glyph]*原点*和当前#tr[cursor]位置对齐，然后填充所有黑色部分，最后将光标的X坐标向前移动1838个单位。#text(size: 10pt)[译注]
+水平字体中的#tr[glyph]将会沿着水平的#tr[baseline]排列，#tr[horizontal advance]用于告诉#tr[layout]系统要沿着#tr[baseline]向前走多远。在@figure:dim-1 所示的#tr[glyph]中，#tr[horizontal advance]是1838个单位。#tr[layout]系统在绘制这个#tr[glyph]时，会将#tr[glyph]*原点*和当前#tr[cursor]位置对齐，然后填充所有黑色部分，最后将光标的X坐标向前移动1838个单位。
 
 // Note that the horizontal advance is determined by the em square, not by the outlines.
 需要注意，#tr[horizontal advance]的实际长度也是由#tr[em square]的大小决定，和#tr[glyph]#tr[outline]无关。
