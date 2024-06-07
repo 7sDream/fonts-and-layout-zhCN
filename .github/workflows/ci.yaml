@@ -17,6 +17,9 @@ jobs:
   github-pages:
     needs: [build]
     name: Deploy Github Pages
+    permissions:
+      pages: write
+      id-token: write
     uses: ./.github/workflows/action-gh-page.yaml
     with:
       artifact-name: web
