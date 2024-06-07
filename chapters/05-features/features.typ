@@ -62,7 +62,7 @@ feature liga {
 这种用于编写特性的语言语法十分简单。它的完整定义可以参考AFDKO的文档，但其基本使用通过观察上例就能掌握。特性通过如下方式定义：
 
 ```fea
-feature name { ... } name
+feature name { ... } name;
 ```
 
 // We created a feature called `liga` and placed a rule inside it. The rules all start with a rule name and end with a semicolon, but what is in the middle depends on the nature of the rule. The rule we created will substitute one set of glyphs for another, so it is a `sub` rule (you can also spell this `substitution`, if you like). There are various kinds of `sub` rule, and we'll look at them systematically in the next chapter, but the one we're using has two parts to it: the *match*, which consists of one glyph name, and then the *replacement* which is introduced by the keyword `by` and consists of two glyph names. There are also `pos` (or `position`) rules to change the position of glyphs; `sub` rules go in the `GSUB` table and `pos` rules go in the `GPOS` table. Simple, really.
