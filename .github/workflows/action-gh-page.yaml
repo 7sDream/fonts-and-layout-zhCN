@@ -22,14 +22,14 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.artifact-name }}
-          path: artifact
+          path: dist
       - name: Check files
         run: |
           tree .
       - name: Upload Github Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: artifact/${{ inputs.artifact-name }}/
+          path: dist/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

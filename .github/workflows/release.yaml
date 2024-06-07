@@ -22,6 +22,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: artifact
+      - name: Package web folder
+        run: |
+          mv artifact/web artifact/dist
+          tar cvzf dist.tar.gz -C artifact dist
       - name: Extract tag name
         id: tag
         run: |
@@ -35,4 +39,4 @@ jobs:
           prerelease: false
           files: |
             artifact/pdf/book-*.pdf
-            artifact/web/dist.tar.gz
+            dist.tar.gz
