@@ -11,7 +11,9 @@
   在线阅读说明
 ]
 
-本书使用 #link("https://typst.app/")[Typst] 作为排版系统，借助 #link("https://github.com/Myriad-Dreamin/typst-book")[typst-book] 生成在线阅读版本。
+本书是 Simon Cozens 编写的《#link("https://simoncozens.github.io/fonts-and-layout/")[Fonts and Layout for Global Scripts]》的中文翻译版，是一本关于字体设计、Unicode和计算机中复杂文本处理的免费书籍。
+
+中文版使用 #link("https://typst.app/")[Typst] 作为排版系统，借助 #link("https://github.com/Myriad-Dreamin/typst-book")[typst-book] 生成在线阅读版本。
 
 此方案其实是*在您的浏览器中*，使用 WASM 实时运行 Typst 编译器，将源码编译为 SVG 并显示。
 
@@ -27,6 +29,6 @@
 - 在页面加载时可能会使用较高的计算资源
 - 由于按页编译的特性，所有交叉引用需要手工指定目标页面，可能会存在错误
 
-如果您在阅读时遇到任何问题，可以#link("https://github.com/7sDream/fonts-and-layout-zhCN/issues/new")[提交 Issue]。
+如果您在阅读时遇到任何问题（额，那么你也有可能没法看见这句话），可以#link("https://github.com/7sDream/fonts-and-layout-zhCN/issues/new")[提交 Issue]。
 
 也可以选择#link("https://github.com/7sDream/fonts-and-layout-zhCN/releases/latest")[下载PDF]，离线阅读。
