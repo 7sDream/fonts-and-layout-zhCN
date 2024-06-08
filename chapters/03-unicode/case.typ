@@ -21,7 +21,7 @@
 ]
 
 // The other classic example is Turkish. The ordinary Latin small letter "i" (U+0069) normally uppercases to "I" (U+0049) - except when the document is written in Turkish or Azerbaijani, when it uppercases to "İ". This is because there is another letter used in those languages, LATIN SMALL LETTER DOTLESS I (U+0131, ı), which uppercases to "I". So case conversion needs to be aware of the linguistic background of the text.
-另一个经典例子是传统拉丁字母i（`U+0069`）。通常来说，这个字母转换为大写时会是I（U+0049），但在土耳其语或阿塞拜疆语的环境下，其大写却是İ。<position:turkish-i-uppercase>这是因为这些语言中还有另一个字母 ı（`U+0131 LATIN SMALL LETTER DOTLESS I`，拉丁文小写字母无点I），这个字母的大写才是 I。所以，大小写转换也需要考虑文本所处的语言环境。
+另一个经典例子是传统拉丁字母i（`U+0069`）。通常来说，这个字母转换为大写时会是I（`U+0049`），但在土耳其语或阿塞拜疆语的环境下，其大写却是İ。<position:turkish-i-uppercase>这是因为这些语言中还有另一个字母 ı（`U+0131 LATIN SMALL LETTER DOTLESS I`，拉丁文小写字母无点I），这个字母的大写才是 I。所以，大小写转换也需要考虑文本所处的语言环境。
 
 // As well as depending on language, case conversion also depends on context. GREEK CAPITAL LETTER SIGMA (Σ) downcases to GREEK SMALL LETTER SIGMA (σ) except at the end of a word, in which case it downcases to ς, GREEK SMALL LETTER FINAL SIGMA.
 除了和语言有关之外，大小写转换还需要结合上下文。#greek[Σ]（`GREEK CAPITAL LETTER SIGMA`，希腊文大写字母 Sigma）通常的小写形式为#greek[σ]（`GREEK SMALL LETTER SIGMA`，希腊文小写字母 Sigma）。但如果其出现在词尾，则小写形式会变为#greek[ς]（`GREEK SMALL LETTER FINAL SIGMA`，希腊文小写字母词尾 Sigma）。

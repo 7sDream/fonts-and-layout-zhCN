@@ -10,10 +10,10 @@
 == #tr[normalization]和#tr[decompose] <heading:normalization-decomposition>
 
 // The Unicode Standard has a number of stated design goals: to be *universal*, in the sense that every character in every script likely to be used on computer has an encoding; to be *efficient*, such that algorithms used by computers to input and output Unicode characters do not require too much state or overhead; and to be *unambiguous*, in that every Unicode codepoint represents the same character.
-Unicode标准明面上有如下几个设计目标：通用，也即尽量#tr[encoding]所有可能在计算机中用到的所有#tr[scripts]中的所有#tr[character]；高效，处理Unicode数据的输入输出的相关算法不能引入过多的额外状态和计算开销；明确且无歧义，Unicode#tr[codepoint]和#tr[character]互相一一对应。
+Unicode标准明面上有如下几个设计目标：通用，也即尽量#tr[encoding]所有可能在计算机中用到的#tr[scripts]中的所有#tr[character]；高效，处理Unicode数据的输入输出的相关算法不能引入过多的额外状态和计算开销；明确且无歧义，Unicode#tr[codepoint]和#tr[character]互相一一对应。
 
 // But it also has an unstated design goal, which is the unstated design goal of pretty much every well-behaved piece of software engineering: *backward compatibility*. Unicode wants to maintain compatibility with all previous encoding standards, so that old documents can be reliably converted to and from Unicode without ambiguity. To a first approximation, this means every character that was ever assigned a codepoint in some encoding should be assigned a unique codepoint in Unicode.
-除此之外，还有一个没有直接表述出，但和绝大多数软件工程项目一样必须考虑到的目标：*向后兼容*。Unicode希望尽量对先前的#tr[encoding]标准保持兼容，这样老旧的文档才能被可靠地在原始#tr[encoding]和Unicode间来回转换。这几乎就是说，只要先前的某个#tr[encoding]标准中有某个#tr[character]，Unicode中就必须为它赋予一个专属的#tr[codepoint]。
+除此之外，还有一个没有直接表述出，但和绝大多数软件工程项目一样必须考虑的目标：*向后兼容*。Unicode希望尽量对先前的#tr[encoding]标准保持兼容，这样老旧的文档才能被可靠地在原始#tr[encoding]和Unicode间来回转换。这几乎就是说，只要先前的某个#tr[encoding]标准中有某个#tr[character]，Unicode就必须为它赋予一个专属的#tr[codepoint]。
 
 // This contrasts somewhat with the goal of unambiguity, as there can be multiple different ways to form a character. For instance, consider the  character n̈ (Latin small letter n with diaeresis). It occurs in Jacaltec, Malagasy, Cape Verdean Creole, and most notably, *This Is Spın̈al Tap*. Despite this obvious prominence, it is not considered noteworthy enough to be encoded in Unicode as a distinct character, and so has to be encoded using *combining characters*.
 这在某种程度上和之前说的无歧义目标是相违背的。因为同一个#tr[character]在不同的古老标准中可能有不同的构建方式。比如#tr[character]n̈（带有分音符的小写拉丁字母N），它在雅卡尔泰克语、马达加斯加语、卡布佛得鲁语和著名的电影《This Is Spın̈al Tap》中都有使用。尽管如此常见，但Unicode不认为它重要到要用一个单独的#tr[character]来#tr[encoding]。最终我们用一种叫做*可#tr[combine]#tr[character]*的方式#tr[encoding]它。

@@ -19,4 +19,4 @@
 #figure(caption: [间距调整])[#include "kerns-2.typ"] <figure:kern-2>
 
 // In this case, the cursor goes *backwards* along the X dimension by 140 units, so that the backside of the ja is nestled more comfortably into the opening of the reh. This is a negative kern, but equally a designer can open up more space between a pair of characters by specifying a positive kern value. We will see how kerns are specified in the next two chapters.
-在@figure:kern-2 的示例中，光标沿X轴*往回*走了140个单位，这样 ja 字母的弧线就会更加靠近 reh 字母的开口，这就是一个负的#tr[kern]。设计师也可以通过设置正的#tr[kern]来让两个#tr[glyph]的间距更大。在下两章中会具体介绍#tr[kern]是如何设置的。
+在@figure:kern-2 的示例中，光标沿X轴*往回*走了140个单位，这样 ja 字母的弧线就会更加靠近 reh 字母的开口，这就是一个负的#tr[kern]。设计师也可以通过设置正的#tr[kern]来让两个#tr[glyph]的间距更大。在后续的两章中会具体介绍#tr[kern]是如何设置的。

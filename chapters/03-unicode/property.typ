@@ -98,7 +98,7 @@ Unicode标准不仅只是收集所有#tr[character]并为他们分配#tr[codepoi
 这个字母#mandingo[ߞ]是一个双向互连#tr[character]，这意味着N'ko是一种和阿拉伯文类似的连写#tr[script]，并且 Ka 字母和左右两边都互相连接。也就是说，在表示“我说”的单词“n'ko”里，这个字母看上去是这样的：#mandingo[ߒߞߏ]。
 
 // This is the kind of data that text processing systems can derive programmatically from the Unicode Character Database. Of course, if you really want to know about how to handle N'ko text and the N'ko writing system in general, the Unicode Standard itself is a good reference point: its section on N'ko (section 19.4) tells you about the origins of the script, the structure, diacritical system, punctuation, number systems and so on.
-这就是文字处理系统能用程序从Unicode#tr[character]数据库中获取到的信息。当然，如果你真的想学习N'ko#tr[writing system]的通用知识和如何处理它们，Unicode标准本身就是一个很好的参考资料，它的 N'ko 部分（在 19.4 小节）会告诉你这种#tr[script]的起源、结构、#tr[diacritic]、标点、数字系统等方面的信息。
+这就是文字处理系统能用程序从Unicode#tr[character]数据库中获取到的信息。当然，如果你真的想学习N'ko#tr[writing system]的通用知识和如何处理它们，Unicode标准本身就是一个很好的参考资料。它的 N'ko 部分（在 19.4 小节）会告诉你这种#tr[script]的起源、结构、#tr[diacritic]、标点、数字系统等方面的信息。
 
 #note[
   // > When dealing with computer processing of an unfamiliar writing system, the Unicode Standard is often a good place to start. It's actually pretty readable and contains a wealth of information about script issues. Indeed, if you're doing any kind of heavy cross-script work, you would almost certainly benefit from getting hold of a (printed) copy of the latest Unicode Standard as a desk reference.
