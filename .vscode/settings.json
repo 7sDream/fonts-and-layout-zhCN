@@ -1,0 +1,20 @@
+{
+    "typst-preview.systemFonts": false,
+    "typst-preview.fontPaths": [
+        "${workspaceFolder}${pathSeparator}fonts",
+    ],
+    "typst-preview.sysInputs": {
+        "realpdf": "1", // Comment out this line if you want to preview online web version
+        "theme": "light",
+    },
+    "tinymist.systemFonts": false,
+    "tinymist.fontPaths": [
+        "${workspaceFolder}${pathSeparator}fonts",
+    ],
+    "tinymist.typstExtraArgs": [
+        "--input", // Comment out those two lines
+        "realpdf=1", // if you want to preview online web version
+        "--input",
+        "theme=light",
+    ]
+}

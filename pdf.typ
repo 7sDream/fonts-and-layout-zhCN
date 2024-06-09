@@ -8,9 +8,6 @@
   author: (consts.author, ..consts.translators),
 )
 
-// FIXME: Typst preview do not support input args, so we can't preview this file now
-// So if you want edit with preview, you can
-// temporarily changes util.is-pdf-target function to always returns true
 #if not util.is-pdf-target() {
   panic("To compile this file, you need provide `realpdf=1` input argument")
 }

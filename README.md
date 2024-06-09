@@ -74,23 +74,11 @@ typst --font-path fonts --input realpdf=1 --input theme=light pdf.typ
 
 ### 所见即所得
 
-如果想所见即所得的编辑，推荐使用 VSCode 配合 [Tinymist](https://github.com/Myriad-Dreamin/tinymist) 和 [Typst Preview](https://github.com/Enter-tainer/typst-preview) 插件，并添加如下项目配置：
+如果想所见即所得的编辑，推荐使用 VSCode 配合 [Tinymist](https://github.com/Myriad-Dreamin/tinymist) 和 [Typst Preview](https://github.com/Enter-tainer/typst-preview) 插件。
 
-```json
-{
-    "typst-preview.fontPaths": [
-        "${workspaceFolder}\\fonts",
-    ],
-    "tinymist.systemFonts": false,
-    "tinymist.fontPaths": [
-        "${workspaceFolder}\\fonts",
-    ]
-}
-```
+`.vscode/setting.json` 中已经包含了所需的配置，直接从 `pdf.typ` 文件启动 `typst-preview` 即可，这时预览的是 PDF 的效果。
 
-`tinymist` 的 `main file` 设置为 `pdf.typ`，根据其中注释临时修改 `/template/util.typ`。
-
-然后从 `pdf.typ` 文件启动 `typst-preview` 即可。
+如果你想查看网页版的效果，可以将 `.vscode/setting.json` 中的两处 `realpdf=1` 参数删去，然后从各章节文件启动单页预览。
 
 ## 参考资料
 
