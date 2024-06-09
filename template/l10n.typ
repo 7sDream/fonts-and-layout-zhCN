@@ -6,8 +6,9 @@
   #set smartquote(enabled: false)
 
   // https://github.com/w3c/clreq/issues/534
-  #show regex("[“”]"): set text(font: (..consts.font.chinese-normal,))
+  #show regex("[‘‌’“”。]+"): set text(font: (..consts.font.chinese-normal,))
   #show regex("——"): set text(font: (..consts.font.chinese-normal,))
+  #show regex("…+"): set text(font: (..consts.font.chinese-normal,))
 
   #show ref: it => {
     let el = it.element
