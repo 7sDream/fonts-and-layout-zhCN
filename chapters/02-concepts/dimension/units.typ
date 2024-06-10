@@ -9,7 +9,7 @@
 === 单位
 
 // First, though, how do you measure stuff in a font? When fonts were bits of metal, it was easy: you could use callipers or a micrometer to measure the sort, and get an answer in millimeters or printers points. But digital fonts, as we've seen in the previous chapter, are meant to be scalable; that is, usable at any size. With scalable fonts, there isn't such a thing as a 12pt Times Roman as distinct from a 16pt Times Roman; there isn't any *size* there at all.
-首先有个疑问，在进行字体设计时我们怎么测量长度呢？当字体还是金属的时代这很容易，使用卡尺或者千分尺之类的工具就可以量出#tr[sort]的尺寸，用厘米或者点作为单位来记录即可。但数字字体，我们在上一章讨论过，可以以任意大小显示。对于这些可缩放的字体来说，12pt和16pt的Times Roman并没有什么区别，它们根本没有大小这个概念。
+首先有个疑问，在进行字体设计时我们怎么测量长度呢？当字体还是金属的时代这很容易，使用卡尺或者千分尺之类的工具就可以量出#tr[sort]的尺寸，用厘米或者点（pt）作为单位来记录即可。但数字字体，我们在上一章讨论过，它可以以任意大小显示。对于这些可缩放的字体来说，12pt和16pt的Times Roman并没有什么区别，它们根本没有大小这个概念。
 
 // So coordinates and size values inside digital fonts are defined in terms of an *em square*, which is itself divided into an arbitrary number of *units*, typically 1000, 1024 or 2048. If we want to display text at 12 points, we draw the *em square* at that size, and then scale up the design to match.
 数字字体内的坐标和尺寸由*#tr[em square]*来确定，它的高度会被分成任意数量个小单元，一般会是1000，1024或者2048个单位。如果我们希望显示12pt的文本，就把*#tr[em square]*定为这个尺寸，具体的字符设计就自然地缩放为相匹配的大小了。
@@ -32,7 +32,7 @@
 @figure:notional-size 展示了Noto Sans和Trajan两个字体在把#tr[outline]放进#tr[em square]时采用的不同方式：Trajan拥有一个更高的#tr[x-height]，它的体型更大，向上填满了整个方框；而Noto Sans则在上面留出了一些空间（两个字体都在下方为#tr[decender]预留了空间）。字体中的这些不同的高度会在后面的章节详述，现在只需要记住，因为#tr[em square]只是用于参考的名义上的边界，某个字体的12pt可能会比另一个字体的12pt更大，即使它们的#tr[em square]被缩放到了相同的大小。
 
 // However, dividing this notional square up into a number of units gives us a co-ordinate system by which we can talk about where the outlines fall on the glyph. Instead of saying "make the horizontal stem width about a tenth of the height", we can say "make the horizontal stem width 205 units wide", and that'll be scalable - true for whatever size of font we're talking about.
-但这个名义上的边界在被划分成小单元之后，我们就有了一个坐标系统，可以用于指定#tr[outline]位于整个#tr[glyph]的什么位置。我们不需要用“画一条大约是整体高度的1/10的水平#tr[stem]”这样的描述，只需要说“画一条205个单位宽的水平#tr[stem]”就行。而这也保持了可缩放的特性，因为对于任何字号这一描述都是成立的。
+但这个名义上的边界在被划分成小单元之后，我们就有了一个坐标系统，可以用于指定#tr[outline]位于整个#tr[glyph]的什么位置。我们不需要用“画一条大约是整体高度的1/10的水平#tr[stem]”这样的描述，只需要说“画一条205个单位宽的水平#tr[stem]”就行。而这也保持了可缩放的特性，因为对于任何字号来说这一描述都是成立的。
 
 // We'll use these *font units* every time we talk about the dimensions within a font.
 我们在讨论字体中的所有尺寸时都会使用这个单位长度。

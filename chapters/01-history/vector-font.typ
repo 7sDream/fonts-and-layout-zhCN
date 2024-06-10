@@ -37,7 +37,7 @@
 该系统使用首尾相连的圆弧来构造曲线。通过展现设计背后的“想法”，IKARUS可以自动生成整套字体。它不仅可以将设计#tr[rasterization]为不同的尺寸，还可以添加如阴影、轮廓以及Karow称之为“复古化（antiquing）”的故意扭曲轮廓的效果。到1977年，IKARUS还支持了#tr[multiple master]之间的插值。例如，设计师可以为常规版本的A和粗体的B绘制/*相同的？*/字形，软件会通过在A和B之间按某一比例计算出控制点来生成半粗体。
 
 // In that same year, 1977, the Stanford computer scientist Don Knuth began work on a very different way of representing font outlines. His METAFONT system describes glyphs *algorithmically*, as a series of equations. The programmer - and it does need to be a programmer, rather than a designer - states that certain points have X and Y coordinates in certain relationships to other points; unlike IKARUS which describes outer and inner outlines and fills in the interior of the outline with ink, METAFONT uses the concept of a *pen* of a user-defined shape to trace the curves that the program specifies. Here, for example, is a METAFONT program to draw a "snail":
-同样是在1977年，斯坦福大学的计算机科学家Donald Knuth开始研究一种非常不同的字体#tr[outline]表示方法。他的 METAFONT 系统将#tr[glyph]*以算法的方式*描述为一系列方程。程序员——它的确需要一位程序员，而不仅仅是一位设计师——声明某些点的X、Y坐标，以及点和点之间关系。与IKARUS描述内外#tr[outline]并用墨水填满内部不同，METAFONT 使用“笔”的概念，通过用户定义的形状描绘程序规定的曲线。例如这个用于绘制“涡形”的 METAFONT 程序:
+同样是在1977年，斯坦福大学的计算机科学家Donald Knuth开始研究一种非常不同的字体#tr[outline]表示方法。他的 METAFONT 系统将#tr[glyph]*以算法的方式*描述为一系列方程。程序员——它的确需要一位程序员，而不仅仅是一位设计师——声明某些点的X、Y坐标，以及点和点之间关系。与IKARUS描述内外#tr[outline]并用墨水填满内部不同，METAFONT 使用“笔”的概念，通过用户定义的形状描绘程序规定的曲线。例如这个用于绘制“涡形”的 METAFONT 程序：
 
 /*
 ```

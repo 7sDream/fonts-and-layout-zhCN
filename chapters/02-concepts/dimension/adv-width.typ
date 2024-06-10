@@ -28,7 +28,7 @@
 #figure(placement: none)[#include "dim-2.typ"]
 
 // The rectangle containing all the "black parts" of the glyph is sometimes called the *ink rectangle* or the *outline bounding box*.  In the Bengali glyph we saw above, the horizontal advance was *smaller* than the outline bounding box, because we wanted to create an overlapping effect. But glyphs in most scripts need a little space around them so the reader can easily distinguish them from the glyphs on either side, so the horizontal advance is usually wider than the outline bounding box. The space between the outline bounding box and the glyph's bounding box is called its sidebearings:
-包含#tr[glyph]中所有“黑色部分”的矩形叫做*#tr[ink rectangle]*，或者*#tr[outline]#tr[bounding box]*。在我们之前看过的孟加拉文#tr[glyph]中，#tr[horizontal advance]会比#tr[outline]#tr[bounding box]要*小*，因为我们想要制造这种重叠的效果。但大多数文种都需要在#tr[glyph]的周围留有一些空间，来让读者能够更容易地逐个阅读每个#tr[glyph]，这时#tr[horizontal advance]就会稍微比#tr[outline]#tr[bounding box]宽一些。在#tr[outline]#tr[bounding box]和整个字形的#tr[bounding box]之间的这些空间叫做#tr[sidebearing]：
+包含#tr[glyph]中所有“黑色部分”的矩形叫做*#tr[ink rectangle]*，或者*#tr[outline]#tr[bounding box]*。在我们之前看过的孟加拉文#tr[glyph]中，因为想要制造一种重叠的效果，会让它的#tr[horizontal advance]比#tr[outline]#tr[bounding box]要*小*，。但大多数文种都需要在#tr[glyph]的周围留有一些空间，来让读者能够更容易地逐个阅读每个#tr[glyph]，这时#tr[horizontal advance]就会稍微比#tr[outline]#tr[bounding box]宽一些。在#tr[outline]#tr[bounding box]和整个字形的#tr[bounding box]之间的这些空间叫做#tr[sidebearing]：
 
 #figure(placement: none)[#include "dim-4.typ"]
 

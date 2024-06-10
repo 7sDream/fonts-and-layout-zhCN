@@ -21,7 +21,7 @@
 要理解其中的大多数步骤，可以将其类比于凸版印刷。排版工会拿到一些文本，以及关于如何呈现它们的指令。他首先要找到装有相应字体的木箱，这就是*字体管理*：计算机需要找到与我们使用的字体相对应的文件。例如，它会从“Arial Black”找到`C:\Windows\Fonts\AriBlk.TTF`。而这就需要一个有关字体名称、#tr[typeface family]信息和文件名的数据库。在自由操作系统上最常用的字体管理软件是fontconfig@Unknown.Fontconfig，在 Mac 上则是NSFontManager@Apple.NSFontManager。
 
 // They'll also have to make sure they can read the editor's handwriting, checking they have the correct understanding of the input text. In the computer world, correctly handling some scripts may require processes of reordering and re-coding required so that the input is correctly interpreted. This is called Unicode processing, and as we will see in the next chapter, is often done using the [ICU](http://site.icu-project.org) library.
-排版工还要有能力阅读编辑给的手写文本，并确认他们对这些文本的理解是否正确。在计算机世界中，可能需要经过重排序和重编码等过程才能正确解读输入的文本，尤其是对含有非拉丁#tr[script]的场景。这一过程称为Unicode处理，通常使用ICU程序库#[@UnicodeConsortium.ICU]完成，我们将在下一章中介绍这一步骤。
+排版工还要有能力阅读编辑给的手写文本，并确认自己对这些文本的理解是否正确。在计算机世界中，可能需要经过重排序和重编码等过程才能正确解读输入的文本，尤其是对含有非拉丁#tr[script]的场景。这一过程称为Unicode处理，通常使用ICU程序库#[@UnicodeConsortium.ICU]完成，我们将在下一章中介绍这一步骤。
 
 // > Yes, that example was a bit of a stretch. I know.
 #note[好吧，我知道这个例子有点牵强。]

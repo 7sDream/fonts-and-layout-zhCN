@@ -9,16 +9,16 @@
 == 贝塞尔曲线
 
 // We've already mentioned that outlines in digital fonts are made out of lines and Bézier curves. I'm not going to spend a lot of time getting into the mathematics of how Bézier curves work, but if you're doing any kind of implementing -  rasterising, font editing or font manipulation - you would be wise to spend some time looking through Mike Kamerman's [A Primer on Bézier Curves](https://pomax.github.io/BezierInfo-2/).
-前文已经介绍过，数字字体中的#tr[outline]是由直线和贝塞尔曲线组成的。本书不会过多介绍关于贝塞尔曲线的数学支持，但如果你想实际实现一些东西——比如字体#tr[rasterization]器、编辑器、操作工具——的话，可以花时间看看Mike Kamerman的《A Primer on Bézier Curves》@Kamerman.PrimerBezier。
+前文已经介绍过，数字字体中的#tr[outline]是由直线和贝塞尔曲线组成的。本书不会过多介绍关于贝塞尔曲线的数学知识，但如果你想实际实现一些东西——比如字体#tr[rasterization]器、编辑器、操作工具——的话，可以花时间看看Mike Kamerman的《A Primer on Bézier Curves》@Kamerman.PrimerBezier。
 
 // What is worth considering, for our purposes, is the difference between *quadratic* and *cubic* Bézier curves. As we've seen, Bézier curves are specified by a start point, an end point, and one or more control points, which pull the curve towards them. A quadratic Bézier curve has one control point, whereas a cubic Bézier curve has two. (Higher order curves are possible, but not used in type design.)
 但对于本书的主旨来说，*二次*和*三次*贝塞尔曲线的区别是值得讨论一下的。贝塞尔曲线是由一个起始点、一个终结点，和一个或多个控制点构造而成的。这些控制点会将曲线往它们所在的位置拉动。二次贝塞尔曲线有一个控制点，而三次的会有两个。更高次的贝塞尔曲线也是存在的，但没有在字体设计中使用。
 
 // TrueType outlines use quadratic Bézier curves, whereas PostScript fonts use cubic Bézier curves; it's possible to convert from a quadratic curve to a cubic curve and get the same shape, but it's not always possible to perfectly go from a cubic curve to a quadratic curve - you have to approximate it. Again, you'll find all the details in A Primer on Bézier Curves.
-TrueType中使用二次贝塞尔曲线来绘制#tr[outline]，PostScript中则是使用三次贝塞尔曲线。在不改变曲线形状的情况下，将二次曲线转换为三次曲线是可行的。但反过来却不行，得到的二次曲线会是原三次曲线的近似。关于曲线转换的详细内容，也请参考《A Primer on Bézier Curves》。
+TrueType中使用二次贝塞尔曲线来绘制#tr[outline]，PostScript中则是使用三次贝塞尔曲线。在不改变曲线形状的情况下，将二次曲线转换为三次曲线是可行的。但反过来却不行，这样得到的二次曲线会是原三次曲线的近似。关于曲线转换的详细内容，也请参考《A Primer on Bézier Curves》。
 
 // I've said that outlines are made out of Bézier curves, but a more accurate way to say that is that they are made of a series of Bézier curves joined together. When two Bézier curves meet, they can either meet in a *smooth* join or at a *corner*. You will use both of these types of join in type design; generally, you will want things to be smooth if they would form part of the same "stroke" of a pen or brush, but there are places where you'll need corner joins too. Here you see a portion of the top edge of a letter m, which contains a smooth join and a corner join.
-之前我们说#tr[outline]由贝塞尔曲线组成，实际上更准确的表述应该是它由一系列贝塞尔曲线首尾相连组成。当两条贝塞尔曲线相连时。它们可以“平滑”的连接，也可以形成“转角”。这两种连接方式在设计中都会使用。通常来说，如果是在勾勒笔或笔刷画出的笔画的话，会平滑的连接曲线。但也有一些地方是需要生硬的转角的。你可以从@figure:m-top 中看到，字母 m 的上顶端同时使用了光滑连接和转角。
+之前我们说#tr[outline]由贝塞尔曲线组成，实际上更准确的表述应该是它由一系列贝塞尔曲线首尾相连组成。当两条贝塞尔曲线相连时。它们可以“平滑”的连接，也可以形成“转角”。这两种连接方式在设计中都会使用。通常来说，如果是在勾勒笔或笔刷画出的笔画的话，会平滑地连接曲线。但也有一些地方是需要生硬的转角的。你可以从@figure:m-top 中看到，字母 m 的上顶端同时使用了光滑连接和转角。
 
 #figure(caption: [
   m 上部的轮廓曲线
