@@ -48,7 +48,7 @@ CI 中会有最新版但文件可能过期，如果过期可开 Issue 告知。
 
 安装 [typst-book](https://github.com/Myriad-Dreamin/typst-book) 0.1.4。
 
-下载[字体包](https://github.com/7sDream/fonts-and-layout-zhCN/releases/tag/extra-fonts%2F20240601)并解压，将 `extra` 文件夹放置在项目的 `fonts` 文件夹中。
+下载[字体包](https://github.com/7sDream/fonts-and-layout-zhCN/releases/tag/extra-fonts%2F20240615)，并将其解压到 `fonts/extra` 文件夹（没有就建一下）中。
 
 使用下列命令编译：
 

@@ -1,4 +1,6 @@
 .DS_Store
 /dist
 /fonts/extra
+/fonts/extra.tgz
+/scripts
 /*.pdf

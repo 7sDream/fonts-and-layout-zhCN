@@ -41,8 +41,9 @@ jobs:
           ./typst-book --version
       - name: Download fonts
         run: |
-          wget -nv https://github.com/7sDream/fonts-and-layout-zhCN/releases/download/extra-fonts%2F20240601/extra.tgz
-          tar xvzf extra.tgz
+          wget -nv https://github.com/7sDream/fonts-and-layout-zhCN/releases/download/extra-fonts%2F20240615/extra.tgz
+          mkdir -p fonts/extra
+          tar xvzf extra.tgz -C fonts/extra
           tree fonts
       - name: Make input arguments
         id: args
