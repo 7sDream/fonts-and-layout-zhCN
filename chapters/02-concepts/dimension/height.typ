@@ -14,9 +14,12 @@
 // The first height to think about is the *baseline*. We have mentioned this already, as the imaginary line on which the glyphs are assembled. In a sense, it's not really a height - in terms of a co-ordinate grid, this is the origin; the y co-ordinate is zero. This doesn't necessarily mean that the "black part" of the glyph starts at the baseline. Some glyphs, such as this plus sign, have the black parts floating above the baseline:
 首先我们来看*#tr[baseline]*。这个概念我们之前提到过，它是一条用于整齐排列#tr[glyph]的虚拟的线。以坐标系的语境来看，它并没有高度，而是作为原点（X轴）存在，它的Y轴坐标为零。但这并不意味着#tr[glyph]的“黑色部分”需要从#tr[baseline]处开始。对于某些字形，比如加号（@figure:dim-5），它的黑色部分就是浮在#tr[baseline]之上的。
 
-#figure(caption: [
-  加号#tr[glyph]并不从#tr[baseline]开始。
-], placement: none)[#include "dim-5.typ"] <figure:dim-5>
+#figure(
+  caption: [
+    加号#tr[glyph]并不从#tr[baseline]开始。
+  ],
+  placement: none,
+)[#include "dim-5.typ"] <figure:dim-5>
 
 // In this case, the baseline is coordinate zero; the glyph begins 104 units above the baseline. But the plus sign needs to be placed above the baseline, and having a baseline as the origin tells us how far above it needs to be placed.
 在本例中，基线作为坐标轴零点，#tr[glyph]从其上方 104 个单位处开始绘制。
@@ -34,7 +37,7 @@
 
 #figure(
   caption: [天城文文本示例#footnote[译注：此例文为“#tr[typography]”的印地语。图中变音符号线原文为matra line，半音符号线原文为rakar line。]],
-  placement: none
+  placement: none,
 )[#include "devanagari.typ"] <figure:devanagari>
 
 // For the purposes of font technology, this headline doesn't really exist. OpenType is based on the Latin model of arranging glyphs along the baseline, and so even in a script with a headline, the font needs to be designed with the baseline in mind, and you still have to declare nominal x-heights, ascender heights, descender heights and so on when you design the vertical metrics of your glyph. The Latin pull of digital typography is, unfortunately, really strong.

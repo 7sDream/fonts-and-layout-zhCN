@@ -5,7 +5,7 @@
 
 #let start = (0, 0)
 #let end = (600, 400)
-#let without-pres = it => hind(text(features: ("pres": 0,), it))
+#let without-pres = it => hind(text(features: ("pres": 0), it))
 
 #let graph = with-unit((ux, uy) => {
   // mesh(start, end, (100, 100))

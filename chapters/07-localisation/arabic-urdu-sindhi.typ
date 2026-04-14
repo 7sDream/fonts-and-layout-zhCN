@@ -40,12 +40,12 @@
 使用命令：
 
 #[
-#show regex(`\p{scx=Arabic}+`.text): raw-amiri
+  #show regex(`\p{scx=Arabic}+`.text): raw-amiri
 
-```bash
-$ hb-hape --features='-calt' Amiri-Regular.ttf كِلَا
-[uni0627.fina=4+229|uni064E=2@-208,0+0|uni0644.medi=2+197|uni0650=0@8,0+0|uni0643.init=0+659]
-```
+  ```bash
+  $ hb-hape --features='-calt' Amiri-Regular.ttf كِلَا
+  [uni0627.fina=4+229|uni064E=2@-208,0+0|uni0644.medi=2+197|uni0650=0@8,0+0|uni0643.init=0+659]
+  ```
 ]
 
 // confirms that no contextual shaping beyond the conversion into initial, medial and final forms is going on:
@@ -60,8 +60,7 @@ $ hb-hape --features='-calt' Amiri-Regular.ttf كِلَا
 )[#grid(
   columns: 2,
   column-gutter: 10%,
-  [#image("kila-2.png", height: 7em)],
-  [#image("kila-3.png", height: 7em)]
+  [#image("kila-2.png", height: 7em)], [#image("kila-3.png", height: 7em)],
 )]
 
 // Ah, but... what if we want to do both? If we use ligature substitutions like so:
@@ -82,7 +81,7 @@ feature calt {
 现在我们用#tr[chaining]#tr[contextual]#tr[substitution]和#tr[glyph]类来重写这个特性。我们不直接生成`lam-alef`和`kaf-lam`#tr[ligature]，而是使用“标记”#tr[glyph]来分别代表它们。首先来处理`lam-alef`。我们设计两个#tr[glyph]，`alef-ar.fina.aleflam` 和 `lam-ar.medi.aleflam`，见@figure:alef-lam。
 
 #figure(
-  caption: []
+  caption: [],
 )[#image("alef-lam.png", width: 60%)] <figure:alef-lam>
 
 // and then we substitute each glyph by its related "half-ligature":

@@ -1,9 +1,12 @@
 #import "consts.typ"
 #import "util.typ"
 
-#let __metadata-head(..data) = metadata((
-  kind: "head",
-) + data.named())
+#let __metadata-head(..data) = metadata(
+  (
+    kind: "head",
+  )
+    + data.named(),
+)
 
 #let __get-metadata-head(it) = {
   assert.eq(it.func(), heading)
@@ -101,7 +104,12 @@
 
 #let chapter(body, ..args) = [
   #if util.is-pdf-target() { pagebreak(weak: true) }
-  #heading(level: 1, supplement: [章], ..args.named().at("heading", default: (:)), body)
+  #heading(
+    level: 1,
+    supplement: [章],
+    ..args.named().at("heading", default: (:)),
+    body,
+  )
   #if "label" in args.named() {
     args.named().at("label")
   }

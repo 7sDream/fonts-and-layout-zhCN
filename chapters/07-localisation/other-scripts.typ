@@ -57,20 +57,20 @@ feature half {
 我们可以用`hb-shape`工具来清晰地展示它的工作情况：
 
 #[
-#show regex(`\p{Devanagari}+`.text) : devanagari
+  #show regex(`\p{Devanagari}+`.text): devanagari
 
-```bash
-$ hb-shape --features='-half' Hind-Regular.otf 'क्गि'
-[dvKA=0+771|dvVirama=0@-253,0+0|dvmI.a05=2+265|dvGA=2+574]
-$ hb-shape --features='+half' Hind-Regular.otf 'क्गि'
-[dvmI=0+265|dvK=0+519|dvGA=0+574]
-```
+  ```bash
+  $ hb-shape --features='-half' Hind-Regular.otf 'क्गि'
+  [dvKA=0+771|dvVirama=0@-253,0+0|dvmI.a05=2+265|dvGA=2+574]
+  $ hb-shape --features='+half' Hind-Regular.otf 'क्गि'
+  [dvmI=0+265|dvK=0+519|dvGA=0+574]
+  ```
 ]
 
 // So the features defined in your font will change the way that the shaper applies glyph reordering - the script development specs calls this "dynamic character properties" - and conversely, if you do *not* provide appropriate substitutions for half-forms then your glyphs may not appear in the order you expect!
 所以在字体中定义的特性会改变#tr[shaper]进行#tr[glyph]重排的方式，这在字体开发中称为“动态#tr[character]属性”。反过来，如果你*没有*进行半字形式的#tr[substitution]，那么可能#tr[glyph]的顺序就不符合你的预期了。
 
-// Similar dynamic properties apply in other features too. The shaper will test each consonant-halant pair to see if the `half` or `rphf` (reph form,  above-base form of the letter ra) features apply to them and create a ligature. If they do, the consonant is not considered a base. 
+// Similar dynamic properties apply in other features too. The shaper will test each consonant-halant pair to see if the `half` or `rphf` (reph form,  above-base form of the letter ra) features apply to them and create a ligature. If they do, the consonant is not considered a base.
 // if the reph form is part of a mark class, it will be moved to *after* the base.
 其他特性也会影响这些动态属性。#tr[shaper]会测试文本中的每个辅音-半音对，看`half`特性是否会将它们#tr[substitution]成#tr[ligature]形式。如果发生了#tr[substitution]，那么这个辅音就不被认为是基本辅音。它也会尝试应用`rphf`特性，这个特性用于将`ra`#tr[glyph]转换一个基本字符之上的的连接符，称为 reph。如果这个#tr[substitution]发生了，而且结果是属于符号类的#tr[glyph]，那么就会把它移动到基本#tr[character]之后。
 
@@ -96,12 +96,12 @@ feature rphf {
 我们用这个字体来对音节`rkki`（`ra virama ka virama ka i-matra`）进行#tr[shaping]：
 
 #[
-#show regex(`\p{Devanagari}+`.text) : devanagari
+  #show regex(`\p{Devanagari}+`.text): devanagari
 
-```bash
-$ hb-shape Devanagari-Test.otf 'र्क्कि'
-[glyph02=0+600|uni093F=2+600|glyph01=2+600|uni0915=2+600]
-```
+  ```bash
+  $ hb-shape Devanagari-Test.otf 'र्क्कि'
+  [glyph02=0+600|uni093F=2+600|glyph01=2+600|uni0915=2+600]
+  ```
 ]
 
 // The ra-virama turned into our reph form; the ka-virama turned into a half form; and the sequence was reordered to be "reph i-matra k ka". Oops, that's not quite right. We want the reph form to appear at the end of the sequence. We'll add another line to our feature file, stating that `glyph02` (our "reph" form) should be interpreted as a mark:
@@ -115,12 +115,12 @@ markClass glyph02 <anchor 0 0> @reph_is_mark;
 这会改变结果吗？
 
 #[
-#show regex(`\p{Devanagari}+`.text) : devanagari
+  #show regex(`\p{Devanagari}+`.text): devanagari
 
-```bash
-$ hb-shape Devanagari-Test.otf 'र्क्कि'
-[uni093F=0+600|glyph01=0+600|uni0915=0+600|glyph02=0+600]
-```
+  ```bash
+  $ hb-shape Devanagari-Test.otf 'र्क्कि'
+  [uni093F=0+600|glyph01=0+600|uni0915=0+600|glyph02=0+600]
+  ```
 ]
 
 // That's fixed it - the "mark" reph form is moved to the end of the syllable cluster, where we want it.

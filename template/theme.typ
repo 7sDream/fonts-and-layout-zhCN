@@ -1,6 +1,6 @@
-#import "@preview/book:0.2.5": target
+#import "@preview/shiroa:0.3.1": x-target
 
-#let theme-target = if target.contains("-") {
+#let theme-target = if x-target.contains("-") {
   target.split("-").at(1)
 } else if "theme" in sys.inputs {
   sys.inputs.theme
@@ -53,13 +53,13 @@
     note: color.rgb("#787878"),
     raw-stroke: color.rgb("#282828"),
     table-stroke: color.rgb("#444"),
-  )
+  ),
 )
 
-#let theme = if theme-target in themes { 
+#let theme = if theme-target in themes {
   themes.at(theme-target)
 } else {
-  panic("Unknown theme " + theme-target) 
+  panic("Unknown theme " + theme-target)
 }
 
 #let choose = (a, b) => if theme.kind == "light" { a } else { b }

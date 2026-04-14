@@ -17,24 +17,32 @@
 )
 
 #let coordinate-mesh = with-unit((ux, uy) => mesh(
-  (0, 0), (width, height), (axis-step, axis-step),
-  stroke: axis-thickness * ux + theme.table-stroke
+  (0, 0),
+  (width, height),
+  (axis-step, axis-step),
+  stroke: axis-thickness * ux + theme.table-stroke,
 ))
 
 #let draw-bezier = (..args, color: none) => with-unit((ux, uy) => {
-    let ps = args.pos()
-    bezier(..ps, stroke: curve-thickness * ux + color)
+  let ps = args.pos()
+  bezier(..ps, stroke: curve-thickness * ux + color)
 
-    for (i, p) in ps.enumerate() {
-      if p == none {
-        continue
-      }
-      point(
-        p, radius: point-radius, color: color, thickness: point-thickness * ux,
-        fill: i == 0 or i + 1 == ps.len(),
-        need-txt: true, size: text-size * ux, anchor: "rc", dx: -text-size
-      )
+  for (i, p) in ps.enumerate() {
+    if p == none {
+      continue
     }
+    point(
+      p,
+      radius: point-radius,
+      color: color,
+      thickness: point-thickness * ux,
+      fill: i == 0 or i + 1 == ps.len(),
+      need-txt: true,
+      size: text-size * ux,
+      anchor: "rc",
+      dx: -text-size,
+    )
+  }
 })
 
 #let g1 = the-canvas({

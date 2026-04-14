@@ -4,14 +4,16 @@
 #let start = (0, 0)
 #let end = (1000, 500)
 
-#let graph = with-unit((ux, uy) => context {
-  let bg = if page.fill == none { theme.bg } else { page.fill }
+#let graph = with-unit((ux, uy) => {
+  let bg = if page.fill == none or page.fill == auto { theme.bg } else {
+    page.fill
+  }
   rect(start, end: end, fill: bg)
   // mesh(start, end, (100, 100), stroke: 1 * ux + gray)
 
   txt(hind[खंहंकं], (30, 100), anchor: "lb", size: 450 * ux)
 
-  point((792, 452), color: bg, radius: 24)
+  point((792, 452), color: bg, radius: 30)
   point((910, 452), radius: 22)
 })
 

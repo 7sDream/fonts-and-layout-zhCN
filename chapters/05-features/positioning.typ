@@ -26,7 +26,10 @@
 
 #figure(
   caption: [对f的重#tr[positioning]],
-)[#block(inset: 5em, stroke: 0.1em + gray)[原文缺图，待补]] <figure:f-positioning-example>
+)[#block(
+  inset: 5em,
+  stroke: 0.1em + gray,
+)[原文缺图，待补]] <figure:f-positioning-example>
 
 // In feature syntax, these value records are denoted as four numbers between angle brackets. As well as writing rules to *substitute* glyphs in the glyph stream, we can also write *positioning* rules to adjust these value records by adding a value to it. Let's write one now!
 在 AFDKO 特性语法中，数值记录使用在尖括号内的四个数字来表达。就像我们可以编写规则来#tr[substitution]#tr[glyph]流中的某个#tr[glyph]那样，我们也可以编写带有数值记录的#tr[positioning]规则来对它们的#tr[position]进行调整。我们现在就来写一个试试。

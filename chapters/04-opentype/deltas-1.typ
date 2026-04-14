@@ -45,11 +45,22 @@
   )
 
   for (s, r) in ps.zip(arrow-relative) {
-    arrow(s, r, relative: true, stroke: arrow-line-size * ux + arrow-color, head-scale: arrow-head-scale)
+    arrow(
+      s,
+      r,
+      relative: true,
+      stroke: arrow-line-size * ux + arrow-color,
+      head-scale: arrow-head-scale,
+    )
   }
 
   let ptxt = p2.zip(arrow-relative.at(1)).map(((a, b)) => a + b)
-  txt([粗体请#linebreak()沿此移动], ptxt, anchor: "lc", size: main-txt-size * ux,)
+  txt(
+    [粗体请#linebreak()沿此移动],
+    ptxt,
+    anchor: "lc",
+    size: main-txt-size * ux,
+  )
 
   let half = p3.zip(arrow-relative.at(2)).map(((a, b)) => a + b * 0.5)
   point(half, radius: marker-point-size)
@@ -61,7 +72,8 @@
 })
 
 #canvas(
-  end, start: start,
+  end,
+  start: start,
   width: 40%,
   graph,
 )

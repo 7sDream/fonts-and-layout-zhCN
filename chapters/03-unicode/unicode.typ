@@ -1,7 +1,7 @@
 #import "/template/template.typ": web-page-template
 #import "/template/heading.typ": chapter
 #import "/template/components.typ": note
-#import "/template/lang.typ": french, russian, greek
+#import "/template/lang.typ": french, greek, russian
 
 #import "/lib/glossary.typ": tr
 

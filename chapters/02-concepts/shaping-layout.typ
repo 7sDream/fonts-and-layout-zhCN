@@ -13,9 +13,12 @@
 // There are a number of stages that the letters and numbers you want to typeset go through in order to become the finished product. To begin with, the user (or in some cases, the computer) will choose what font the text should be typeset in; the text, and the choice of font and other typographic details, are the inputs to the process. These two inputs pass through some or all of the following stages before the text is set:
 从输入字母和数字到获得最终的#tr[typeset]结果之间有好几个步骤。首先，用户（或计算机）会选择文本应该用什么字体；然后文本、字体以及其他#tr[typography]细节将作为整个过程的输入。在文本被#tr[typeset]出来前，这些输入信息会经历@figure:pipeline 所示的部分或所有阶段。
 
-#figure(caption: [
-  计算机中文本处理的流程简图
-], include "pipeline.typ") <figure:pipeline>
+#figure(
+  caption: [
+    计算机中文本处理的流程简图
+  ],
+  include "pipeline.typ",
+) <figure:pipeline>
 
 // We can understand most of these steps by taking the analogy of letterpress printing. A compositor will be given the text to be set and instructions about how it is to look. The first thing they'll do is find the big wooden cases of type containing the requested fonts. This is *font management*: the computer needs to find the file which corresponds to the font we want to use. It needs to go from, for example, "Arial Black" to `C:\\Windows\\Fonts\\AriBlk.TTF`, and so it needs to consult a database of font names, families, and filenames. On libre systems, the most common font management software is called [fontconfig](https://www.fontconfig.org); on a Mac, it's [NSFontManager](https://developer.apple.com/documentation/appkit/nsfontmanager?language=objc).
 要理解其中的大多数步骤，可以将其类比于凸版印刷。排版工会拿到一些文本，以及关于如何呈现它们的指令。他首先要找到装有相应字体的木箱，这就是*字体管理*：计算机需要找到与我们使用的字体相对应的文件。例如，它会从“Arial Black”找到`C:\Windows\Fonts\AriBlk.TTF`。而这就需要一个有关字体名称、#tr[typeface family]信息和文件名的数据库。在自由操作系统上最常用的字体管理软件是fontconfig@Unknown.Fontconfig，在 Mac 上则是NSFontManager@Apple.NSFontManager。

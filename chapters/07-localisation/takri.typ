@@ -12,7 +12,9 @@
 
 #let broken = with-unit((ux, uy) => context {
   correct
-  let fill-color = if page.fill == none { theme.bg } else { page.fill }
+  let fill-color = if page.fill == none or page.fill == auto { theme.bg } else {
+    page.fill
+  }
 
   point((258, 391.5), radius: 25.8, color: fill-color)
 
@@ -25,6 +27,5 @@
   columns: (1fr, 1fr),
   inset: 0pt,
   column-gutter: 10%,
-  [#canvas(end, width: 100%, broken)],
-  [#canvas(end, width: 100%, correct)],
+  [#canvas(end, width: 100%, broken)], [#canvas(end, width: 100%, correct)],
 )

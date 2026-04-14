@@ -5,12 +5,12 @@
 
 #let graph = with-unit((ux, uy) => {
   // mesh(start, end, (100, 100), stroke: 1 * ux + gray)
-  
+
   let txt = txt.with(size: 15 * ux)
   let highlight-stroke = stroke(
     paint: green.darken(20%),
     thickness: 2 * ux,
-    dash: (23*ux, 8*ux, 6*ux, 8*ux)
+    dash: (23 * ux, 8 * ux, 6 * ux, 8 * ux),
   )
   let component = (body, highlight: false) => block(
     inset: 10 * ux,
@@ -20,7 +20,15 @@
     align(center, body),
   )
 
-  let make-data = (x, y, anchor, body, highlight: false, from: none, to: none) => {
+  let make-data = (
+    x,
+    y,
+    anchor,
+    body,
+    highlight: false,
+    from: none,
+    to: none,
+  ) => {
     let (fx, fy) = if from == none { (0, 0) } else { from }
     let (tx, ty) = if to == none { (0, 0) } else { to }
     return (
@@ -39,28 +47,47 @@
 
       Reph*或*直接叠加的辅音
     ]),
-    make-data(500, 640, "lc", [
-      *基本字符*
+    make-data(
+      500,
+      640,
+      "lc",
+      [
+        *基本字符*
 
-      基本*或*“其他基本”字符；
+        基本*或*“其他基本”字符；
 
-      可以附带一个变体选择器
-    ], from: (0, -20)),
-    make-data(330, 590, "rt", [
-      *辅音修饰组*
+        可以附带一个变体选择器
+      ],
+      from: (0, -20),
+    ),
+    make-data(
+      330,
+      590,
+      "rt",
+      [
+        *辅音修饰组*
 
-      任意个基本字符上方修饰符；
+        任意个基本字符上方修饰符；
 
-      任意个基本字符下方修饰符；
-    ], to: (0, -20), from: (0, -50)),
-    make-data(440, 510, "lc", [
-      *任意个半音组*
+        任意个基本字符下方修饰符；
+      ],
+      to: (0, -20),
+      from: (0, -50),
+    ),
+    make-data(
+      440,
+      510,
+      "lc",
+      [
+        *任意个半音组*
 
-      半音符和基本字符，可以附带一个变体选择器#linebreak()
-      *或*一个附加辅音；
+        半音符和基本字符，可以附带一个变体选择器#linebreak()
+        *或*一个附加辅音；
 
-      可以附带一个*辅音修饰组*
-    ], highlight: true),
+        可以附带一个*辅音修饰组*
+      ],
+      highlight: true,
+    ),
     make-data(500, 350, "lc", [
       *词中辅音组*
 
@@ -72,50 +99,76 @@
 
       任意个基本字符后方词中辅音；
     ]),
-    make-data(330, 290, "rc", [
-      *元音组*
+    make-data(
+      330,
+      290,
+      "rc",
+      [
+        *元音组*
 
-      任意个基本字符前方元音；
+        任意个基本字符前方元音；
 
-      任意个基本字符上方元音；
+        任意个基本字符上方元音；
 
-      任意个基本字符下方元音；
+        任意个基本字符下方元音；
 
-      任意个基本字符后方元音；
-    ], to: (0, 20), from: (0, -25)),
-    make-data(500, 250, "lt", [
-      *元音修饰组*
+        任意个基本字符后方元音；
+      ],
+      to: (0, 20),
+      from: (0, -25),
+    ),
+    make-data(
+      500,
+      250,
+      "lt",
+      [
+        *元音修饰组*
 
-      任意个基本字符前方元音修饰符；
+        任意个基本字符前方元音修饰符；
 
-      任意个基本字符上方元音修饰符；
+        任意个基本字符上方元音修饰符；
 
-      任意个基本字符下方元音修饰符；
+        任意个基本字符下方元音修饰符；
 
-      任意个基本字符后方元音修饰符；
-    ], to: (0, -20), from: (0, -100)),
-    make-data(350, 140, "rt", [
-      *结尾辅音组*
+        任意个基本字符后方元音修饰符；
+      ],
+      to: (0, -20),
+      from: (0, -100),
+    ),
+    make-data(
+      350,
+      140,
+      "rt",
+      [
+        *结尾辅音组*
 
-      任意个基本字符上方结尾辅音；
+        任意个基本字符上方结尾辅音；
 
-      任意个基本字符下方结尾辅音；
+        任意个基本字符下方结尾辅音；
 
-      任意个基本字符后方结尾辅音；
+        任意个基本字符后方结尾辅音；
 
-      可以附带一个结尾修饰符
-    ], to: (0, -20))
+        可以附带一个结尾修饰符
+      ],
+      to: (0, -20),
+    ),
   )
 
-  let draw-data = bubble => txt(component(bubble.body, highlight: bubble.highlight), bubble.point, anchor: bubble.anchor)
+  let draw-data = bubble => txt(
+    component(bubble.body, highlight: bubble.highlight),
+    bubble.point,
+    anchor: bubble.anchor,
+  )
 
   for bubble in data {
     draw-data(bubble)
   }
 
-  for (highlight, start, end) in data.zip(data.slice(1)).map(((a, b)) => {
-    (a.highlight, a.from, b.to)
-  }) {
+  for (highlight, start, end) in data
+    .zip(data.slice(1))
+    .map(((a, b)) => {
+      (a.highlight, a.from, b.to)
+    }) {
     if not highlight {
       arrow(start, end, head-scale: 4)
     }

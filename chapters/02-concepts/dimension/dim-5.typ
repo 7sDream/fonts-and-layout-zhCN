@@ -13,8 +13,7 @@
 
 #let bbox-calc = (lt, rb, arg) => {
   let (l, t, r, b) = arg
-  return ((lt.at(0) + l, lt.at(1) - t),
-  (rb.at(0) - r, rb.at(1) + b))
+  return ((lt.at(0) + l, lt.at(1) - t), (rb.at(0) - r, rb.at(1) + b))
 }
 
 #let (bbox-lt, bbox-rb) = bbox-calc(lt, rb, (9, 37, 8, 61))
@@ -27,18 +26,27 @@
   // mesh(start, end, (50, 50), stroke: 1 * ux + gray)
 
   rect(
-    lt, end: rb,
+    lt,
+    end: rb,
     stroke: 1.4 * ux + line-color,
   )
   rect(
-    bbox-lt, end: bbox-rb,
+    bbox-lt,
+    end: bbox-rb,
     stroke: 1 * ux + line-color,
   )
-  txt(text(fill: line-color)[#tr[bounding box]], bbox-lt, anchor: "lb", size: 12 * ux, dy: 4)
+  txt(
+    text(fill: line-color)[#tr[bounding box]],
+    bbox-lt,
+    anchor: "lb",
+    size: 12 * ux,
+    dy: 4,
+  )
 
   let line-stroke = 1 * ux + line-color
   segment(
-    (0, base.at(1)), (end.at(0), base.at(1)),
+    (0, base.at(1)),
+    (end.at(0), base.at(1)),
     stroke: line-stroke,
   )
   txt([#tr[baseline]], (0, base.at(1)), size: 12 * ux, anchor: "lb", dy: 2)

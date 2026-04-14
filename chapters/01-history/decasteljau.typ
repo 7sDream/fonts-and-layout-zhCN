@@ -41,13 +41,13 @@
   }
 
   let (inp1, inp2, inp3) = range(1, 4).map(a => f(a / 4))
-  
+
   let points = (p1, inp1, inp2, inp3, p4)
   for (i, (from, to)) in points.zip(points.slice(1)).enumerate() {
     if i != 0 {
       point(from, radius: 18, thickness: 4 * ux, dash: "dashed", fill: false)
     }
-    segment(from, to,stroke: stroke(
+    segment(from, to, stroke: stroke(
       paint: theme.main,
       thickness: 3 * ux,
       dash: "dotted",

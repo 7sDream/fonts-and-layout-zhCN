@@ -13,7 +13,9 @@
   // The list comes from
   // https://github.com/w3c/clreq/issues/534#issuecomment-1958783619
   #let cn-punct = "‘“‌「『〔（［｛〈《〖【—…、。，．：；！？％〕）］｝〉》〗】’”」』"
-  #show regex("[" + cn-punct + "]+"): set text(font: (..consts.font.chinese-normal,))
+  #show regex("[" + cn-punct + "]+"): set text(font: (
+    ..consts.font.chinese-normal,
+  ))
 
   #show ref: it => {
     let el = it.element
@@ -24,7 +26,7 @@
     if el.func() == heading {
       let number = numbering(
         el.numbering,
-        ..counter(heading).at(el.location())
+        ..counter(heading).at(el.location()),
       )
       return link(el.location())[第#[#number]#el.supplement]
     }

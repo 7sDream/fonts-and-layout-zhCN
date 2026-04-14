@@ -24,12 +24,12 @@ pos base dvCHA <anchor 276 57> mark @MC_blwm.virama;
 这段代码的含义是：`virama`的锚点在坐标`(-172, 0)`处；在`CHA`字母上如果要附加`virama`符号，就将其锚点放在坐标`(276, 57)`处。那么`virama`现在到底位于什么#tr[position]呢？使用`hb-shape`可以得知：
 
 #[
-#show raw: set text(font: consts.font.western-mono + ("Hind",))
+  #show raw: set text(font: consts.font.western-mono + ("Hind",))
 
-```bash
-$ hb-shape build/Hind-Regular.otf 'छ्'
-[dvCHA=0+631|dvVirama=0@-183,57+0]
-```
+  ```bash
+  $ hb-shape build/Hind-Regular.otf 'छ्'
+  [dvCHA=0+631|dvVirama=0@-183,57+0]
+  ```
 ]
 
 // So we have a CHA character which is 631 units wide. Next we have a virama which is zero units wide! But when it is drawn, its position is moved - that's what the "@-183,57" component means: we've finished drawing the CHA, and then we move the "pen" negative 183 units in the X direction (183 units to the left) and up 57 units before drawing the virama.
@@ -39,23 +39,23 @@ $ hb-shape build/Hind-Regular.otf 'छ्'
 为什么是 183 个单位呢？我们先来看看在进行#tr[positioning]前是什么样的。这可通过关闭`blwm`特性来实现：
 
 #[
-#show raw: set text(font: consts.font.western-mono + ("Hind",))
+  #show raw: set text(font: consts.font.western-mono + ("Hind",))
 
-```bash
-$ hb-shape --features='-blwm' Hind-Regular.otf 'छ्'
-[dvCHA=0+631|dvVirama=0+0]
-```
+  ```bash
+  $ hb-shape --features='-blwm' Hind-Regular.otf 'छ्'
+  [dvCHA=0+631|dvVirama=0+0]
+  ```
 ]
 
 // As you can see, no special positioning has been done. Another utility, `hb-view` can render the glyphs with the feature set we ask for. If we ask to turn off the `blwm` feature and see what the result is like, this is what we get:
 正如你所见，这样的话就没有什么特殊的#tr[positioning]操作了。我们可以使用`hb-view`工具来渲染当前特性集下#tr[glyph]的实际样子。结果如下：
 
 #[
-#show raw: set text(font: consts.font.western-mono + ("Hind",))
+  #show raw: set text(font: consts.font.western-mono + ("Hind",))
 
-```bash
-$ hb-view --features='-blwm' Hind-Regular.otf 'छ्' -O png > test.png
-```
+  ```bash
+  $ hb-view --features='-blwm' Hind-Regular.otf 'छ्' -O png > test.png
+  ```
 ]
 
 #figure(

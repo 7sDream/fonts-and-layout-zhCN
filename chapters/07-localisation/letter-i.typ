@@ -1,5 +1,5 @@
 #import "/template/template.typ": web-page-template
-#import "/template/components.typ": note, cross-link
+#import "/template/components.typ": cross-link, note
 
 #import "/lib/glossary.typ": tr
 

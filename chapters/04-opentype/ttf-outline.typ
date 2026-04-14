@@ -105,7 +105,7 @@ Listing table info for "TTXTest-Regular.ttf":
 
 #figure(
   placement: none,
-  caption: [三次贝塞尔曲线转换为二次]
+  caption: [三次贝塞尔曲线转换为二次],
 )[#include "bezier.typ"] <figure:bezier-convert>
 
 // Sometimes you might open up a `glyf` table and find something confusing:
@@ -126,7 +126,7 @@ Listing table info for "TTXTest-Regular.ttf":
 
 #figure(
   placement: none,
-  caption: [两个线外点间隐含的线上点]
+  caption: [两个线外点间隐含的线上点],
 )[#include "implied.typ"]
 
 

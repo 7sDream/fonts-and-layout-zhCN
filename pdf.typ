@@ -1,4 +1,4 @@
-#import "@preview/book:0.2.5": _convert-summary
+#import "@preview/shiroa:0.3.1": book-meta-state, external-book, visit-summary
 #import "/template/template.typ": template
 #import "/template/consts.typ"
 #import "/template/util.typ"
@@ -9,37 +9,29 @@
 )
 
 #if not util.is-pdf-target() {
-  panic("To compile this file, you need provide `realpdf=1` input argument")
+  panic("You should use typst to build this file, not shiroa cli")
 }
-
-#import "book.typ": summary
 
 #show: template
 
 #include "cover.typ"
+
+#external-book(spec: include "book.typ")
+
 #include "outline.typ"
 
-#let flatten-chapter(chapter) = {
-  let result = if chapter.section == none { () } else { (chapter.link,) }
-  let children = chapter.at("sub", default: none)
-  if children == none { return result }
-  for section in children {
-    if section.kind == "chapter" {
-      result = (..result, ..flatten-chapter(section))
+#context {
+  let mt = book-meta-state.final()
+  for item in mt.summary {
+    let file = item.at("link")
+    if file == "notice.typ" or file == "cover.typ" {
+      continue
     }
-  }
-  return result
-}
-
-#let flatten-summary = summary => {
-  summary.map(chapter => if chapter.kind == "chapter" {
-      flatten-chapter(chapter)
-  } else { () }).flatten()
-}
-
-#{
-  for file in flatten-summary(_convert-summary(summary)) {
-    include file
+    visit-summary(item, (
+      inc: it => include it,
+      part: heading,
+      chapter: it => it,
+    ))
   }
 }
 

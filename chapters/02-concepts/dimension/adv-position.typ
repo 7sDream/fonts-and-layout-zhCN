@@ -12,9 +12,12 @@
 // *advance*, whether horizontal or vertical, tells you how far to increment the cursor after drawing a glyph. But there are situations where you also want to change *where* you draw a glyph. Let's take an example: placing the fatha (mark for the vowel "a") over an Arabic consonant in the world ولد (boy):
 无论是水平或垂直的*#tr[advance]*，都是在告诉我们#tr[cursor]需要在绘制完当前#tr[glyph]后移动多远。但有时你也会希望改变绘制这个#tr[glyph]的*位置*。比如这个阿拉伯语的例子：需要将 fatha（标识元音a的符号）放在单词#arabic[وَلَد]（孩子）中的辅音上：
 
-#figure(caption: [
-  “孩子”的阿拉伯文
-], placement: none)[#include "walad.typ"] <figure:walad>
+#figure(
+  caption: [
+    “孩子”的阿拉伯文
+  ],
+  placement: none,
+)[#include "walad.typ"] <figure:walad>
 
 // We place the first two glyphs (counting from the left, even though this is Arabic) normally along the baseline, moving the cursor forward by the advance distance each time. When we come to the fatha, though, our advance is zero - we don't move forward at all. At the same time, we don't just draw the fatha on the baseline; we have to move the "pen" up and to the left in order to place the fatha in the right place over the consonant that it modifies. Notice that when we come to the third glyph, we have to move the "pen" again but this time by a different amount - the fatha is placed higher over the lam than over the waw.
 我们沿着基线正常放置开头（从左往右算，即使是阿拉伯文）的两个#tr[glyph]，每次将#tr[cursor]向前步进一段距离。当遇到fatha符号，发现它的步进值是0，也就是完全不需要向前移动。但此时并不能直接在基线上绘制这个符号，我们需要将“画笔”往左上角移动，来让 fatha 符号位于它需要标注的辅音上方的正确位置处。对于第三个#tr[glyph]，为了绘制它上面的 fatha，“画笔”也需要进行类似的移动，但移动的距离不同：字母lam（#arabic[ل]）上的 fatha 会比字母waw（#arabic[و]）上的高一些。

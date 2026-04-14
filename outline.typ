@@ -8,19 +8,18 @@
 #show outline.entry: it => {
   let loc = it.element.location()
   let v_space = if it.level == 1 {
-    v(1.5em, weak: true)
+    1.5em
   } else {
-    none
+    block.above
   }
-  let indent = (it.level - 1) * 1.5em
-  v_space + [
-    #h(indent)
-    #link(loc)[#text(fill: theme.link)[#it.element.body]]
-    #box(width: 1fr, it.fill)
-    #strong(it.page)
-  ]
+
+  block(above: v_space, [
+    #it.indented(none, [#link(loc)[#text(fill: theme.link)[#it.element.body]]
+      #box(width: 1fr, it.fill)
+      #strong(it.page())])
+  ])
 }
 
-#outline(title: none)
+#outline(title: none, indent: 2em)
 
 #pagebreak()

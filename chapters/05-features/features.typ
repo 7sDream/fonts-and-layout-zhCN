@@ -1,13 +1,13 @@
 #import "/template/template.typ": web-page-template
 #import "/template/heading.typ": chapter
-#import "/template/components.typ": note, cross-link
+#import "/template/components.typ": cross-link, note
 
 #import "/lib/glossary.typ": tr
 
 #show: web-page-template
 
 #chapter(
-  label: <chapter:opentype-features>
+  label: <chapter:opentype-features>,
 )[
   // Introduction to OpenType Features
   OpenType特性简介

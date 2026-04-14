@@ -16,13 +16,15 @@
   // mesh(start, end, (50, 50), stroke: 1 * ux + gray)
 
   rect(
-    lt, end: rb,
+    lt,
+    end: rb,
     stroke: 1.4 * ux + line-color,
   )
 
   let line-stroke = 1 * ux + line-color
   segment(
-    (0, base.at(1)), (end.at(0), base.at(1)),
+    (0, base.at(1)),
+    (end.at(0), base.at(1)),
     stroke: line-stroke,
   )
   point(base, radius: 3.5)

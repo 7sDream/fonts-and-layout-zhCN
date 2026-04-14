@@ -32,7 +32,7 @@
 我们为此设计了一个新#tr[glyph]`iMatra_anusvara`，它包含`matra`和重新放置在了正确位置的`anusvara`。同时还编写了一个#tr[chaining]#tr[contextual]#tr[substitution]规则：
 
 #figure(
-  caption: [塔克里文字体中需要解决的一个问题]
+  caption: [塔克里文字体中需要解决的一个问题],
 )[#include "takri.typ"] <figure:takri-problem>
 
 ```fea

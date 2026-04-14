@@ -1,6 +1,6 @@
 #import "/template/template.typ": web-page-template
 #import "/template/components.typ": note
-#import "/template/lang.typ": greek, german
+#import "/template/lang.typ": german, greek
 
 #import "/lib/glossary.typ": tr
 

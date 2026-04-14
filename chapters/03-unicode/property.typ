@@ -28,11 +28,11 @@ Unicode标准不仅只是收集所有#tr[character]并为他们分配#tr[codepoi
 `LineBreak.txt`中则提供了一些在断行算法中需要用到的信息，我们会在关于#tr[layout]的章节中详细介绍，现在先简单看看：
 
 #[
-#set text(0.8em)
+  #set text(0.8em)
 
-```
-0041..005A;AL     # Lu    [26] LATIN CAPITAL LETTER A..LATIN CAPITAL LETTER Z
-```
+  ```
+  0041..005A;AL     # Lu    [26] LATIN CAPITAL LETTER A..LATIN CAPITAL LETTER Z
+  ```
 ]
 
 
@@ -42,12 +42,12 @@ Unicode标准不仅只是收集所有#tr[character]并为他们分配#tr[codepoi
 `PropList.txt` 是一个混杂了各种Unicode属性信息的集合，在其中和我们的`A`#tr[character]有关的有两条：
 
 #[
-#set text(0.7em)
+  #set text(0.7em)
 
-```
-0041..0046    ; Hex_Digit # L&   [6] LATIN CAPITAL LETTER A..LATIN CAPITAL LETTER F
-0041..0046    ; ASCII_Hex_Digit # L&   [6] LATIN CAPITAL LETTER A..LATIN CAPITAL LETTER F
-```
+  ```
+  0041..0046    ; Hex_Digit # L&   [6] LATIN CAPITAL LETTER A..LATIN CAPITAL LETTER F
+  0041..0046    ; ASCII_Hex_Digit # L&   [6] LATIN CAPITAL LETTER A..LATIN CAPITAL LETTER F
+  ```
 ]
 
 // These tell us that it is able to be used as a hexadecimal digit, both in a more relaxed sense and strictly as a subset of ASCII. (U+FF21, a full-width version of `Ａ` used occasionally when writing Latin characters in Japanese text, is a hex digit, but it's not an ASCII hex digit.) `CaseFolding.txt` tells us:
@@ -65,11 +65,11 @@ Unicode标准不仅只是收集所有#tr[character]并为他们分配#tr[codepoi
 最后，在`Scripts.txt`文件中，可以发现：
 
 #[
-#set text(0.8em)
+  #set text(0.8em)
 
-```
-0041..005A    ; Latin # L&  [26] LATIN CAPITAL LETTER A..LATIN CAPITAL LETTER Z
-```
+  ```
+  0041..005A    ; Latin # L&  [26] LATIN CAPITAL LETTER A..LATIN CAPITAL LETTER Z
+  ```
 ]
 
 // ..that this codepoint is part of the Latin script. You knew that, but now a computer does too.

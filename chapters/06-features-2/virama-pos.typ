@@ -30,7 +30,7 @@
 #let graph = with-unit((ux, uy) => {
   // mesh(start, end, (100, 100), stroke: 1 * ux + gray)
 
-  let pen = 5 * ux + theme.main;
+  let pen = 5 * ux + theme.main
 
   txt(hind[#text[छ्]], (120, 900), anchor: "lt", size: 1000 * ux)
 
@@ -41,7 +41,13 @@
 
   rect((120, 865), width: 631, height: 620, stroke: pen)
   diamond((382, 282), 30, fill: gray, border: 6, closed: true)
-  txt(text(fill: white)[`(276,57)`], (382, 282), size: 25 * ux, anchor: "cb", dy: 35)
+  txt(
+    text(fill: white)[`(276,57)`],
+    (382, 282),
+    size: 25 * ux,
+    anchor: "cb",
+    dy: 35,
+  )
 
   shape(
     (595, 180),
@@ -54,7 +60,7 @@
       paint: theme.main,
       thickness: pen.thickness,
       dash: "dashed",
-    )
+    ),
   )
 
   segment((751, 860), (751, 45))

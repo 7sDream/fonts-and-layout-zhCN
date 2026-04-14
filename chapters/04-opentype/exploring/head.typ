@@ -77,8 +77,8 @@
     [阴影],
     [窄体],
     [宽体],
-    [(未使用)]
-  ).enumerate() { (str(i), v,) }
+    [(未使用)],
+  ).enumerate() { (str(i), v) }
 ))
 
 // So a bold italic condensed font should have a `macStyle` value of `00000000 00100011` (remember that we count from the right in binary).

@@ -51,7 +51,7 @@ OpenType可变字体是另一种能更灵活地将多个字体家族成员放入
 #figure(
   caption: [两个变化量的叠加应用],
   placement: none,
-  include "deltas-2.typ"
+  include "deltas-2.typ",
 ) <figure:deltas-2>
 
 // Creating a semibold condensed instance of this font requires you to do some vector mathematics. If we say that "semibold" means 50% of full bold, and "condensed" is 100% of the way down the condensed axis, then for each point, we need to compute its "semibold condensed" vector. We multiply the red *weight* vector for that point by 50%, then take the product of that vector with 100% of the yellow *condensed* vector. Then we add the resulting vector to the original position of the point on the green master.
@@ -225,9 +225,7 @@ Noto Sans Khmer 的 Thin 字体实例使用了字重轴的最小值，而 Conden
 #align(center, table(
   columns: 3,
   align: (x, y) => if x * y == 0 { center } else { left },
-  table.header(
-    [母版], [坐标], [变化量],
-  ),
+  table.header([母版], [坐标], [变化量]),
   [常规], [`(100, 200)`], [],
   [细], [`(100, 150)`], [`(  0, -50)`],
   [粗], [`(100, 300)`], [`(  0, +100)`],

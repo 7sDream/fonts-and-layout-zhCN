@@ -17,7 +17,7 @@
 #figure(
   caption: [应用#tr[lookup]的流程就像老式打孔纸带计算机],
   placement: none,
-  include "slide-9.typ"
+  include "slide-9.typ",
 )
 
 // If the lookup matches, the shaper takes the appropriate action (substitution in the cases we have seen so far). It then moves on to the next location. Once it has gone over the whole tape and performed any actions, the next lookup gets a go (we call this "applying" the lookup).
@@ -46,10 +46,10 @@ feature liga {
     columns: (1fr, 2fr),
     column-gutter: 1em,
     code1, code2,
-  )
+  ),
 )
 
-// How would these features be applied to the glyph stream `c a b b a g e`? 
+// How would these features be applied to the glyph stream `c a b b a g e`?
 这两个特性引用于#tr[glyph]流 `c a b b a g e` 时会有什么不同呢？
 
 // In the first case, *both* rules are considered at each position and the first to match is applied. An `a` is substituted by a `b` and a `b` is substituted by a `c`, so the output would be `c b c c b g e`.

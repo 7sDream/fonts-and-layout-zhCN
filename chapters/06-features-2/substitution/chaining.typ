@@ -207,7 +207,7 @@ feature akhn {
 在#tr[contextual]#tr[substitution]的#tr[lookup]中也可以使用#tr[lookup]选项，让它只关心特定种类的#tr[glyph]。比如，阿拉伯字体Amiri#[@Maclennan.Amiri.2015]支持一个可选样式 `ss01`。当此样式开启时，只要`beh`后是`waw`或者`rah`（比如 #arabic[ربن] 就符合描述，它表示姓名Rabban，或者乌尔都单词ribbon），那么就会把 `beh` 的点形变音符号往下落一些，见@figure:amiri-beh。
 
 #figure(
-  caption: [Amiri字体中的可选样式]
+  caption: [Amiri字体中的可选样式],
 )[#include "amiri-beh.typ"] <figure:amiri-beh>
 
 我们现在知道怎么实现它：

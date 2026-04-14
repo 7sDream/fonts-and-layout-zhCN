@@ -7,7 +7,7 @@
 #show: web-page-template
 
 #chapter(
-  label: <chapter:substitution-positioning>
+  label: <chapter:substitution-positioning>,
 )[
   // Substitution and Positioning Rules
   #tr[substitution]和#tr[positioning]规则

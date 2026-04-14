@@ -22,9 +22,11 @@
   )
 
   #show: template
+
   #doc
 
-  #context {  // show footnotes if have
+  #context {
+    // show footnotes if have
     if counter(footnote).at(here()).sum() > 0 {
       pagebreak()
     } else {

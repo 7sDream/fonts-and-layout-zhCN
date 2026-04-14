@@ -21,12 +21,14 @@
   // mesh(start, end, (50, 50), stroke: 1 * ux + gray)
 
   rect(
-    lt, end: rb,
+    lt,
+    end: rb,
     stroke: 1.4 * ux + line-color,
   )
   let line-stroke = 1 * ux + line-color
   segment(
-    (0, base.at(1)), (end.at(0), base.at(1)),
+    (0, base.at(1)),
+    (end.at(0), base.at(1)),
     stroke: line-stroke,
   )
 
@@ -49,12 +51,27 @@
   txt([#tr[baseline]], (0, base.at(1)), size: 12 * ux, anchor: "lb", dy: 2)
 
   rect(
-    bbox-lt, width: bbox-width, height: bbox-height,
+    bbox-lt,
+    width: bbox-width,
+    height: bbox-height,
     stroke: 1.2 * ux + line-color,
   )
-  txt(text(fill: line-color)[#tr[outline]#tr[bounding box]], bbox-ct, size: 12 * ux, anchor: "cb", dy: 2)
+  txt(
+    text(fill: line-color)[#tr[outline]#tr[bounding box]],
+    bbox-ct,
+    size: 12 * ux,
+    anchor: "cb",
+    dy: 2,
+  )
 
-  txt(text(font: ("Fresca",))[b], base, size: 150 * ux, anchor: "lb", dx: -5, dy: -2)
+  txt(
+    text(font: ("Fresca",))[b],
+    base,
+    size: 150 * ux,
+    anchor: "lb",
+    dx: -5,
+    dy: -2,
+  )
 })
 
 #canvas(end, start: start, width: 50%, graph)

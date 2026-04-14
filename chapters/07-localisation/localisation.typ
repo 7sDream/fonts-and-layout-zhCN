@@ -1,7 +1,9 @@
 #import "/template/template.typ": web-page-template
 #import "/template/heading.typ": chapter
 #import "/template/components.typ": note, title-ref
-#import "/template/lang.typ": arabic, arabic-amiri, balinese, devanagari, hind, sharada, taitham, telugu
+#import "/template/lang.typ": (
+  arabic, arabic-amiri, balinese, devanagari, hind, sharada, taitham, telugu,
+)
 
 #import "/lib/glossary.typ": tr
 

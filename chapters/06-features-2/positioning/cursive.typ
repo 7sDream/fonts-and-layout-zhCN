@@ -1,5 +1,5 @@
 #import "/template/template.typ": web-page-template
-#import "/template/components.typ": note, cross-link
+#import "/template/components.typ": cross-link, note
 
 #import "/lib/glossary.typ": tr
 
@@ -32,8 +32,7 @@
   fill: white,
   align: bottom,
   inset: 1pt,
-  [#image("gaf-lam-lam-1.png")],
-  [#image("gaf-lam-lam-2.png")],
+  [#image("gaf-lam-lam-1.png")], [#image("gaf-lam-lam-2.png")],
 )]
 
 #note[

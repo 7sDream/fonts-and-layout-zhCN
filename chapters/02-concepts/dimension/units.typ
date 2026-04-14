@@ -14,9 +14,12 @@
 // So coordinates and size values inside digital fonts are defined in terms of an *em square*, which is itself divided into an arbitrary number of *units*, typically 1000, 1024 or 2048. If we want to display text at 12 points, we draw the *em square* at that size, and then scale up the design to match.
 数字字体内的坐标和尺寸由*#tr[em square]*来确定，它的高度会被分成任意数量个小单元，一般会是1000，1024或者2048个单位。如果我们希望显示12pt的文本，就把*#tr[em square]*定为这个尺寸，具体的字符设计就自然地缩放为相匹配的大小了。
 
-#figure(caption: [
-  #tr[glyph]在不同字号时的缩放
-], include "units-graph.typ") <figure:units>
+#figure(
+  caption: [
+    #tr[glyph]在不同字号时的缩放
+  ],
+  include "units-graph.typ",
+) <figure:units>
 
 // We can see a number of things from this diagram. First, we notice that the glyph outline doesn't need to be contained within the em square itself. It's just a notional rectangular box, a kind of digital type sort. (Yes, the old lining-up-boxes model of typography again.) In this case, with Bengali script, we want to make sure that the headline is always connected, so there is a slight overlap between the glyphs to make this happen, leading to the outline of the headline jutting out the left and right side of the em square.
 从@figure:units 中我们可以看出很多信息。首先，#tr[glyph]#tr[outline]不需要充满整个#tr[em square]，它只是一个用于参考的矩形框而已，就像#tr[sort]字身的数字版。（是的，又是古老的基于线和框那一套。）在图中的孟加拉文例子中，我们希望确保#tr[headline]总是连续的，所以将#tr[glyph]设计为有轻微的重叠，也就造成了这些#tr[headline]的#tr[outline]会突出于#tr[em square]的左右两侧。<pos:bengali-headline>
@@ -24,9 +27,13 @@
 // Notice also that the baseline and full height of the glyph are not determined by the em square itself; the designer decides where to put the outlines within the em square, and even how high to make the outlines. This can mean that different digital fonts which are notionally the same type size actually appear at different sizes!
 需要注意的是，#tr[baseline]和#tr[glyph]的高度并不由#tr[em square]决定。设计师会决定把它们放在#tr[em square]的什么位置，或者什么高度上。这也就意味着在使用相同的字号调用不同的字体时，实际的显示尺寸可以千差万别。
 
-#figure(caption: [
-  Noto Sans和Trajan字体#footnote[译注：原文使用的应该是Trajan Pro 3的图片，因直接嵌入字体数据的许可证问题，此处换成同风格的Cinzel。]中的字母H、x
-], placement: none, include "notional-size.typ") <figure:notional-size>
+#figure(
+  caption: [
+    Noto Sans和Trajan字体#footnote[译注：原文使用的应该是Trajan Pro 3的图片，因直接嵌入字体数据的许可证问题，此处换成同风格的Cinzel。]中的字母H、x
+  ],
+  placement: none,
+  include "notional-size.typ",
+) <figure:notional-size>
 
 // Here the designers of Noto Sans and Trajan have placed the outlines in the em square in different ways: Trajan uses a bigger body, a higher x-height, and fills up the square more, whereas Noto Sans leaves space at the top. (Both of them leave space at the bottom for descenders.) We'll look at the differing heights used in font design a little later, but for now just remember that because the em-square is a notional size and designers can put outlines inside it however they like, a 12pt rendering of one font may be "bigger" than a 12pt rendering of another, even if the em square is scaled to be the same size.
 @figure:notional-size 展示了Noto Sans和Trajan两个字体在把#tr[outline]放进#tr[em square]时采用的不同方式：Trajan拥有一个更高的#tr[x-height]，它的体型更大，向上填满了整个方框；而Noto Sans则在上面留出了一些空间（两个字体都在下方为#tr[decender]预留了空间）。字体中的这些不同的高度会在后面的章节详述，现在只需要记住，因为#tr[em square]只是用于参考的名义上的边界，某个字体的12pt可能会比另一个字体的12pt更大，即使它们的#tr[em square]被缩放到了相同的大小。

@@ -32,10 +32,35 @@
     height: ascender - decender,
   )
 
-  txt([#tr[ascender]：1556], (line-left, basey + ascender), anchor: "rb", size: 20 * ux,dx: -10, dy: -2)
-  txt([#tr[cap height]：1462], (line-left, basey + cap), anchor: "rc", size: 20 * ux,dx: -10)
-  txt([#tr[x-height]：1096], (line-left, basey + xheight), anchor: "rc", size: 20 * ux,dx: -10)
-  txt([#tr[decender]：-492], (line-left, basey + decender), anchor: "rb", size: 20 * ux,dx: -10)
+  txt(
+    [#tr[ascender]：1556],
+    (line-left, basey + ascender),
+    anchor: "rb",
+    size: 20 * ux,
+    dx: -10,
+    dy: -2,
+  )
+  txt(
+    [#tr[cap height]：1462],
+    (line-left, basey + cap),
+    anchor: "rc",
+    size: 20 * ux,
+    dx: -10,
+  )
+  txt(
+    [#tr[x-height]：1096],
+    (line-left, basey + xheight),
+    anchor: "rc",
+    size: 20 * ux,
+    dx: -10,
+  )
+  txt(
+    [#tr[decender]：-492],
+    (line-left, basey + decender),
+    anchor: "rb",
+    size: 20 * ux,
+    dx: -10,
+  )
 
   txt([Hxgh], base, anchor: "lb", size: 320 * ux)
 })

@@ -14,7 +14,11 @@
 )
 
 #let positions = (
-  20, 380, 710, 845, 990,
+  20,
+  380,
+  710,
+  845,
+  990,
 )
 
 #let graph = with-unit((ux, uy) => {
@@ -24,7 +28,10 @@
 
   let arrow = make-arrow(ux)
   let ltr = (
-    true, false, true, false,
+    true,
+    false,
+    true,
+    false,
   )
 
   let level = 0

@@ -8,19 +8,18 @@
 #let graph = with-unit((ux, uy) => {
   // mesh(start, end, (100, 100), stroke: 1 * ux + gray)
   let char = bengali(
-    // TODO: Typst text stroke needs improvment
     // stroke: (
     //   thickness: 10 * ux,
+    //   cap: "butt",
     //   join: "miter",
-    //   miter-limit: 4,
     // ),
     // fill: white.transparentize(100%),
   )[ব]
-  
+
   let subgraph = (dx, dy, scale) => {
     txt(char, (dx, dy), size: 400 * ux * scale, anchor: "cb", dy: -5 * scale)
     rect(
-      (-115 * scale + dx, 370 * scale + dy), 
+      (-115 * scale + dx, 370 * scale + dy),
       width: 230 * scale,
       height: 490 * scale,
     )
@@ -35,16 +34,22 @@
       head-scale: 2 * scale,
     )
     arrow-head(
-      (82 * scale + dx, dy - 15 * scale), 4 * scale,
+      (82 * scale + dx, dy - 15 * scale),
+      4 * scale,
     )
     arrow(
       (-115 * scale + dx + 230 * scale + 20 * scale, 370 * scale + dy - 5),
-      (-115 * scale + dx + 230 * scale + 20 * scale, 370 * scale + dy - 490 * scale),
+      (
+        -115 * scale + dx + 230 * scale + 20 * scale,
+        370 * scale + dy - 490 * scale,
+      ),
       stroke: 2 * ux + theme.main,
       head-scale: 5,
     )
     arrow-head(
-      (-115 * scale + dx + 230 * scale + 20 * scale, 370 * scale + dy), 10, theta: 90deg
+      (-115 * scale + dx + 230 * scale + 20 * scale, 370 * scale + dy),
+      10,
+      theta: 90deg,
     )
   }
 

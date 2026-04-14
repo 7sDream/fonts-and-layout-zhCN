@@ -20,7 +20,7 @@
   sy - big-card-height / 2
 }
 
-#let big-card = (start) => with-unit((ux, uy) => rect(
+#let big-card = start => with-unit((ux, uy) => rect(
   start,
   width: big-card-width,
   height: big-card-height,
@@ -32,7 +32,9 @@
 
 #let big-cards = {
   for times in range(big-card-count - 1, -1, step: -1) {
-    let p = big-card-start-point.zip(big-card-offset.map(x => x * times)).map(((a, b)) => a + b)
+    let p = big-card-start-point
+      .zip(big-card-offset.map(x => x * times))
+      .map(((a, b)) => a + b)
     if times == 0 {
       arrow((arrow-left, arrow-y), (arrow-right, arrow-y), head-scale: 5)
     }
@@ -86,7 +88,7 @@
       [（用户明确要求启用）],
       [（除非用户明确关闭，否则启用）],
       [（用户未启用）],
-    )
+    ),
   )
 
   for row in range(0, 2) {
@@ -101,15 +103,34 @@
       // title
       let (cx, cy) = (ltx + feature-card-width / 2, lty)
       let text-color = if index == 3 { last-text-color } else { black }
-      txt(text(fill: text-color, data.title.at(index)), (cx, cy), anchor: "cc", dy: title-text-y-offset, size: title-text-size * ux)
+      txt(
+        text(fill: text-color, data.title.at(index)),
+        (cx, cy),
+        anchor: "cc",
+        dy: title-text-y-offset,
+        size: title-text-size * ux,
+      )
 
       // rules
-      txt(text(fill: text-color, data.rules), (cx, cy), anchor: "lt", dx: small-text-x-offset, dy: small-text-y-offset, size: small-text-size * ux)
+      txt(
+        text(fill: text-color, data.rules),
+        (cx, cy),
+        anchor: "lt",
+        dx: small-text-x-offset,
+        dy: small-text-y-offset,
+        size: small-text-size * ux,
+      )
 
       // description
       let (cbx, cby) = (cx, cy - feature-card-height)
-      txt(data.desc.at(index), (cbx, cby), anchor: "ct", size: small-text-size * ux, dy: -small-text-size * 0.7)
-      
+      txt(
+        data.desc.at(index),
+        (cbx, cby),
+        anchor: "ct",
+        size: small-text-size * ux,
+        dy: -small-text-size * 0.7,
+      )
+
       // x cross for last card
       if index == 3 {
         let offset = feature-card-radius * (1 - calc.sqrt(2) / 2)
@@ -144,16 +165,36 @@
 
   txt([_dflt_], (rtx - 50, lty - 50), anchor: "rc", size: 42 * ux)
   txt([_语言代码_], (rtx - 50 - 300, rty + 60), anchor: "rb")
-  bezier((rtx - 50 - 300, rty + 60 + 20), (rtx - 50 - 100, rty + 60 + 20), none, (rtx - 50 - 60, lty - 30))
-  arrow-head((rtx - 50 - 60, lty - 30), 1pt/ux * 5, theta: -60deg)
+  bezier(
+    (rtx - 50 - 300, rty + 60 + 20),
+    (rtx - 50 - 100, rty + 60 + 20),
+    none,
+    (rtx - 50 - 60, lty - 30),
+  )
+  arrow-head((rtx - 50 - 60, lty - 30), 1pt / ux * 5, theta: -60deg)
 
-  txt([_为其他语言#tr[script]#linebreak()设计的特性集_], (580, 50), anchor: "lc", size: 42 * ux)
+  txt(
+    [_为其他语言#tr[script]#linebreak()设计的特性集_],
+    (580, 50),
+    anchor: "lc",
+    size: 42 * ux,
+  )
   bezier((580, 50), (530, 50), none, (520, 130))
-  arrow-head((520, 130), 1pt/ux * 5, theta: 90deg, point-at-center: true)
+  arrow-head((520, 130), 1pt / ux * 5, theta: 90deg, point-at-center: true)
 
   txt([Abcd], (arrow-left, arrow-y), anchor: "rc", dx: -20, size: 72 * ux)
-  txt(text(features: ("smcp",))[Abcd], (arrow-right, arrow-y), anchor: "lc", dx: 20, size: 72 * ux)
-  txt(image("smcp-icon.jpg", width: 100 * ux), (arrow-left + 50, arrow-y), anchor: "lc")
+  txt(
+    text(features: ("smcp",))[Abcd],
+    (arrow-right, arrow-y),
+    anchor: "lc",
+    dx: 20,
+    size: 72 * ux,
+  )
+  txt(
+    image("smcp-icon.jpg", width: 100 * ux),
+    (arrow-left + 50, arrow-y),
+    anchor: "lc",
+  )
 })
 
 #canvas(end, start: start, width: 100%, graph)

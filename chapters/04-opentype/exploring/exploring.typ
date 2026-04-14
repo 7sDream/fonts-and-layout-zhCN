@@ -37,38 +37,53 @@ Listing table info for "TTXTest-Regular.otf":
 #align(center, table(
   columns: 2,
   align: left,
-  [`OS/2`], [
+  [`OS/2`],
+  [
     // glyph metrics used historically by OS/2 and Windows platforms
     因为历史原因，OS/2和Windows平台使用此表中的#tr[glyph]#tr[metrics]
   ],
-  [`cmap`], [
+
+  [`cmap`],
+  [
     // mapping between characters and glyphs
     #tr[character]到#tr[glyph]的映射表
   ],
-  [`head`], [
+
+  [`head`],
+  [
     // basic font metadata
     字体的基础元数据
   ],
-  [`hhea`], [
+
+  [`hhea`],
+  [
     // basic information for horizontal typesetting
     用于水平#tr[typeset]的基础信息
   ],
-  [`hmtx`], [
+
+  [`hmtx`],
+  [
     // horizontal metrics (width and left sidebearing) of each character
     每个#tr[character]的水平#tr[metrics]（比如宽度和左#tr[sidebearing]）
   ],
-  [`maxp`], [
+
+  [`maxp`],
+  [
     // information used by for the font processor when loading the font
     字体处理器加载这个字体时的所需信息
   ],
-  [`name`], [
+
+  [`name`],
+  [
     // a table of "names" - textual descriptions and information about the font
     名称表，储存了关于这个字体的各种文本描述信息
   ],
-  [`post`], [
+
+  [`post`],
+  [
     // information used when downloading fonts to PostScript printers
     当字体加载到PostScript打印机上时使用的信息
-  ]
+  ],
 ))
 
 // OpenType fonts have two distinct ways of representing glyph outline data: PostScript strings and TrueType outlines. In general, PostScript strings are used, but TrueType is also an option. (You will see a lot of this dual nature of OpenType throughout the chapter, based on the dual heritage of OpenType fonts.)
@@ -116,7 +131,7 @@ Dumping 'hmtx' table...
 }
 
 // Here we see our exported glyph `A`, and the special glyph `.notdef` which is used when the font is called upon to display a glyph that is not present. The Glyphs software provides us with a default `.notdef` which looks like this: ![notdef](opentype/notdef.png)
-这里我们看到#tr[glyph]`A`被导出了，除此之外还有一个特殊的#tr[glyph]`.notdef`。这个特殊#tr[glyph]会在字体里没有某个#tr[glyph]时使用。Glyphs 软件为我们提供了一个默认的 `.notdef` #tr[glyph]，显示出来会是这样：#text(font: ("TTX Test", ))[?]
+这里我们看到#tr[glyph]`A`被导出了，除此之外还有一个特殊的#tr[glyph]`.notdef`。这个特殊#tr[glyph]会在字体里没有某个#tr[glyph]时使用。Glyphs 软件为我们提供了一个默认的 `.notdef` #tr[glyph]，显示出来会是这样：#text(font: ("TTX Test",))[?]
 
 // The `post` and `maxp` tables are essentially *aides memoire* for the computer; they are a compilation of values automatically computed from other parts of the font, so we will skip over them. The `GSUB` table in our font is empty, so we will not deal with it here, but will return to it when we consider OpenType features.
 `post`和`maxp`表在计算机上没什么作用，它们基本上只是根据字体的其他部分计算出来的一堆数值，这里略过不介绍。我们字体的`GSUB`表是空的，所以也没有什么能讲解的，但后面介绍OpenType特性时我们会再用到它。

@@ -21,13 +21,18 @@
   )
 
   point((100, 150), radius: 10)
-  arrow((100, 150), (100, 480), stroke: 3*ux + theme.main, head-scale: 5)
-  txt(rotate(-90deg, reflow: true)[字宽], (110, 300), anchor: "lc", size: 30 * ux)
+  arrow((100, 150), (100, 480), stroke: 3 * ux + theme.main, head-scale: 5)
+  txt(
+    rotate(-90deg, reflow: true)[字宽],
+    (110, 300),
+    anchor: "lc",
+    size: 30 * ux,
+  )
 
   point((500, 70), radius: 10)
-  arrow((500, 70), (230, 70), stroke: 3*ux + theme.main, head-scale: 5)
-  arrow((500, 70), (770, 70), stroke: 3*ux + theme.main, head-scale: 5)
-  txt([字重], (500, 40), anchor: "ct", size: 30*ux)
+  arrow((500, 70), (230, 70), stroke: 3 * ux + theme.main, head-scale: 5)
+  arrow((500, 70), (770, 70), stroke: 3 * ux + theme.main, head-scale: 5)
+  txt([字重], (500, 40), anchor: "ct", size: 30 * ux)
 
   let xs = (250, 500, 750)
   let weights = ((300, [细]), (400, [常规]), (700, [粗]))
@@ -36,9 +41,17 @@
 
   for (y, (width, width-desc)) in ys.zip(widths) {
     for (x, (weight, weight-desc)) in xs.zip(weights) {
-
-      txt(text(weight: weight, stretch: width)[#khmer[\u{179B}]], (x, y), size: 100 * ux)
-      txt(weight-desc + width-desc + [体], (x, y + 60), size: 32 * ux, anchor: "cb")
+      txt(
+        text(weight: weight, stretch: width)[#khmer[\u{179B}]],
+        (x, y),
+        size: 100 * ux,
+      )
+      txt(
+        weight-desc + width-desc + [体],
+        (x, y + 60),
+        size: 32 * ux,
+        anchor: "cb",
+      )
     }
   }
 

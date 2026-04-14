@@ -7,7 +7,6 @@
 #set grid.hline(stroke: stroke)
 
 #let graph-cell = (it, no-stroke: false) => block(
-  spacing: 0pt,
   inset: 0.5em,
   outset: 0pt,
   stroke: if no-stroke { none } else { stroke },
@@ -27,7 +26,6 @@
   ],
   graph-cell[
     #graph-cell[#tr[outline]]
-
     A
 
     B
@@ -36,6 +34,7 @@
   ],
   graph-cell[
     #graph-cell[#tr[metrics]]
+
     全局#linebreak()#tr[metrics]
 
     A
@@ -46,7 +45,7 @@
   ],
   graph-cell[
     #graph-cell[高级#tr[typography]特性]
-    
+
     #tr[ligature]
 
     #tr[kern]

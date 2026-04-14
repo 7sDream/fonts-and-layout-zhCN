@@ -1,6 +1,6 @@
 #import "/template/template.typ": web-page-template
 #import "/template/components.typ": note
-#import "/template/lang.typ": telugu, balinese, sharada, taitham
+#import "/template/lang.typ": balinese, sharada, taitham, telugu
 
 #import "/lib/glossary.typ": tr
 
@@ -30,14 +30,14 @@ USE试图解决#tr[character]在Unicode中的#tr[encoding]顺序和它们对应#
     USE将#tr[character]组织成#tr[cluster]的流程。
     // If you want a more formal grammar for a USE cluster, you can find one in the Microsoft [script development specs](https://docs.microsoft.com/en-us/typography/script-development/use).
     更加正式的USE#tr[character]#tr[cluster]构成法可以在微软的《通用#tr[shaping]引擎字体开发规范》#[@Microsoft.DevelopingUSE]中找到。
-  ]
+  ],
 )[#include "USE-cluster.typ"]
 
 // But the USE expects those characters to be formed into a glyph which looks like this:
 USE 允许将#tr[character]们最终组合为一个如@figure:USE-form 这样的#tr[glyph]。
 
 #figure(
-  caption: [USE中一个标准#tr[cluster]的构成]
+  caption: [USE中一个标准#tr[cluster]的构成],
 )[#image("use-form.png")] <figure:USE-form>
 
 // For instance, in Telugu, we know that the series of characters ఫ్ ట్ వే should be formed into a single cluster (ఫ్ట్వే), because it is made up of a base character ఫ, followed by two halant groups (virama, base consonant), and a final top-positioned vowel. The script development spec mentioned above explained how these categories are derived from the Indic Positional Category and Indic Syllabic Category information in the Unicode Character Database.
@@ -47,27 +47,27 @@ USE 允许将#tr[character]们最终组合为一个如@figure:USE-form 这样的
 这个用于组合#tr[cluster]的计算模型并不具备任何现实中的语言学知识。你可以根据规范中构成法的定义创建出一个和现实语言没有任何关联，但却依然合法的#tr[cluster]。比如，我们可以使用如下#tr[character]合成出一个想象中的巴厘文字#tr[cluster]：
 
 /*
-* ᬳ BALINESE LETTER HA, Base
-* ᬴ BALINESE SIGN REREKAN, Consonant modifier above
-* Halant group:
-    * ᭄ BALINESE ADEG ADEG, Halant
-    * ᬗ BALINESE LETTER NGA, Base
-    * ᬴ BALINESE SIGN REREKAN, Consonant modifier above
-* Halant group:
-    * ᭄ BALINESE ADEG ADEG, Halant
-    * ᬢ BALINESE LETTER TA, Base
-* Vowels:
-    * ᬶ BALINESE VOWEL SIGN ULU, Vowel above
-    * ᬹ BALINESE VOWEL SIGN SUKU ILUT, Vowel below
-    * ᬸ BALINESE VOWEL SIGN SUKU, Vowel below
-    * ᬵ BALINESE VOWEL SIGN TEDUNG, Vowel post
-* Vowel modifiers:
-    * ᬀ BALINESE SIGN ULU RICEM, Vowel modifier above
-    * ᬁ BALINESE SIGN ULU CANDRA, Vowel modifier above
-    * ᬄ BALINESE SIGN BISAH, Vowel modifier post
-* Final consonants:
-    * ᬃ BALINESE SIGN SURANG, Consonant final above
-*/
+ * ᬳ BALINESE LETTER HA, Base
+ * ᬴ BALINESE SIGN REREKAN, Consonant modifier above
+ * Halant group:
+ * ᭄ BALINESE ADEG ADEG, Halant
+ * ᬗ BALINESE LETTER NGA, Base
+ * ᬴ BALINESE SIGN REREKAN, Consonant modifier above
+ * Halant group:
+ * ᭄ BALINESE ADEG ADEG, Halant
+ * ᬢ BALINESE LETTER TA, Base
+ * Vowels:
+ * ᬶ BALINESE VOWEL SIGN ULU, Vowel above
+ * ᬹ BALINESE VOWEL SIGN SUKU ILUT, Vowel below
+ * ᬸ BALINESE VOWEL SIGN SUKU, Vowel below
+ * ᬵ BALINESE VOWEL SIGN TEDUNG, Vowel post
+ * Vowel modifiers:
+ * ᬀ BALINESE SIGN ULU RICEM, Vowel modifier above
+ * ᬁ BALINESE SIGN ULU CANDRA, Vowel modifier above
+ * ᬄ BALINESE SIGN BISAH, Vowel modifier post
+ * Final consonants:
+ * ᬃ BALINESE SIGN SURANG, Consonant final above
+ */
 #let gobbledegook = (
   (codepoint: 0x1B33, name: "BALINESE LETTER HA", class: [基本#tr[character]]),
   (codepoint: 0x1B34, name: "BALINESE SIGN REREKAN", class: [辅音上方修饰符]),
@@ -75,31 +75,59 @@ USE 允许将#tr[character]们最终组合为一个如@figure:USE-form 这样的
     group: [半音组],
     children: (
       (codepoint: 0x1B44, name: "BALINESE ADEG ADEG", class: [半音符号]),
-      (codepoint: 0x1B17, name: "BALINESE LETTER NGA", class: [基本#tr[character]]),
-      (codepoint: 0x1B34, name: "BALINESE SIGN REREKAN", class: [辅音上方修饰符]),
-    )
+      (
+        codepoint: 0x1B17,
+        name: "BALINESE LETTER NGA",
+        class: [基本#tr[character]],
+      ),
+      (
+        codepoint: 0x1B34,
+        name: "BALINESE SIGN REREKAN",
+        class: [辅音上方修饰符],
+      ),
+    ),
   ),
   (
     group: [半音组],
     children: (
       (codepoint: 0x1B44, name: "BALINESE ADEG ADEG", class: [半音符号]),
-      (codepoint: 0x1B22, name: "BALINESE LETTER TA", class: [基本#tr[character]]),
+      (
+        codepoint: 0x1B22,
+        name: "BALINESE LETTER TA",
+        class: [基本#tr[character]],
+      ),
     ),
   ),
   (
     group: [元音组],
     children: (
       (codepoint: 0x1B36, name: "BALINESE VOWEL SIGN ULU", class: [上方元音]),
-      (codepoint: 0x1B39, name: "BALINESE VOWEL SIGN SUKU ILUT", class: [下方元音]),
+      (
+        codepoint: 0x1B39,
+        name: "BALINESE VOWEL SIGN SUKU ILUT",
+        class: [下方元音],
+      ),
       (codepoint: 0x1B38, name: "BALINESE VOWEL SIGN SUKU", class: [下方元音]),
-      (codepoint: 0x1B35, name: "BALINESE VOWEL SIGN TEDUNG", class: [后方元音]),
+      (
+        codepoint: 0x1B35,
+        name: "BALINESE VOWEL SIGN TEDUNG",
+        class: [后方元音],
+      ),
     ),
   ),
   (
     group: [元音修饰组],
     children: (
-      (codepoint: 0x1B00, name: "BALINESE SIGN ULU RICEM", class: [上方元音修饰符]),
-      (codepoint: 0x1B01, name: "BALINESE SIGN ULU CANDRA", class: [上方元音修饰符]),
+      (
+        codepoint: 0x1B00,
+        name: "BALINESE SIGN ULU RICEM",
+        class: [上方元音修饰符],
+      ),
+      (
+        codepoint: 0x1B01,
+        name: "BALINESE SIGN ULU CANDRA",
+        class: [上方元音修饰符],
+      ),
       (codepoint: 0x1B04, name: "BALINESE SIGN BISAH", class: [后方元音修饰符]),
     ),
   ),
@@ -108,7 +136,7 @@ USE 允许将#tr[character]们最终组合为一个如@figure:USE-form 这样的
     children: (
       (codepoint: 0x1B03, name: "BALINESE SIGN SURANG", class: [上方结尾辅音]),
     ),
-  )
+  ),
 )
 
 #let gobbledegook-to-list(arr) = {
@@ -129,17 +157,21 @@ USE 允许将#tr[character]们最终组合为一个如@figure:USE-form 这样的
 #figure(
   placement: none,
 )[
-#let flatten-gobbledegook(arr) = arr.fold((), (acc, item) => {
-  if "group" in item {
-    return (..acc, ..flatten-gobbledegook(item.children))
-  } else {
-    return (..acc, item.codepoint)
-  }
-})
+  #let flatten-gobbledegook(arr) = arr.fold((), (acc, item) => {
+    if "group" in item {
+      return (..acc, ..flatten-gobbledegook(item.children))
+    } else {
+      return (..acc, item.codepoint)
+    }
+  })
 
-#let gobbledegook-string = flatten-gobbledegook(gobbledegook).map(str.from-unicode).join()
+  #let gobbledegook-string = (
+    flatten-gobbledegook(gobbledegook).map(str.from-unicode).join()
+  )
 
-#block(inset: (top: 2em, bottom: 5em))[#balinese(size: 5em)[#gobbledegook-string]]
+  #block(inset: (top: 2em, bottom: 5em))[#balinese(
+    size: 5em,
+  )[#gobbledegook-string]]
 ]
 
 // When USE has identified a cluster according to the rules above, the first set of features are applied - `locl`, `ccmp`, `nukt` and `akhn` in that order; next, the second set of features - `rphf` and `pref` in that order; then the third set of features - `rkrf`, `abvf`, `blwf`, `half`, `pstf`, `vatu` and `cjct` (not *necessarily* in that order).
@@ -149,12 +181,12 @@ USE 允许将#tr[character]们最终组合为一个如@figure:USE-form 这样的
 在三个特性集应用完毕后，会将#tr[glyph]序列从逻辑顺序（Unicode要求它们在文本中的出现顺序）重新排序为显示顺序（从左到右）。Reph在文本中会写在基本字符之后，当此时就会移动到前面了。所以我们可以依次输入用于书写克什米尔语的夏拉达文中的两个字母 `U+111C2 SHARADA SIGN JIHVAMULIYA` 和 `U+111AF SHARADA LETTER SHA`，但它们会被#tr[shaping]引擎重排为如下的样子：
 
 #[
-#show regex(`\p{Sharada}+`.text): sharada
+  #show regex(`\p{Sharada}+`.text): sharada
 
-```bash
-$ hb-shape NotoSansSharada-Regular.ttf '𑇂𑆯'
-[Sha=0+700|Jihvamuliya.ns=0@-680,0+0]
-```
+  ```bash
+  $ hb-shape NotoSansSharada-Regular.ttf '𑇂𑆯'
+  [Sha=0+700|Jihvamuliya.ns=0@-680,0+0]
+  ```
 ]
 
 // Notice how the Jihvamuliya (reph) has been placed after the base glyph in the glyph stream (even though it's then positioned on top).
@@ -164,12 +196,12 @@ $ hb-shape NotoSansSharada-Regular.ttf '𑇂𑆯'
 类似地，显示在基本#tr[glyph]前的#tr[glyph]（前方元音、前方元音修饰符、被`pref`特性命中的#tr[glyph]等）会被移动到#tr[glyph]#tr[cluster]中较前的位置，位于其最近的半音符的右边。比如我们依次输入基本#tr[character]`U+111A8 BHA`、半音符号`U+111C0 VIRAMA`、另一个基本#tr[character]`U+11193 GA`、基前元音`U+111B4 VOWEL SIGN I`，则重排结果为：
 
 #[
-#show regex(`\p{Sharada}+`.text): sharada
+  #show regex(`\p{Sharada}+`.text): sharada
 
-```bash
-$ hb-shape NotoSansSharada-Regular.ttf '𑆨𑇀𑆓𑆴'
-[Bha=0+631|virama=0+250|I=2+224|Ga=2+585]
-```
+  ```bash
+  $ hb-shape NotoSansSharada-Regular.ttf '𑆨𑇀𑆓𑆴'
+  [Bha=0+631|virama=0+250|I=2+224|Ga=2+585]
+  ```
 ]
 
 显示为：
@@ -208,12 +240,12 @@ feature pref {
   在通用#tr[shaping]引擎出现之前，字体需要通过使用#tr[positioning]规则来进行作弊式的#tr[character]位置交换。比如在Noto Sans Tai Tham字体中，基本#tr[character] `TAI THAM LETTER WA`向右移动了540个单位，而应显示在基本#tr[character]前的`MEDIAL RA`#tr[character]则向左移了1140个单位，在#tr[glyph]流顺序不变的情况下高效地完成了#tr[positioning]：
 
   #[
-  #show regex(`\p{Tai Tham}+`.text): taitham
+    #show regex(`\p{Tai Tham}+`.text): taitham
 
-  ```bash
-  $ hb-shape NotoSansTaiTham-Regular.ttf 'ᩅᩕ'
-  [uni1A45=0@540,0+1103|uni1A55=0@-1140,0+100]
-  ```
+    ```bash
+    $ hb-shape NotoSansTaiTham-Regular.ttf 'ᩅᩕ'
+    [uni1A45=0@540,0+1103|uni1A55=0@-1140,0+100]
+    ```
   ]
 ]
 

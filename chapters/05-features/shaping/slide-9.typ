@@ -33,36 +33,83 @@
       inset: 0pt,
       fill: (x, y) => if y > 0 { table-gray-color } else { white },
       stroke: no-hlines-pen(pen, 2),
-      ..glyph-stream.map(it => block(height: 50*ux, spacing: 0pt, text(fill: black, size: 32*ux, it))),
-      block(height: 50*ux, spacing: 0pt),
+      ..glyph-stream.map(it => block(height: 50 * ux, spacing: 0pt, text(
+        fill: black,
+        size: 32 * ux,
+        it,
+      ))),
+      block(height: 50 * ux, spacing: 0pt),
     )),
     (30, 652),
     anchor: "lt",
   )
 
-  arrow((210, 682-243), (210, 682-135), stroke: 30*ux + arrow-color, head-scale: 1.4)
+  arrow(
+    (210, 682 - 243),
+    (210, 682 - 135),
+    stroke: 30 * ux + arrow-color,
+    head-scale: 1.4,
+  )
 
-  rect((100, 682-255), end: (900, -50), radius: 50, fill: feature-color, shadow: (:))
+  rect(
+    (100, 682 - 255),
+    end: (900, -50),
+    radius: 50,
+    fill: feature-color,
+    shadow: (:),
+  )
 
-  txt(text(fill: white)[特性], (150, 400), anchor: "lt", size: 42*ux)
+  txt(text(fill: white)[特性], (150, 400), anchor: "lt", size: 42 * ux)
 
-  rect((175, 682-328), end: (760, 682-520), radius: 20, fill: lookup1-color, shadow: (:))
+  rect(
+    (175, 682 - 328),
+    end: (760, 682 - 520),
+    radius: 20,
+    fill: lookup1-color,
+    shadow: (:),
+  )
 
-  txt(text(fill: white)[#tr[lookup]1], (190, 682-345), anchor: "lt", size: 42*ux)
+  txt(
+    text(fill: white)[#tr[lookup]1],
+    (190, 682 - 345),
+    anchor: "lt",
+    size: 42 * ux,
+  )
 
-  txt(text(fill: white)[
-    - 规则：`sub f f i by f_f_i`
-    - 规则：`sub f f by f_f`
-    - 规则：`sub f l by f_l`
-  ], (190, 682-410), anchor: "lt", size: 24*ux)
+  txt(
+    text(fill: white)[
+      - 规则：`sub f f i by f_f_i`
+      - 规则：`sub f f by f_f`
+      - 规则：`sub f l by f_l`
+    ],
+    (190, 682 - 410),
+    anchor: "lt",
+    size: 24 * ux,
+  )
 
-  rect((175, 682-530), end: (760, 682-665), radius: 20, fill: lookup2-color, shadow: (:))
+  rect(
+    (175, 682 - 530),
+    end: (760, 682 - 665),
+    radius: 20,
+    fill: lookup2-color,
+    shadow: (:),
+  )
 
-  txt(text(fill: white)[#tr[lookup]2], (190, 682-542), anchor: "lt", size: 42*ux)
+  txt(
+    text(fill: white)[#tr[lookup]2],
+    (190, 682 - 542),
+    anchor: "lt",
+    size: 42 * ux,
+  )
 
-  txt(text(fill: white)[
-    - 规则
-  ], (190, 682-610), anchor: "lt", size: 24*ux)
+  txt(
+    text(fill: white)[
+      - 规则
+    ],
+    (190, 682 - 610),
+    anchor: "lt",
+    size: 24 * ux,
+  )
 })
 
 #canvas(

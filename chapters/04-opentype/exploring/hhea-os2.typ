@@ -12,13 +12,12 @@
 在介绍下一部分之前，我们先要往测试字体中加入一些#tr[glyph]#tr[outline]，比如@figure:soource-sans-AB 中的A和B。
 
 #figure(
-  caption: [Paul Hunt 设计的 Source Sans 字体中的 A B #tr[glyph]]
+  caption: [Paul Hunt 设计的 Source Sans 字体中的 A B #tr[glyph]],
 )[
   #grid(
     columns: 2,
     inset: 0pt,
-    image("sourcesans-A.png"),
-    image("sourcesans-B.png"),
+    image("sourcesans-A.png"), image("sourcesans-B.png"),
   )
 ] <figure:soource-sans-AB>
 
@@ -76,7 +75,7 @@
 
 #figure(
   placement: none,
-  caption: [一个用于测量的特殊#tr[glyph]]
+  caption: [一个用于测量的特殊#tr[glyph]],
 )[
   #v(4em)
   #text(font: ("TTX Test",), size: 10em)[C]
@@ -94,14 +93,13 @@
 Safari，Firefox和Illustrator三个软件的结果一致（@figure:textedit-safari 右半）。不过在Illustrator中选中#tr[glyph]时，反色选区会略微超过基线以下500单位的位置，我不清楚其中的原因。
 
 #figure(
-  caption: [不同应用的显示结果。左图为TextEdit，右图为Safari等]
+  caption: [不同应用的显示结果。左图为TextEdit，右图为Safari等],
 )[
   #grid(
     fill: white,
     columns: 2,
     column-gutter: 2em,
-    image("textedit.png"),
-    image("safari.png"),
+    image("textedit.png"), image("safari.png"),
   )
 ] <figure:textedit-safari>
 

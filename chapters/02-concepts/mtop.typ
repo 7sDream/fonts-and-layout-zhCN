@@ -5,12 +5,18 @@
 
 #let main-point = (p, style: none, cornel: false) => {
   if not style.need-rect or not cornel {
-    point(p, radius: style.point.main.circle.radius, color: style.point.main.circle.color)
+    point(
+      p,
+      radius: style.point.main.circle.radius,
+      color: style.point.main.circle.color,
+    )
   } else {
     let (px, py) = p
     let half = style.point.main.rect.width / 2
     rect(
-      (px - half, py + half), width: style.point.main.rect.width, height: style.point.main.rect.width,
+      (px - half, py + half),
+      width: style.point.main.rect.width,
+      height: style.point.main.rect.width,
       fill: style.point.main.rect.color,
     )
   }
@@ -38,7 +44,10 @@
         } else {
           main.zip(from).map(((m, f)) => 2 * m - f)
         }
-        main-point(main, cornel: i != 0 and i != count - 1 and points.len() == 3)
+        main-point(
+          main,
+          cornel: i != 0 and i != count - 1 and points.len() == 3,
+        )
         if i > 0 {
           ctrl-point(main, from)
         }
@@ -53,14 +62,14 @@
 }
 
 #let shape-vertices = (
-  ((47, 72), (0, 0), (134, 161)),
+  ((47, 72), (47, 72), (134, 161)),
   ((353, 235), (243, 235)),
   ((617, 68), (565, 210), (700, 160)),
   ((958, 235), (858, 235)),
 )
 
 #let graph = with-unit((ux, uy) => {
-  // mesh(start, end, (100, 100), stroke: 1 * ux + gray)
+  mesh(start, end, (100, 100), stroke: 1 * ux + gray)
 
   let point-color = gray.darken(30%)
   let style = (
@@ -76,12 +85,12 @@
         rect: (
           width: 16,
           color: point-color,
-        )
+        ),
       ),
       ctrl: (
         radius: 5,
         color: point-color,
-      )
+      ),
     ),
     need-rect: true,
   )

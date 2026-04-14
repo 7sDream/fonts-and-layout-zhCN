@@ -1,7 +1,7 @@
 #import "/template/template.typ": web-page-template
 #import "/template/heading.typ": chapter
 #import "/template/components.typ": note
-#import "/template/lang.typ": tibetan, khmer
+#import "/template/lang.typ": khmer, tibetan
 
 #import "/lib/glossary.typ": tr
 

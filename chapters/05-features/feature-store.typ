@@ -1,5 +1,5 @@
 #import "/template/template.typ": web-page-template
-#import "/template/components.typ": note, cross-ref
+#import "/template/components.typ": cross-ref, note
 
 #import "/lib/glossary.typ": tr
 
@@ -140,7 +140,7 @@ feature liga {
 @figure:gsub-impl-internal 展示了在它在字体内部的实现。
 
 #figure(
-  caption: [字体内部的结构图示]
+  caption: [字体内部的结构图示],
 )[#image("gsub.png")] <figure:gsub-impl-internal>
 
 // Again, what a terrible mess. Let's take things one at a time. On the left, we have three important tables. (When I say tables here, I don't mean top-level OpenType tables like `GSUB`. These are all data structures *inside* the `GSUB` table, and the OpenType standard, perhaps unhelpfully, calls them "tables".) Within the `GPOS` and `GSUB` table there is a *script list*, a *feature list* and a *lookup list*. There's only one of each of these tables inside `GPOS` and `GSUB`; the other data structures in the map (those without bold borders) can appear multiple times: one for each script, one for each language system, one for each feature, one for each lookup and so on.

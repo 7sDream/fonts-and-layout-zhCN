@@ -54,16 +54,19 @@
       let (ox, oy) = arg.movement
       let endpos = (pos.at(0) + ox, pos.at(1) + oy)
       arrow(
-        pos, endpos,
-        stroke: (..line-stroke, paint: theme.main, dash: "dashed"), 
-        head-scale: 5
+        pos,
+        endpos,
+        stroke: (..line-stroke, paint: theme.main, dash: "dashed"),
+        head-scale: 5,
       )
       if "dashbox" in arg {
         let (width, height) = arg.dashbox
         let lb = (endpos.at(0) - width / 2, endpos.at(1))
         rect(
-          lb, width: width, height: -height,
-          stroke: (..line-stroke, dash: "dashed")
+          lb,
+          width: width,
+          height: -height,
+          stroke: (..line-stroke, dash: "dashed"),
         )
       }
     }

@@ -38,7 +38,13 @@
     stroke: (..line-stroke, dash: "dashed"),
   )
 
-  txt(text(cjk-latin-spacing: none)[H東], base, anchor: "lb", size: 420 * ux, dx: -20)
+  txt(
+    text(cjk-latin-spacing: none)[H東],
+    base,
+    anchor: "lb",
+    size: 420 * ux,
+    dx: -20,
+  )
 })
 
 #canvas(end, start: start, width: 65%, graph)
