@@ -67,7 +67,8 @@ jobs:
           declare -a themes=("light" "rust" "coal" "navy" "ayu")
           for theme in "${themes[@]}"; do
             ./typst compile \
-              --font-path fonts
+              --ingore-system-fonts \
+              --font-path fonts \
               --input "githash=${{ steps.args.outputs.version }}" \
               --input "compile_time=${{ steps.args.outputs.datetime }}" \
               --input "theme=${theme}" \
