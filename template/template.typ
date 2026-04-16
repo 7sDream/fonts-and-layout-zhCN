@@ -25,14 +25,14 @@
     author: (consts.author, ..consts.translators),
   )
 
-  #show: template
-
   #show: template-rules.with(
     book-meta: include "/book.typ",
     title: "TODO: title",
     description: "",
     plain-body: doc,
   )
+
+  #show: template
 
   #doc
 

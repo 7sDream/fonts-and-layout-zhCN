@@ -69,7 +69,7 @@
 )
 
 #let graph = with-unit((ux, uy) => {
-  mesh(start, end, (100, 100), stroke: 1 * ux + gray)
+  // mesh(start, end, (100, 100), stroke: 1 * ux + gray)
 
   let point-color = gray.darken(30%)
   let style = (
