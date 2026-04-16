@@ -7,22 +7,31 @@
 #let translators = ("7sDream", "Xiangdong Zeng")
 
 #let font = (
-  chinese-normal: ("Noto Sans SC",),
-  chinese-emph: ("LXGW WenKai GB",),
-  chinese-mono: ("Noto Sans SC",),
-  western-normal: ("Noto Sans",),
-  western-emph: ("Libertinus Serif",), // built-in font
-  western-mono: ("Cascadia Mono",),
+  chinese-normal: "Noto Sans SC",
+  chinese-emph: "LXGW WenKai GB",
+  chinese-mono: "Noto Sans SC",
+  western-normal: "Noto Sans",
+  western-emph: "Libertinus Serif", // built-in font
+  western-mono: "Cascadia Mono",
   // No color in PDF, we use svg directly for now
   emoji: (
     /*"Twitter Color Emoji", */
   ),
 )
 
+#let font-pair = (en, cjk, ..others) => (
+  (
+    "name": en,
+    "covers": "latin-in-cjk",
+  ),
+  cjk,
+  ..others.pos(),
+)
+
 #let font-group = (
-  normal: (..font.western-normal, ..font.chinese-normal, ..font.emoji),
-  emph: (..font.western-emph, ..font.chinese-emph, ..font.emoji),
-  mono: (..font.western-mono, ..font.chinese-mono, ..font.emoji),
+  normal: font-pair(font.western-normal, font.chinese-normal, ..font.emoji),
+  emph: font-pair(font.western-emph, font.chinese-emph, ..font.emoji),
+  mono: font-pair(font.western-mono, font.chinese-mono, ..font.emoji),
 )
 
 #let _font-size-scale = if util.is-web-target() { 1.4 } else { 1.0 }

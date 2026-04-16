@@ -1,27 +1,38 @@
 #import "consts.typ"
 #import "util.typ"
+#import "@preview/shiroa:0.3.1": paged-load-trampoline, templates
+#import templates: markup-rules, template-rules
 
-#import "page.typ": page_setting
+#import "page.typ": page-setting
 #import "font.typ": font-setting
-#import "l10n.typ": l10n_setting
+#import "l10n.typ": l10n-setting
 #import "heading.typ": heading-setting
 
 #let template(doc) = [
-  #show: page_setting
+  #show: page-setting
   #show: font-setting
-  #show: l10n_setting
+  #show: l10n-setting
   #show: heading-setting
 
   #doc
 ]
 
-#let web-page-template(doc) = if util.is-web-target() [
+#let web-page-template(doc) = if util.is-pdf-target() {
+  doc
+} else [
   #set document(
     title: consts.title,
     author: (consts.author, ..consts.translators),
   )
 
   #show: template
+
+  #show: template-rules.with(
+    book-meta: include "/book.typ",
+    title: "TODO: title",
+    description: "",
+    plain-body: doc,
+  )
 
   #doc
 
@@ -37,6 +48,4 @@
   #set text(lang: "en")
   #set par(justify: false)
   #bibliography("/refs.bib", title: none)
-] else [
-  #doc
 ]

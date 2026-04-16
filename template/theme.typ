@@ -1,7 +1,7 @@
 #import "@preview/shiroa:0.3.1": x-target
 
-#let theme-target = if x-target.contains("-") {
-  target.split("-").at(1)
+#let theme-target = if x-target.starts-with("web-") {
+  x-target.split("-").at(1)
 } else if "theme" in sys.inputs {
   sys.inputs.theme
 } else {

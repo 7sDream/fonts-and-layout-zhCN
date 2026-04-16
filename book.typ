@@ -1,4 +1,4 @@
-#import "@preview/shiroa:0.3.1": book, book-meta, chapter, is-web-target
+#import "@preview/shiroa:0.3.1": book, book-meta, chapter
 
 #import "/template/consts.typ"
 #import "/lib/glossary.typ": tr

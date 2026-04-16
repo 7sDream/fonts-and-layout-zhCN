@@ -5,8 +5,6 @@
 
 #show: web-page-template
 
-#show: doc => if util.is-web-target() { doc }
-
 #chapter[
   在线阅读说明
 ]

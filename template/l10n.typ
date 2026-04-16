@@ -1,6 +1,6 @@
 #import "/template/consts.typ"
 
-#let l10n_setting(doc) = [
+#let l10n-setting(doc) = [
   #set text(lang: "zh", region: "CN", script: "hans", hyphenate: true)
 
   #set smartquote(enabled: false)
@@ -12,10 +12,10 @@
   //
   // The list comes from
   // https://github.com/w3c/clreq/issues/534#issuecomment-1958783619
-  #let cn-punct = "‘“‌「『〔（［｛〈《〖【—…、。，．：；！？％〕）］｝〉》〗】’”」』"
-  #show regex("[" + cn-punct + "]+"): set text(font: (
-    ..consts.font.chinese-normal,
-  ))
+  // #let cn-punct = "‘“‌「『〔（［｛〈《〖【—…、。，．：；！？％〕）］｝〉》〗】’”」』"
+  // #show regex("[" + cn-punct + "]+"): set text(font: (
+  //   consts.font.chinese-normal,
+  // ))
 
   #show ref: it => {
     let el = it.element

@@ -2,7 +2,7 @@
 
 // 阿拉伯文，多国使用
 #let arabic = text.with(
-  font: ("Noto Naskh Arabic",),
+  font: "Noto Naskh Arabic",
   // do not effect line height calculation
   top-edge: "baseline",
   lang: "ar",
@@ -12,7 +12,7 @@
 
 // 阿拉伯文，Amiri 字体
 #let arabic-amiri = text.with(
-  font: ("Amiri",),
+  font: "Amiri",
   lang: "ar",
   region: none,
   script: "arab",
@@ -20,7 +20,7 @@
 
 // 法语，拉丁字母即可，无需特殊字体
 #let french = text.with(
-  font: (..font.western-normal,),
+  font: font.western-normal,
   lang: "fr",
   region: "FR",
   script: "latn",
@@ -28,7 +28,7 @@
 
 // 俄语，西里尔字母，无需特殊字体
 #let russian = text.with(
-  font: (..font.western-normal,),
+  font: font.western-normal,
   lang: "ru",
   region: "RU",
   script: "cyrl",
@@ -36,7 +36,7 @@
 
 // 希腊语，希腊字母，无需特殊字体
 #let greek = text.with(
-  font: (..font.western-normal,),
+  font: font.western-normal,
   lang: "el",
   region: "GR",
   script: "grek",
@@ -44,7 +44,7 @@
 
 // 泰语，使用泰文字母
 #let thai = text.with(
-  font: ("Noto Sans Thai Looped",),
+  font: "Noto Sans Thai Looped",
   lang: "th",
   region: "TH",
   script: "thai",
@@ -52,7 +52,7 @@
 
 // 曼丁哥语，使用恩科字母（西非书面文字）
 #let mandingo = text.with(
-  font: ("Noto Sans Nko",),
+  font: "Noto Sans Nko",
   lang: "man",
   region: "GM",
   script: "nkoo",
@@ -60,7 +60,7 @@
 
 // 德语，拉丁字母，无需特殊字体
 #let german = text.with(
-  font: (..font.western-normal,),
+  font: font.western-normal,
   lang: "de",
   region: "DD",
   script: "latn",
@@ -68,7 +68,7 @@
 
 // 藏文，多国藏区皆有使用
 #let tibetan = text.with(
-  font: ("Noto Serif Tibetan",),
+  font: "Noto Serif Tibetan",
   lang: "bo",
   region: none,
   script: "tibt",
@@ -76,7 +76,7 @@
 
 // 高棉文，在高棉语（亦称柬埔寨语）中使用
 #let khmer = text.with(
-  font: ("Noto Sans Khmer",),
+  font: "Noto Sans Khmer",
   lang: "km",
   region: "KH",
   script: "khmr",
@@ -84,7 +84,7 @@
 
 // 天城文，以印地语为例
 #let devanagari = text.with(
-  font: ("Noto Sans Devanagari",),
+  font: "Noto Sans Devanagari",
   lang: "hi",
   region: "IN",
   script: "deva",
@@ -92,7 +92,7 @@
 
 // 天城文，使用`dev2`造型算法的 Hind 字体
 #let hind = text.with(
-  font: ("Hind",),
+  font: "Hind",
   lang: "hi",
   region: "IN",
   script: "dev2",
@@ -101,7 +101,7 @@
 
 // 马拉雅拉姆文
 #let malayalam = text.with(
-  font: ("Manjari",),
+  font: "Manjari",
   weight: "thin",
   lang: "ml",
   region: "IN",
@@ -110,7 +110,7 @@
 
 // 塔克里文，印度16-19世纪文字，现已基本不使用
 #let takri = text.with(
-  font: ("Noto Sans Takri",),
+  font: "Noto Sans Takri",
   lang: "doi",
   region: "IN",
   script: "takr",
@@ -118,7 +118,7 @@
 
 // 泰卢固文，南印度附近使用
 #let telugu = text.with(
-  font: ("Noto Sans Telugu",),
+  font: "Noto Sans Telugu",
   lang: "te",
   region: "IN",
   script: "telu",
@@ -126,7 +126,7 @@
 
 // 巴厘文，巴厘岛上民族书写巴厘语使用
 #let balinese = text.with(
-  font: ("Noto Sans Balinese",),
+  font: "Noto Sans Balinese",
   lang: "ban",
   region: "ID",
   script: "bali",
@@ -134,7 +134,7 @@
 
 // 夏拉达文，主要用于书写克什米尔语
 #let sharada = text.with(
-  font: ("Noto Sans Sharada",),
+  font: "Noto Sans Sharada",
   lang: "kas",
   region: "IN",
   script: "shrd",
@@ -142,7 +142,7 @@
 
 // 傣昙文（老傣仂文），主要用于书写傣仂语，北泰语等
 #let taitham = text.with(
-  font: ("Noto Sans Tai Tham",),
+  font: "Noto Sans Tai Tham",
   lang: "khb",
   region: "TH",
   script: "lana",
@@ -150,7 +150,7 @@
 
 // 希伯来字母，以色列希伯来语
 #let hebrew = text.with(
-  font: ("SBL Hebrew",),
+  font: "SBL Hebrew",
   lang: "he",
   region: "IL",
   script: "hebr",
@@ -158,7 +158,7 @@
 
 // 孟加拉文，书写孟加拉语
 #let bengali = text.with(
-  font: ("Noto Sans Bengali",),
+  font: "Noto Sans Bengali",
   lang: "bn",
   region: "BD",
   script: "bng2",
@@ -166,7 +166,7 @@
 
 // 亚美尼亚字母，亚美尼亚语，亚美尼亚共和国
 #let armenian = text.with(
-  font: ("Noto Serif Armenian",),
+  font: "Noto Serif Armenian",
   lang: "hy",
   region: "AM",
   script: "armn",
@@ -174,7 +174,7 @@
 
 // 传统蒙文字母
 #let mongolian = text.with(
-  font: ("Noto Sans Mongolian",),
+  font: "Noto Sans Mongolian",
   lang: "mn",
   region: "MN",
   script: "mong",

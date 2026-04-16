@@ -36,10 +36,7 @@ _#consts.translators.join("、") 译_
       ([#key],)
     }
   }
-  let cells = keys
-    .zip(info.values())
-    .map(((k, v)) => (k, [：], v).map(emph))
-    .flatten()
+  let cells = keys.zip(info.values()).map(((k, v)) => (k, [：], v).map(emph)).flatten()
 
   table(
     columns: (auto, 1em, auto),

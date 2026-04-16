@@ -44,7 +44,7 @@
   ]
 }
 
-#let page_setting(doc) = [
+#let page-setting(doc) = [
   #set page(fill: theme.bg) if util.is-pdf-target() and theme.bg != white
 
   #set page(
@@ -75,12 +75,15 @@
     stroke: 0.5pt + theme.main,
   ))
 
+  // HTML output do not support footnote, we ignore for now
+  #show footnote: it => if util.is-html-target() {} else { it }
+
   // 参考文献
   #set bibliography(style: "gb-7714-2015-numeric")
 
   // 图表
   #set figure(placement: auto) if util.is-pdf-target()
-  #show figure: it => if util.is-web-target() {
+  #show figure: it => if util.is-web-target() or util.is-html-target() {
     v(0.5em) + it + v(0.5em)
   } else { it }
   #show figure.caption: it => align(left)[#note(it)]

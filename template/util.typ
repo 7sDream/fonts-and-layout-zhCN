@@ -1,7 +1,8 @@
-#import "@preview/shiroa:0.3.1": is-pdf-target, is-web-target
+#import "@preview/shiroa:0.3.1": is-html-target, is-pdf-target, is-web-target
 
 #let is-pdf-target = is-pdf-target
 #let is-web-target = is-web-target
+#let is-html-target = is-html-target
 
 #let __build-selector(elem, start, end) = {
   let select = selector(elem)

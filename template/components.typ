@@ -22,7 +22,7 @@
   web-path: none,
   web-content: none,
 ) = context {
-  if util.is-web-target() {
+  if util.is-web-target() or util.is-html-target() {
     web-cross-link(web-path, web-content, reference: target)
   } else {
     // TODO: remove fallback when all pages are ready
@@ -36,7 +36,7 @@
 }
 
 #let cross-link(target, content, web-path: none) = context {
-  if util.is-web-target() {
+  if util.is-web-target() or util.is-html-target() {
     web-cross-link(web-path, content, reference: target)
   } else {
     link(target, content)
@@ -44,7 +44,7 @@
 }
 
 #let title-ref(target, web-path: none, web-content: none) = context {
-  if util.is-web-target() {
+  if util.is-web-target() or util.is-html-target() {
     web-cross-link(web-path, web-content, reference: target)
   } else {
     let heads = query(target)
