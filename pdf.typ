@@ -3,14 +3,14 @@
 #import "/template/consts.typ"
 #import "/template/util.typ"
 
+#if not util.is-pdf-target() {
+  panic("You should use typst to build this file, not shiroa cli")
+}
+
 #set document(
   title: consts.title,
   author: (consts.author, ..consts.translators),
 )
-
-#if not util.is-pdf-target() {
-  panic("You should use typst to build this file, not shiroa cli")
-}
 
 #show: template
 

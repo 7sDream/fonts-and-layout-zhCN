@@ -1,7 +1,6 @@
 #import "consts.typ"
 #import "util.typ"
 #import "@preview/shiroa:0.3.1": paged-load-trampoline, templates
-#import templates: markup-rules, template-rules
 
 #import "page.typ": page-setting
 #import "font.typ": font-setting
@@ -17,7 +16,7 @@
   #doc
 ]
 
-#let web-page-template(doc) = if util.is-pdf-target() {
+#let web-page-template(title: none, description: none, doc) = if util.is-pdf-target() {
   doc
 } else [
   #set document(
@@ -25,10 +24,10 @@
     author: (consts.author, ..consts.translators),
   )
 
-  #show: template-rules.with(
+  #show: templates.template-rules.with(
     book-meta: include "/book.typ",
-    title: "TODO: title",
-    description: "",
+    title: if title == none { "NO TITLE" } else { title },
+    description: if description == none { "" } else { description },
     plain-body: doc,
   )
 
