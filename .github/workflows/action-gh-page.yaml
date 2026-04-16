@@ -10,16 +10,16 @@ on:
 jobs:
   gh-pages:
     name: Upload Github Pages
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
-      pages: write      # to deploy to Pages
+      pages: write # to deploy to Pages
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: ${{ inputs.artifact-name }}
           path: dist
@@ -27,7 +27,7 @@ jobs:
         run: |
           tree .
       - name: Upload Github Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist/
       - name: Deploy to GitHub Pages

@@ -17,28 +17,28 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     outputs:
       version: ${{ steps.args.outputs.version }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Install Typst
         run: |
-          wget -nv https://github.com/typst/typst/releases/download/v0.11.1/typst-x86_64-unknown-linux-musl.tar.xz
-          tar xvf typst-x86_64-unknown-linux-musl.tar.xz
+          wget -nv https://github.com/typst/typst/releases/download/v0.14.2/typst-x86_64-unknown-linux-musl.tar.xz
+          tar xvf typst-x86_64-unknown-linux-musl.tar.xz 
           mv typst-x86_64-unknown-linux-musl/typst typst
           pwd
           ls -lha
           ./typst --version
-      - name: Install typst-book
+      - name: Install Shiroa
         run: |
-          wget -nv https://github.com/Myriad-Dreamin/typst-book/releases/download/v0.1.5/typst-book-x86_64-unknown-linux-gnu.tar.gz
-          tar xvzf typst-book-x86_64-unknown-linux-gnu.tar.gz
-          mv typst-book-x86_64-unknown-linux-gnu/bin/typst-book typst-book
+          wget -nv https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.3.1-rc4/shiroa-x86_64-unknown-linux-musl.tar.gz
+          tar xvzf shiroa-x86_64-unknown-linux-musl.tar.gz
+          mv shiroa-x86_64-unknown-linux-musl/shiroa shiroa
           pwd
           ls -lha
-          ./typst-book --version
+          ./shiroa --version
       - name: Download fonts
         run: |
           wget -nv https://github.com/7sDream/fonts-and-layout-zhCN/releases/download/extra-fonts%2F20240615/extra.tgz
@@ -55,9 +55,9 @@ jobs:
       - name: Build web book
         continue-on-error: true
         run: |
-          ./typst-book build --font-path fonts --path-to-root "${{ inputs.web-path-root }}"
+          ./shiroa build --font-path fonts --path-to-root "${{ inputs.web-path-root }}"
       - name: Upload web artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: web
           path: dist
@@ -67,15 +67,14 @@ jobs:
           declare -a themes=("light" "rust" "coal" "navy" "ayu")
           for theme in "${themes[@]}"; do
             ./typst compile \
-              --font-path fonts \
-              --input "realpdf=1" \
+              --font-path fonts
               --input "githash=${{ steps.args.outputs.version }}" \
               --input "compile_time=${{ steps.args.outputs.datetime }}" \
               --input "theme=${theme}" \
               pdf.typ book-${{ steps.args.outputs.version }}-${theme}.pdf
           done
       - name: Upload pdf artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pdf
           path: book-*.pdf
