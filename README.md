@@ -97,7 +97,7 @@ typst --ingore-system-fonts --font-path fonts --input theme=light pdf.typ
 
 [origin-book]: https://simoncozens.github.io/fonts-and-layout/
 [Typst]: https://github.com/typst/typst
-[typst-book]: https://github.com/Myriad-Dreamin/shiroa
+[shiroa]: https://github.com/Myriad-Dreamin/shiroa
 [Github Pages]: https://7sdream.github.io/fonts-and-layout-zhCN/
 [new-issue]: https://github.com/7sDream/fonts-and-layout-zhCN/issues/new
 [Github Release]: https://github.com/7sDream/fonts-and-layout-zhCN/releases/latest
