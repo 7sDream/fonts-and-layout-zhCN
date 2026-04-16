@@ -1,9 +1,12 @@
 {
   "tinymist.systemFonts": false,
+  "tinymist.rootPath": "${workspaceFolder}",
   "tinymist.fontPaths": [
     "${workspaceFolder}${pathSeparator}fonts"
   ],
   "tinymist.typstExtraArgs": [
+    // Uncomment this to preview page
+    // "--input", "x-target=web",
     "--input",
     "theme=light",
   ],
