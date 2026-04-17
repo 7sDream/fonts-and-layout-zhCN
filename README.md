@@ -103,7 +103,7 @@ typst --ingore-system-fonts --font-path fonts --input theme=light pdf.typ
 [Github Release]: https://github.com/7sDream/fonts-and-layout-zhCN/releases/latest
 [github-action-ci]: https://github.com/7sDream/fonts-and-layout-zhCN/actions/workflows/ci.yaml
 [action-build-yaml]: https://github.com/7sDream/fonts-and-layout-zhCN/blob/master/.github/workflows/action-build.yaml
-[extra-font-release]: https://github.com/7sDream/fonts-and-layout-zhCN/releases/tag/extra-fonts%2F20240615
+[extra-font-release]: https://github.com/7sDream/fonts-and-layout-zhCN/releases/tag/extra-fonts%2F20260418
 [Tinymist]: https://github.com/Myriad-Dreamin/tinymist
 
 [fontforge-glossary]: http://designwithfontforge.com/zh-CN/Glossary.html
