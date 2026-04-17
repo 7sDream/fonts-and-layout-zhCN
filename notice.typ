@@ -3,7 +3,7 @@
 #import "/template/util.typ"
 #import "/template/components.typ": note
 
-#show: web-page-template
+#show: web-page-template.with(title: "在线阅读说明")
 
 #chapter[
   在线阅读说明

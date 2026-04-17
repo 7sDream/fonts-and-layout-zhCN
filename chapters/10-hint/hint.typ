@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "栅格化与渲染提示")
 
 #chapter[
   // Rasterisation and Hinting

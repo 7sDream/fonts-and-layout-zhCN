@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "通用造型引擎")
 
 // ## The Universal Shaping Engine
 == 通用#tr[shaping]引擎

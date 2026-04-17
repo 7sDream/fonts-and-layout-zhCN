@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "数据如何储存")
 
 // ## How data is stored
 == 数据如何储存

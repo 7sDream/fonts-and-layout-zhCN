@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "字符和字形")
 
 // ## Characters and glyphs
 == #tr[character]和#tr[glyph]

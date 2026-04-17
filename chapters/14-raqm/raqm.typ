@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "文本布局编程利器：libraqm")
 
 #chapter[
   // Text Layout for Programmers: libraqm

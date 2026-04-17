@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "链式定位")
 
 // ### Contextual and chaining contextual positioning
 === #tr[chaining]#tr[positioning]

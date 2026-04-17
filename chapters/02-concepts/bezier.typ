@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "贝塞尔曲线")
 
 // ## Bézier curves
 == 贝塞尔曲线

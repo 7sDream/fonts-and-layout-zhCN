@@ -2,7 +2,7 @@
 #import "template/util.typ"
 #import "template/template.typ": web-page-template
 
-#show: web-page-template
+#show: web-page-template.with(title: "封面")
 
 #set page(numbering: none) if util.is-pdf-target()
 #set page(paper: "a4") if util.is-web-target()

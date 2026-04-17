@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "其他复杂文字")
 
 // ## Other complex scripts
 == 其他复杂#tr[scripts]

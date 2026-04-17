@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "字形类与命名类")
 
 // ## Glyph Classes and Named Classes
 == #tr[glyph]类与命名类

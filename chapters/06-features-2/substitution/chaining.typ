@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "链式替换")
 
 /// ### Chaining Substitutions
 === #tr[chaining substitution]

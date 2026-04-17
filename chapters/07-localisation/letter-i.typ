@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "麻烦的字母 i")
 
 // ## The letter "i"
 == 麻烦的字母 i

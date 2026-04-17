@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "步进宽度")
 
 // ### Advance widths
 === #tr[advance width]

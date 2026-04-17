@@ -176,9 +176,7 @@
     let dx = shadow.at("dx", default: 3)
     let dy = shadow.at("dy", default: -3)
     let darken = shadow.at("darken", default: 50%)
-    let fill = shadow
-      .at("fill", default: args.named().at("fill"))
-      .darken(darken)
+    let fill = shadow.at("fill", default: args.named().at("fill")).darken(darken)
     let (sx, sy) = rel((x + dx, y + dy))
     place(left + top, dx: sx, dy: sy, rect(
       stroke: none,

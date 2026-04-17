@@ -3,7 +3,8 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+// TODO: remove description after Myriad-Dreamin/shiroa#237 got fixed
+#show: web-page-template.with(title: "连笔衔接", description: "")
 
 // ### Cursive attachment
 === #tr[cursive attachment]

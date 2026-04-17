@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "特性与查询组")
 
 // ## Features and lookups
 == 特性与#tr[lookup]

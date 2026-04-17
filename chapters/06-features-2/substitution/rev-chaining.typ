@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "逆向链式替换")
 
 // ### Reverse chained contextual substitution
 === 逆向#tr[chaining]#tr[substitution]

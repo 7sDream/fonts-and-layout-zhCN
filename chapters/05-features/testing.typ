@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "构造测试环境")
 
 // ## Building a testing environment
 == 构造测试环境

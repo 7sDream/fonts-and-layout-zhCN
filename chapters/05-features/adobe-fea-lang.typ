@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "Adobe 特性语言")
 
 // ## The Adobe feature language
 == Adobe 特性语言

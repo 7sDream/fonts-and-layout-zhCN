@@ -16,9 +16,11 @@
   #doc
 ]
 
-#let web-page-template(title: none, description: none, doc) = if util.is-pdf-target() {
+#let web-page-template(title: none, description: auto, doc) = if util.is-pdf-target() {
   doc
 } else [
+  #if title == none or title == "" { panic("Missing web page title") }
+
   #set document(
     title: consts.title,
     author: (consts.author, ..consts.translators),
@@ -26,8 +28,8 @@
 
   #show: templates.template-rules.with(
     book-meta: include "/book.typ",
-    title: if title == none { "NO TITLE" } else { title },
-    description: if description == none { "" } else { description },
+    title: title,
+    description: description,
     plain-body: doc,
   )
 

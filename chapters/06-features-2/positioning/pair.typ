@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "字偶对调整")
 
 // ### Pair adjustment
 === 字偶对调整

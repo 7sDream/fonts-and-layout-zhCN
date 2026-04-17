@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "hmtx 表")
 
 // ### The `hmtx` table
 === `hmtx` 表

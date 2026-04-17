@@ -1,7 +1,6 @@
 #import "/lib/draw.typ": *
 #import "deltas-1.typ": (
-  arrow-head-scale, arrow-line-size, end, graph as delta-1, main-txt-size, p2,
-  p3, p5, start,
+  arrow-head-scale, arrow-line-size, end, graph as delta-1, main-txt-size, p2, p3, p5, start,
 )
 
 #let arrow-color = yellow

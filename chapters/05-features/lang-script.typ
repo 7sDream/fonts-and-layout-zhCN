@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "语言和文字")
 
 // ## Scripts and languages
 == 语言和#tr[script]

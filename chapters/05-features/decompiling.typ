@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "反编译字体文件")
 
 // ## Decompiling a font
 == 反编译字体文件

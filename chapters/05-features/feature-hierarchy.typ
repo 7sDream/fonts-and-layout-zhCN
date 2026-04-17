@@ -32,9 +32,7 @@
 
 #let big-cards = {
   for times in range(big-card-count - 1, -1, step: -1) {
-    let p = big-card-start-point
-      .zip(big-card-offset.map(x => x * times))
-      .map(((a, b)) => a + b)
+    let p = big-card-start-point.zip(big-card-offset.map(x => x * times)).map(((a, b)) => a + b)
     if times == 0 {
       arrow((arrow-left, arrow-y), (arrow-right, arrow-y), head-scale: 5)
     }

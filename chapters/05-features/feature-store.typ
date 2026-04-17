@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "特性如何储存")
 
 // ## How features are stored
 == 特性如何储存

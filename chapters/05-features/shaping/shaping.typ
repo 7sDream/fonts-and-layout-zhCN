@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "文本造型的工作流程")
 
 // ## How OpenType shaping works
 == 文本#tr[shaping]的工作流程

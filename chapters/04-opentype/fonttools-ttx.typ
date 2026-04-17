@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "FontTools 和 ttx 工具")
 
 // ## FontTools and ttx
 == FontTools 和 `ttx` 工具

@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "断行与分词")
 
 // ## Line breaking & word detection
 == 断行与分词

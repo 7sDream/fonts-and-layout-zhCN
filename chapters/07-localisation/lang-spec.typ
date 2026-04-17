@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "特定语言专属替换")
 
 // ## Language-specific substitutes
 == 特定语言专属#tr[substitution]

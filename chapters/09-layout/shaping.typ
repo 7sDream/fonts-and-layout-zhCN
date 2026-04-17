@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "造型中的难题")
 
 // ## Shaping challenges (Bengali etc.)
 == #tr[shaping]中的难题

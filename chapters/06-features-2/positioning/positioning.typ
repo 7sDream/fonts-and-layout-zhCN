@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "各种类型的定位规则")
 
 // Types of Positioning Rule
 == 各种类型的#tr[positioning]规则 <section:positioning-rule-types>

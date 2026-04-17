@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "符号叠放")
 
 // ### Mark-to-mark
 === 符号叠放

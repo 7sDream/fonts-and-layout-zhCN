@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "从 TrueType 到 OpenType")
 
 // ## From TrueType to OpenType
 == 从TrueType到OpenType

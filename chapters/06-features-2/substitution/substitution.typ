@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "各种类型的替换规则")
 
 // Types of Substitution Rule
 == 各种类型的#tr[substitution]规则 <section:substitution-rule-types>

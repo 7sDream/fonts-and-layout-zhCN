@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "定位规则")
 
 // ## Positioning rules
 == #tr[positioning]规则

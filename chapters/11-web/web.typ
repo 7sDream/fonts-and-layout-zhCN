@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "网页上的字体")
 
 #chapter[
   // Fonts on the Web

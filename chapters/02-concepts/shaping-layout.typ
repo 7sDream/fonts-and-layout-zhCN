@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "造型和布局")
 
 == #tr[shaping]和#tr[layout]
 

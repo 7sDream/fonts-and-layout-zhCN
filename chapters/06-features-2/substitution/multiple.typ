@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "增量替换")
 
 // ### Multiple substitution
 === #tr[multiple substitution]

@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "直立分数")
 
 // ## Fractions (see Nutso)
 == 直立分数

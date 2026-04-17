@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "ICU 程序库")
 
 // ## ICU
 == ICU 程序库

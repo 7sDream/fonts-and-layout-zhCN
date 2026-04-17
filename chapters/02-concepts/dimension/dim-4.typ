@@ -1,8 +1,6 @@
 #import "/lib/draw.typ": *
 #import "/lib/glossary.typ": tr
-#import "dim-2.typ": (
-  bbox-lt, bbox-rb, end, graph as dim2, line-color, lt, rb, start,
-)
+#import "dim-2.typ": bbox-lt, bbox-rb, end, graph as dim2, line-color, lt, rb, start
 
 #let end = (end.at(0), end.at(1))
 

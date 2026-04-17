@@ -3,7 +3,8 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+// TODO: remove description after Myriad-Dreamin/shiroa#237 got fixed
+#show: web-page-template.with(title: "矢量化的数字字体", description: "")
 
 // Digital fonts go vector
 == 矢量化的数字字体

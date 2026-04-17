@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "替换和定位规则")
 
 #chapter(
   label: <chapter:substitution-positioning>,

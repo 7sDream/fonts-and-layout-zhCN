@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "借助 ttx 探索 OpenType 字体")
 
 // ## Exploring OpenType with `ttx`
 == 借助 `ttx` 探索 OpenType 字体

@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "TrueType 轮廓表示法")
 
 // ## TrueType Representation
 == TrueType#tr[outline]表示法

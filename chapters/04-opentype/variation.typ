@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "OpenType 可变字体")
 
 == OpenType可变字体 <heading:opentype.font-variation>
 

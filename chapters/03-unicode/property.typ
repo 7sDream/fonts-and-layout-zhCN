@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "字符属性")
 
 // ## Character properties
 == #tr[character]属性

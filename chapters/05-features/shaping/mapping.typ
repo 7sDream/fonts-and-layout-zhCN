@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "映射和重排序")
 
 // ### Mapping and reordering
 === 映射和重排序

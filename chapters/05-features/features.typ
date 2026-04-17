@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "OpenType 特性简介")
 
 #chapter(
   label: <chapter:opentype-features>,

@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "大小写转换")
 
 // ## Case conversion
 == 大小写转换

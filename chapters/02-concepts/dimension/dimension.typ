@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "尺寸、跨距和字偶距")
 
 // ## Dimensions, sidebearings and kerns
 == #tr[dimension]、#tr[sidebearing]和#tr[kern]

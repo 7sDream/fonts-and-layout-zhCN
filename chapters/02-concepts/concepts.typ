@@ -5,7 +5,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "字体中的术语和概念")
 
 #chapter(label: <chapter:font-concepts>)[
   // Font Concepts

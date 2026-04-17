@@ -3,7 +3,8 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+// TODO: remove description after Myriad-Dreamin/shiroa#237 got fixed
+#show: web-page-template.with(title: "纵向度量：hhea 和 OS/2 表", description: "")
 
 // ### Vertical metrics: `hhea` and `OS/2`
 === 纵向#tr[metrics]：`hhea` 和 `OS/2` 表

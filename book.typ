@@ -13,9 +13,7 @@
     - #chapter("chapters/01-history/postscript.typ")[PostScript]
     - #chapter("chapters/01-history/ps-ttf-otf.typ")[从 PostScript 到 TrueType]
     - #chapter("chapters/01-history/ttf-to-otf.typ")[从 TrueType 到 OpenType]
-    - #chapter(
-        "chapters/01-history/mm-variable.typ",
-      )[#tr[multiple master]和#tr[variable font]]
+    - #chapter("chapters/01-history/mm-variable.typ")[#tr[multiple master]和#tr[variable font]]
   - #chapter("chapters/02-concepts/concepts.typ")[字体中的术语和概念]
     - #chapter(
         "chapters/02-concepts/shaping-layout.typ",

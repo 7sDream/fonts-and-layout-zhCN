@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "字体是什么？")
 
 // ## What is a font?
 == 字体是什么？

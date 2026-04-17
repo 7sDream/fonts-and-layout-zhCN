@@ -5,7 +5,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "OpenType 的工作原理")
 
 #chapter[
   // How OpenType Works

@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "使用 hb-shape 检查定位规则")
 
 // Using hb-shape to check positioning rules
 == 使用 `hb-shape` 检查#tr[positioning]规则

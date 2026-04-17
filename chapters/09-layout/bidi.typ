@@ -5,7 +5,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "双向文本")
 
 // ## Bidirectionality
 == 双向文本

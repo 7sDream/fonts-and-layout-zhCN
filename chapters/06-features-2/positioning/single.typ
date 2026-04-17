@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "单字调整")
 
 // ### Single adjustment
 === #tr[single adjustment]

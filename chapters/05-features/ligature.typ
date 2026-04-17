@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "编写基础特性——替换与连字")
 
 // ## Basic feature coding - substitutions and ligatures
 == 编写基础特性——#tr[substitution]与#tr[ligature]

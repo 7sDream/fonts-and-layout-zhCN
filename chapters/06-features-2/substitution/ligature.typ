@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "连字替换")
 
 // ### Ligature substitution
 === #tr[ligature]#tr[substitution]

@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "查询组选项")
 
 // ### Lookup Flags
 === #tr[lookup]选项

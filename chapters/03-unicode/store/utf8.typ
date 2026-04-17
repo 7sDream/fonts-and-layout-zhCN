@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "UTF-8")
 
 // ### UTF-8
 === UTF-8
@@ -26,11 +26,7 @@ UTF-8将UTF-16做出的妥协和权衡向前更进了一步：ASCII#tr[character
     [`0x00-0x7F`], [`0xxxxxxx`], [], [], [],
     [`0x80-0x7FF`], [`110xxxxx`], [`10xxxxxx`], [], [],
     [`0x800-0xFFFF`], [`1110xxxx`], [`10xxxxxx`], [`10xxxxxx`], [],
-    [`0x10000-0x10FFFF`],
-    [`11110xxx`],
-    [`10xxxxxx`],
-    [`10xxxxxx`],
-    [`10xxxxxx`],
+    [`0x10000-0x10FFFF`], [`11110xxx`], [`10xxxxxx`], [`10xxxxxx`], [`10xxxxxx`],
   ),
 )
 
@@ -47,11 +43,7 @@ UTF-8将UTF-16做出的妥协和权衡向前更进了一步：ASCII#tr[character
   table(
     columns: 5,
     align: (right,) + (center,) * 4,
-    [`0x10000-0x10FFFF`],
-    [`11110xxx`],
-    [`10x`*`11111`*],
-    [`10`*`001110`*],
-    [`10`*`000101`*],
+    [`0x10000-0x10FFFF`], [`11110xxx`], [`10x`*`11111`*], [`10`*`001110`*], [`10`*`000101`*],
   ),
 )
 

@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "阿拉伯语、乌尔都语、信德语")
 
 // ## Arabic, Urdu and Sindhi
 == 阿拉伯语、乌尔都语、信德语

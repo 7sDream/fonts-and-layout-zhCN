@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "垂直步进")
 
 // ### Vertical advance
 === #tr[vertical advance]

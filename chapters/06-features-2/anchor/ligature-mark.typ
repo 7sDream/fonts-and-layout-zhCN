@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "连字上的符号")
 
 // ### Mark-to-ligature
 === #tr[ligature]上的符号

@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "阿拉伯文中的连接")
 
 // ## Arabic connection
 == 阿拉伯文中的连接

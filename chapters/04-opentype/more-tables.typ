@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "更多数据表")
 
 // ## And more tables!
 == 更多数据表

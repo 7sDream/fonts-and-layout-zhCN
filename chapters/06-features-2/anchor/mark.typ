@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "符号定位")
 
 // ### Mark positioning
 === 符号#tr[positioning]

@@ -7,7 +7,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "服务全球文种的 OpenType")
 
 #chapter[
   // OpenType for Global Scripts

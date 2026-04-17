@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "Unicode 中的全球文种")
 
 // ## Global Scripts in Unicode
 == Unicode 中的#tr[global scripts]

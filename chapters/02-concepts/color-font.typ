@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "彩色与点阵字体")
 
 // ## Color and bitmap fonts
 == 彩色与#tr[bitmap]字体

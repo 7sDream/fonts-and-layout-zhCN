@@ -1,9 +1,7 @@
 #import "/lib/draw.typ": *
 #import "/lib/glossary.typ": tr
 #import "/template/lang.typ": armenian
-#import "kerns-1.typ": (
-  base, bbox-calc, bbox1-lt, bbox1-rb, down, end, line-color, lt, rb, start,
-)
+#import "kerns-1.typ": base, bbox-calc, bbox1-lt, bbox1-rb, down, end, line-color, lt, rb, start
 
 #let lt2 = (rb.at(0) - 40, lt.at(1))
 #let rb2 = (rb.at(0) + 330, rb.at(1))

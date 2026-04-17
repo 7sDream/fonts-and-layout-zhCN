@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "cmap 表")
 
 // ### The `cmap` table
 === `cmap` 表

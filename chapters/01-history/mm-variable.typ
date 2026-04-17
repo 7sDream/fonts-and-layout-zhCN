@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "多重母版和可变字体")
 
 // ## Multiple Masters and Variable fonts
 == #tr[multiple master]和#tr[variable font]

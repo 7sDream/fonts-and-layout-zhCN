@@ -4,7 +4,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "步进和位置")
 
 // ### Advance and Positioning
 === #tr[advance]和#tr[position]

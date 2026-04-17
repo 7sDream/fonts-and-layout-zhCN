@@ -3,7 +3,7 @@
 
 #import "/lib/glossary.typ": tr
 
-#show: web-page-template
+#show: web-page-template.with(title: "应用查询组")
 
 // ### Lookup application
 === 应用#tr[lookup]
