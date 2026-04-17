@@ -11,13 +11,13 @@
 
 本书是 Simon Cozens 编写的《#link("https://simoncozens.github.io/fonts-and-layout/")[Fonts and Layout for Global Scripts]》的中文翻译版，是一本关于字体设计、Unicode和计算机中复杂文本处理的免费书籍。
 
-中文版使用 #link("https://typst.app/")[Typst] 作为排版系统，借助 #link("https://github.com/Myriad-Dreamin/typst-book")[typst-book] 生成在线阅读版本。
+中文版使用 #link("https://typst.app/")[Typst] 作为排版系统，借助 #link("https://github.com/Myriad-Dreamin/shiroa")[shiroa] 生成在线阅读版本。
 
-此方案其实是*在您的浏览器中*，使用 WASM 实时运行 Typst 编译器，将源码编译为 SVG 并显示。
+此方案其实是*在您的浏览器中*，使用 WASM 实时运行渲染器，将预编译的中间格式文件渲染为 SVG 元素并显示。
 
 这样的好处有：
 
-- 即使没有安装需要的字体也能显示各种文字
+- 即使客户端没有安装需要的字体也能显示各种文字
 - 保证显示和排版效果和 PDF 基本一致
 - 所有正确绘制的图示（不包括外部图片）在明亮/黑暗模式下会智能地使用合适的颜色
 
