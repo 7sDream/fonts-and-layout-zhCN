@@ -7,9 +7,9 @@
 #let translators = ("7sDream", "Xiangdong Zeng")
 
 #let font = (
-  chinese-normal: "Noto Sans SC",
+  chinese-normal: "Noto Sans CJK SC",
   chinese-emph: "LXGW WenKai GB",
-  chinese-mono: "Noto Sans SC",
+  chinese-mono: "Noto Sans CJK SC",
   western-normal: "Noto Sans",
   western-emph: "Libertinus Serif", // built-in font
   western-mono: "Cascadia Mono",

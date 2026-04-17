@@ -1,6 +1,8 @@
 .DS_Store
 /dist
+/fontlist.csv
 /fonts/extra
 /fonts/extra.tgz
 /scripts
-/*.pdf
+/TODO.md
+/**/*.pdf

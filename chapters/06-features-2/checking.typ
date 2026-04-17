@@ -24,7 +24,7 @@ pos base dvCHA <anchor 276 57> mark @MC_blwm.virama;
 这段代码的含义是：`virama`的锚点在坐标`(-172, 0)`处；在`CHA`字母上如果要附加`virama`符号，就将其锚点放在坐标`(276, 57)`处。那么`virama`现在到底位于什么#tr[position]呢？使用`hb-shape`可以得知：
 
 #[
-  #show raw: set text(font: (consts.font.western-mono, "Hind"))
+  #show regex(`\p{Devanagari}+`.text): it => text(font: "Hind", it)
 
   ```bash
   $ hb-shape build/Hind-Regular.otf 'छ्'
@@ -39,7 +39,7 @@ pos base dvCHA <anchor 276 57> mark @MC_blwm.virama;
 为什么是 183 个单位呢？我们先来看看在进行#tr[positioning]前是什么样的。这可通过关闭`blwm`特性来实现：
 
 #[
-  #show raw: set text(font: (consts.font.western-mono, "Hind"))
+  #show regex(`\p{Devanagari}+`.text): it => text(font: "Hind", it)
 
   ```bash
   $ hb-shape --features='-blwm' Hind-Regular.otf 'छ्'
@@ -51,7 +51,7 @@ pos base dvCHA <anchor 276 57> mark @MC_blwm.virama;
 正如你所见，这样的话就没有什么特殊的#tr[positioning]操作了。我们可以使用`hb-view`工具来渲染当前特性集下#tr[glyph]的实际样子。结果如下：
 
 #[
-  #show raw: set text(font: (consts.font.western-mono, "Hind"))
+  #show regex(`\p{Devanagari}+`.text): it => text(font: "Hind", it)
 
   ```bash
   $ hb-view --features='-blwm' Hind-Regular.otf 'छ्' -O png > test.png

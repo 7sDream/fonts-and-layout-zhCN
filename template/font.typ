@@ -26,13 +26,4 @@
   #doc
 ]
 
-#let special(body, font: none) = text(
-  font: if type(font) == array {
-    font
-  } else {
-    (font,)
-  },
-  body,
-)
-
-#let sil-pua = special.with(font: "Andika")
+#let sil-pua = text.with(font: "Andika")
