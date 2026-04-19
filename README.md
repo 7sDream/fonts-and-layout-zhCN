@@ -95,7 +95,7 @@ PDF 预览时请使用 `Typst: 将主文件固定为当前打开的文档`（Typ
 
 细节请参考 LICENSE 文件（或原项目 README），其中有原作者对演绎版本的一些要求。
 
-[origin-book]: https://simoncozens.github.io/fonts-and-layout/
+[origin-book]: https://github.com/simoncozens/fonts-and-layout
 [Typst]: https://github.com/typst/typst
 [shiroa]: https://github.com/Myriad-Dreamin/shiroa
 [Github Pages]: https://7sdream.github.io/fonts-and-layout-zhCN/
