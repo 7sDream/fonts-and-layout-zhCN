@@ -4,6 +4,10 @@ This is a branch only for make tag for extra fonts.
 
 ## Changelog
 
+### 2026-04-20
+
+- Add Twitter Color Emoji font
+
 ### 2026-04-18
 
 - Noto Sans CJK font use super ttc
