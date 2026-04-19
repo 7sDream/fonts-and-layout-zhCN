@@ -9,14 +9,11 @@
 #let font = (
   chinese-normal: "Noto Sans CJK SC",
   chinese-emph: "LXGW WenKai GB",
-  chinese-mono: "Noto Sans CJK SC",
+  chinese-mono: "Noto Sans Mono CJK SC",
   western-normal: "Noto Sans",
   western-emph: "Libertinus Serif", // built-in font
   western-mono: "Cascadia Mono",
-  // No color in PDF, we use svg directly for now
-  emoji: (
-    /*"Twitter Color Emoji", */
-  ),
+  emoji: "Twitter Color Emoji",
 )
 
 #let font-pair = (en, cjk, ..others) => (
@@ -29,9 +26,9 @@
 )
 
 #let font-group = (
-  normal: font-pair(font.western-normal, font.chinese-normal, ..font.emoji),
-  emph: font-pair(font.western-emph, font.chinese-emph, ..font.emoji),
-  mono: font-pair(font.western-mono, font.chinese-mono, ..font.emoji),
+  normal: font-pair(font.western-normal, font.chinese-normal, font.emoji),
+  emph: font-pair(font.western-emph, font.chinese-emph, font.emoji),
+  mono: font-pair(font.western-mono, font.chinese-mono, font.emoji),
 )
 
 #let _font-size-scale = if util.is-web-target() { 1.4 } else { 1.0 }

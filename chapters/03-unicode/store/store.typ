@@ -23,7 +23,7 @@
 这些#tr[character]#tr[encoding]名称中的数字反映了它们使用多少比特进行#tr[encoding]。最简单的是 UTF-32：如果你按32个比特为一组，则一共有 $2^32=42,9496,7294$ 种不同的状态，这完全足以表示 Unicode 中的所有#tr[character]了。按这种方法，每个#tr[character]使用32个比特，也就是4个字节。具体来说，转换时把每个字符对应的#tr[codepoint]数字转换成二进制，然后用0填满不足32比特的剩余位置即可。
 
 // For example, the character 🎅 (FATHER CHRISTMAS) lives in Finland, just inside the Arctic circle, and in the Unicode Standard, at codepoint 127877. In binary, this is 11111001110001111, which we can encode in four bytes using UTF-32 as follows:
-据说圣诞老人住在芬兰的一个临近北极圈的地方，但 #box(image("/fonts/father-christmas.svg", alt: emoji.santa.man, height: 1em), baseline: 0.1em) 作为一个#tr[character]，它位于Unicode中的127877#tr[codepoint]上。按照 UTF-32的方法，先把127877转换为二进制`11111001110001111`，再将它#tr[encoding]成四个字节，结果如下：
+据说圣诞老人住在芬兰的一个临近北极圈的地方，但 \u{1f385} 作为一个#tr[character]，它位于Unicode中的127877#tr[codepoint]上。按照 UTF-32的方法，先把127877转换为二进制`11111001110001111`，再将它#tr[encoding]成四个字节，结果如下：
 
 #let utf-32-example-table = c => {
   let codepoint = str.to-unicode(c.text)
@@ -56,7 +56,7 @@
   )
 }
 
-#align(center)[#utf-32-example-table[🎅]]
+#align(center)[#utf-32-example-table[\u{1f385}]]
 
 #note[
   // > Hexadecimal is a number system which is often used in computer work: whereas decimal "rolls over" to the second place after each 9 (8, 9, 10, 11), hexadecimal counts up to fifteen before rolling over (8, 9, A, B, C, D, E, F, 10, 11). This means that two hexadecimal digits can encode numbers from 00 to FF (or 0 to 255 in decimal), which is precisely the same range as one byte.

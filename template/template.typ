@@ -8,9 +8,9 @@
 #import "heading.typ": heading-setting
 
 #let template(doc) = [
-  #show: page-setting
-  #show: font-setting
   #show: l10n-setting
+  #show: font-setting
+  #show: page-setting
   #show: heading-setting
 
   #doc

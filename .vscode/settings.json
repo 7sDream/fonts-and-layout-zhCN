@@ -5,8 +5,9 @@
     "${workspaceFolder}${pathSeparator}fonts"
   ],
   "tinymist.typstExtraArgs": [
-    // Uncomment this to preview page
-    // "--input", "x-target=web",
+    // Uncomment 2 line bellow this to preview pdf.typ
+    // "--input",
+    // "x-target=web",
     "--input",
     "theme=light",
   ],

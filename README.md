@@ -74,11 +74,11 @@ typst --ingore-system-fonts --font-path fonts --input theme=light pdf.typ
 
 如果想所见即所得的编辑，推荐使用 VSCode 配合 [Tinymist] 插件。
 
-`.vscode/setting.json` 中已经包含了本项目所需的配置，直接从 `pdf.typ` 文件启动预览即可，这时预览的是整个 PDF 的效果。
+`.vscode/setting.json` 中已经包含了本项目所需的配置，直接从各章节文件启动预览即可，这时预览的是网页版的效果。
 
-如果你想单独预览某一章节的效果，可以将 `.vscode/setting.json` 中的 `x-target=web` 输入参数开启，然后从各章节文件启动预览，此时预览的是网页版。
+如果你想预览整个 PDF 的效果，可以将 `.vscode/setting.json` 中的 `x-target=web` 输入参数关闭，然后从 `pdf.typ` 文件启动预览。
 
-整体预览时推荐使用 `Typst: 将主文件固定为当前打开的文档`（Typst: Pin the Main File to the Currently Open Document）命令将主文档固定为 `pdf.typ`，单独预览时取消固定。
+PDF 预览时请使用 `Typst: 将主文件固定为当前打开的文档`（Typst: Pin the Main File to the Currently Open Document）命令将主文档固定为 `pdf.typ`，单页预览时无需固定。
 
 ## 参考资料
 
